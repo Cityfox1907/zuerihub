@@ -1,11 +1,12 @@
 'use client'
 
-import { getEmoji, getKreis, getMapsUrl, getSourceInfo, fmt } from '@/lib/data'
+import { getEmoji, getKreis, getMapsUrl, getSourceInfo, fmt, isFav } from '@/lib/data'
 
 export default function SpotCard({ spot, rank, onClick }) {
   const emoji = getEmoji(spot)
   const kreis = getKreis(spot.addr)
   const src = getSourceInfo(spot.source)
+  const favorited = typeof window !== 'undefined' && isFav(spot)
   const photoSvg = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23E8EEFB' rx='12'/%3E%3Ctext x='40' y='44' text-anchor='middle' dominant-baseline='middle' font-family='system-ui,sans-serif' font-size='28'%3E${encodeURIComponent(emoji)}%3C/text%3E%3C/svg%3E`
 
   const srcColors = {
@@ -29,6 +30,7 @@ export default function SpotCard({ spot, rank, onClick }) {
     >
       {rank === 0 && <div style={{ position: 'absolute', top: 6, left: 6, zIndex: 2, background: 'var(--primary)', color: '#fff', fontSize: '.65rem', fontWeight: 800, padding: '.15rem .4rem', borderRadius: 8 }}>#1</div>}
       {spot.r >= 4.8 && <div style={{ position: 'absolute', top: 6, right: 6, zIndex: 2, fontSize: '.6rem', fontWeight: 700, padding: '.15rem .35rem', borderRadius: 8, background: 'rgba(234,179,8,.12)', color: '#b45309', border: '1px solid rgba(234,179,8,.2)' }}>⭐ Top</div>}
+      {favorited && <div style={{ position: 'absolute', top: spot.r >= 4.8 ? 26 : 6, right: 6, zIndex: 2, fontSize: '.7rem', lineHeight: 1 }}>⭐</div>}
       <img src={photoSvg} alt="" style={{ width: '100%', height: 80, objectFit: 'cover', display: 'block' }} />
       <div style={{ padding: '.5rem .6rem .6rem' }}>
         <div style={{ fontWeight: 700, fontSize: '.82rem', color: 'var(--text)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{spot.name}</div>
