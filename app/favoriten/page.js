@@ -5,17 +5,10 @@ import Header from '@/components/Header'
 import NavTabs from '@/components/NavTabs'
 import SpotCard from '@/components/SpotCard'
 import SpotModal from '@/components/SpotModal'
-import { loadAllData } from '@/lib/data'
+import { loadAllData, getAllFavIds, getSourceInfo } from '@/lib/data'
 
-const FAV_KEYS = ['zh-favs', 'zh-attr-favs', 'zh-fun-favs', 'zh-shop-favs', 'zh-museum-favs']
-
-function getAllFavIds() {
-  const ids = []
-  FAV_KEYS.forEach(k => {
-    try { const arr = JSON.parse(localStorage.getItem(k) || '[]'); ids.push(...arr) } catch {}
-  })
-  return ids
-}
+const SOURCE_ORDER = ['gastro', 'attr', 'museum', 'fun', 'shop']
+const SOURCE_EMOJI = { gastro: '🍽️', attr: '🏛️', museum: '🖼️', fun: '🎮', shop: '🛍️' }
 
 export default function FavoritenPage() {
   const [data, setData] = useState(null)
@@ -28,9 +21,21 @@ export default function FavoritenPage() {
     loadAllData().then(d => { setData(d); setLoading(false) })
   }, [])
 
+  // Re-check favs when modal closes (user might have toggled)
+  const handleCloseModal = () => {
+    setModalSpot(null)
+    setFavIds(getAllFavIds())
+  }
+
   if (loading || !data) return <div style={{ padding: '4rem', textAlign: 'center', color: 'var(--text3)' }}>Laden…</div>
 
   const favSpots = data.all.filter(p => favIds.includes(p.id))
+
+  // Group by source
+  const grouped = {}
+  favSpots.forEach(p => {
+    (grouped[p.source] = grouped[p.source] || []).push(p)
+  })
 
   return (
     <>
@@ -45,12 +50,23 @@ export default function FavoritenPage() {
             Noch keine Favoriten gespeichert. Entdecke Spots und markiere sie als Favorit!
           </div>
         ) : (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(195px, 1fr))', gap: '.75rem' }}>
-            {favSpots.map((spot, i) => <SpotCard key={spot.id || i} spot={spot} rank={-1} onClick={() => setModalSpot(spot)} />)}
-          </div>
+          SOURCE_ORDER.filter(s => grouped[s]?.length > 0).map(source => {
+            const info = getSourceInfo(source)
+            return (
+              <div key={source} style={{ marginBottom: '2rem' }}>
+                <h2 style={{ fontSize: '1.05rem', fontWeight: 700, marginBottom: '.75rem', display: 'flex', alignItems: 'center', gap: '.4rem' }}>
+                  <span>{SOURCE_EMOJI[source]}</span> {info.label}
+                  <span style={{ fontSize: '.78rem', fontWeight: 500, color: 'var(--text3)' }}>({grouped[source].length})</span>
+                </h2>
+                <div className="fav-group-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(195px, 1fr))', gap: '.75rem' }}>
+                  {grouped[source].map((spot, i) => <SpotCard key={spot.id || i} spot={spot} rank={-1} onClick={() => setModalSpot(spot)} />)}
+                </div>
+              </div>
+            )
+          })
         )}
       </div>
-      {modalSpot && <SpotModal spot={modalSpot} allSpots={data.all} onClose={() => setModalSpot(null)} />}
+      {modalSpot && <SpotModal spot={modalSpot} allSpots={data.all} onClose={handleCloseModal} />}
     </>
   )
 }
