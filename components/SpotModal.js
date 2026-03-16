@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { getEmoji, getKreis, getMapsUrl, getSourceInfo, fmt, CUISINE_MAP, KEYWORD_ICONS, TRADE_ICONS, SHOP_ICONS, isFav, toggleFav } from '@/lib/data'
 import { Stars } from './SpotCard'
+import PhotoCarousel from './PhotoCarousel'
 
 export default function SpotModal({ spot, allSpots, onClose }) {
   if (!spot) return null
@@ -40,9 +41,14 @@ export default function SpotModal({ spot, allSpots, onClose }) {
             <button onClick={onClose} style={{ width: 28, height: 28, borderRadius: '50%', border: '1px solid var(--border)', background: 'var(--surface)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text2)', fontSize: '.8rem' }}>✕</button>
           </div>
         </div>
+
+        {/* Photo Carousel - large format */}
+        <div style={{ borderRadius: 0 }}>
+          <PhotoCarousel placeId={spot.id} height={200} fallbackEmoji={emoji} large />
+        </div>
+
         {/* Body */}
         <div style={{ padding: '1rem 1.25rem 1.5rem' }}>
-          <div style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '.5rem' }}>{emoji}</div>
           <div style={{ textAlign: 'center', fontFamily: 'var(--font-display)', fontSize: '1.3rem', fontWeight: 800, color: 'var(--text)', marginBottom: '.3rem' }}>{spot.name}</div>
           <div style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '.5rem', marginBottom: '1rem' }}>
             <Stars rating={spot.r} size={14} />
