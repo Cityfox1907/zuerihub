@@ -39,25 +39,35 @@ export default function HomePage() {
 
   if (!data) return null
 
-  const sorted = data.all.filter(p => p.r > 0 && p.rv > 0).sort((a, b) => (b.r * b.rv) - (a.r * a.rv))
+  // Two ranking rows: popular (by review count, min 4.0 rating) and best-rated (by rating, min 50 reviews)
+  const popular = data.all.filter(p => p.r >= 4.0 && p.rv > 0).sort((a, b) => b.rv - a.rv).slice(0, 10)
+  const bestRated = data.all.filter(p => p.rv >= 50).sort((a, b) => b.r !== a.r ? b.r - a.r : b.rv - a.rv).slice(0, 10)
+
   const topRestaurants = data.gastro.filter(p => p.trade === 'Restaurant' && p.r >= 4.3 && p.rv >= 200).sort((a, b) => b.r !== a.r ? b.r - a.r : b.rv - a.rv)
   const topMuseen = [...data.museen].sort((a, b) => (b.rv * b.r) - (a.rv * a.r))
   const topShops = [...data.shops].sort((a, b) => (b.rv * b.r) - (a.rv * a.r))
   const topFun = [...data.fun].sort((a, b) => (b.rv * b.r) - (a.rv * a.r))
 
-  // Upcoming events
+  // Upcoming events (next 3 months)
   const now = new Date()
+  const threeMonthsLater = new Date(now.getFullYear(), now.getMonth() + 3, now.getDate())
   const upcomingEvents = events
-    .filter(e => new Date(e.dateEnd || e.date) >= now)
+    .filter(e => {
+      const d = new Date(e.dateEnd || e.date)
+      return d >= now && d <= threeMonthsLater
+    })
     .sort((a, b) => new Date(a.date) - new Date(b.date))
+  const highlightEvents = upcomingEvents.filter(e => e.highlight).slice(0, 6)
+  const topEvents = highlightEvents.length >= 3 ? highlightEvents : upcomingEvents.slice(0, 6)
   const nextHighlight = upcomingEvents.find(e => e.highlight)
 
+  // Events FIRST in categories
   const categories = [
+    { emoji: '🎪', title: 'Events', sub: 'Veranstaltungen', count: upcomingEvents.length, href: '/events' },
     { emoji: '🍽️', title: 'Gastronomie', sub: 'Restaurants & Bars', count: data.gastro.length, href: '/gastronomie' },
     { emoji: '🛍️', title: 'Shops', sub: 'Einkaufen in Zürich', count: data.shops.length, href: '/shops' },
     { emoji: '🏛️', title: 'Kultur', sub: 'Museen & Sehenswürdigkeiten', count: data.attr.length + data.museen.length, href: '/kultur' },
     { emoji: '🎮', title: 'Spiel & Spass', sub: 'Entertainment & Freizeit', count: data.fun.length, href: '/spiel-spass' },
-    { emoji: '🎪', title: 'Events', sub: 'Veranstaltungen', count: upcomingEvents.length, href: '/events' },
   ]
 
   return (
@@ -71,11 +81,11 @@ export default function HomePage() {
         {/* Mini Pulse Banner for next highlight event */}
         {nextHighlight && <MiniPulseBanner event={nextHighlight} />}
 
-        {/* Events Row */}
-        {upcomingEvents.length >= 3 && (
+        {/* Top Events - large cards */}
+        {topEvents.length >= 3 && (
           <>
-            <SectionDivider label="🎪 Events" />
-            <EventRow events={upcomingEvents.slice(0, 10)} />
+            <SectionDivider label="🎪 Top Events" />
+            <HighlightEventRow events={topEvents} />
           </>
         )}
 
@@ -84,7 +94,11 @@ export default function HomePage() {
         <GeheimtippDice allSpots={data.all} onOpenModal={setModalSpot} />
 
         <SectionDivider label="🔥 Beliebt" />
-        <SpotRow icon="🔥" title="Beliebt in Zürich" items={sorted.slice(0, 10)} onOpenModal={setModalSpot} />
+        <SpotRow icon="🔥" title="Beliebt in Zürich" items={popular} onOpenModal={setModalSpot} />
+
+        <SectionDivider label="⭐ Bestbewertet" />
+        <SpotRow icon="⭐" title="Bestbewertet in Zürich" items={bestRated} onOpenModal={setModalSpot} />
+
         <SectionDivider label="🍽️ Gastronomie" />
         <SpotRow icon="🍽️" title="Beliebteste Restaurants" items={topRestaurants.slice(0, 10)} link="/gastronomie" onOpenModal={setModalSpot} />
         <LazySection>
@@ -182,45 +196,79 @@ function LazySection({ children }) {
   )
 }
 
-function EventRow({ events }) {
-  const CAT_COLORS = {
-    konzerte: '#e63946', festivals: '#7c3aed', sport: '#0ea5e9',
-    tradition: '#d97706', kulinarik: '#16a34a', community: '#db2777',
-  }
+const CAT_COLORS = {
+  konzerte: '#e63946', festivals: '#7c3aed', sport: '#0ea5e9',
+  tradition: '#d97706', kulinarik: '#16a34a', community: '#db2777',
+}
 
+function HighlightEventRow({ events }) {
   return (
     <section className="fade-up" style={{ marginBottom: '1.2rem' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '.55rem' }}>
         <h2 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '.35rem', margin: 0 }}>
-          <span style={{ fontSize: '1.1rem' }}>🎪</span> Kommende Events
+          <span style={{ fontSize: '1.1rem' }}>🎪</span> Top Events der nächsten 3 Monate
         </h2>
         <a href="/events" style={{ fontSize: '.78rem', fontWeight: 600, color: 'var(--primary)', textDecoration: 'none' }}>Alle anzeigen ›</a>
       </div>
-      <div style={{ display: 'flex', gap: '.65rem', overflowX: 'auto', scrollSnapType: 'x mandatory', scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch', paddingBottom: '.25rem' }}>
+      <div className="highlight-event-scroll" style={{
+        display: 'flex', gap: '1rem', overflowX: 'auto', scrollSnapType: 'x mandatory',
+        scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch', paddingBottom: '.25rem',
+      }}>
         {events.map(evt => {
           const catColor = CAT_COLORS[evt.category] || 'var(--primary)'
+          const now = new Date()
+          const diff = new Date(evt.date) - now
+          const days = Math.max(0, Math.floor(diff / 86400000))
           return (
             <a key={evt.id} href="/events" style={{
-              flex: '0 0 220px', minWidth: 220, scrollSnapAlign: 'start',
-              background: 'var(--card-bg)', borderRadius: 'var(--radius)', overflow: 'hidden',
+              flex: '0 0 340px', minWidth: 340, scrollSnapAlign: 'start',
+              background: 'var(--card-bg)', borderRadius: 18, overflow: 'hidden',
               boxShadow: 'var(--shadow-soft)', border: '1px solid var(--border-light)',
               textDecoration: 'none', color: 'inherit', transition: 'transform .25s, box-shadow .25s',
-              padding: '.75rem .85rem', display: 'flex', flexDirection: 'column', gap: '.3rem',
+              display: 'flex', flexDirection: 'column',
             }}
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = 'var(--shadow-hover)' }}
               onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = 'var(--shadow-soft)' }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '.4rem' }}>
-                <span style={{ fontSize: '1.3rem' }}>{evt.emoji}</span>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontWeight: 700, fontSize: '.82rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{evt.name}</div>
+              {/* Colored header bar */}
+              <div style={{
+                background: `linear-gradient(135deg, ${catColor}, ${catColor}cc)`,
+                padding: '1.2rem 1.25rem', color: '#fff', position: 'relative',
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '.6rem' }}>
+                  <span style={{ fontSize: '2.2rem' }}>{evt.emoji}</span>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontWeight: 800, fontSize: '1.05rem', lineHeight: 1.2 }}>{evt.name}</div>
+                    <div style={{ fontSize: '.78rem', opacity: .85, marginTop: '.2rem' }}>📅 {evt.dateLabel}</div>
+                  </div>
+                  {days > 0 && (
+                    <div style={{ textAlign: 'center', padding: '.3rem .6rem', background: 'rgba(255,255,255,.18)', borderRadius: 10 }}>
+                      <div style={{ fontSize: '1.2rem', fontWeight: 800, fontFamily: 'var(--font-display)', lineHeight: 1 }}>{days}</div>
+                      <div style={{ fontSize: '.55rem', opacity: .8 }}>Tage</div>
+                    </div>
+                  )}
                 </div>
               </div>
-              <div style={{ fontSize: '.72rem', color: 'var(--text2)' }}>📅 {evt.dateLabel}</div>
-              <div style={{ fontSize: '.7rem', color: 'var(--text3)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>📍 {evt.location}</div>
-              <span style={{ alignSelf: 'flex-start', padding: '.12rem .4rem', borderRadius: 6, fontSize: '.62rem', fontWeight: 600, background: catColor + '15', color: catColor, marginTop: '.1rem' }}>
-                {evt.category}
-              </span>
+              {/* Body */}
+              <div style={{ padding: '1rem 1.25rem 1.25rem', flex: 1, display: 'flex', flexDirection: 'column', gap: '.5rem' }}>
+                <div style={{ fontSize: '.82rem', color: 'var(--text2)' }}>📍 {evt.location}</div>
+                <div style={{ display: 'flex', gap: '.3rem', flexWrap: 'wrap' }}>
+                  <span style={{ padding: '.15rem .5rem', borderRadius: 6, fontSize: '.68rem', fontWeight: 600, background: catColor + '15', color: catColor }}>
+                    {evt.category}
+                  </span>
+                  {evt.tags?.slice(0, 2).map(t => (
+                    <span key={t} style={{ padding: '.15rem .45rem', borderRadius: 6, fontSize: '.65rem', fontWeight: 500, background: 'var(--surface2)', color: 'var(--text3)' }}>{t}</span>
+                  ))}
+                </div>
+                <div style={{ display: 'flex', gap: '.4rem', marginTop: 'auto' }}>
+                  {evt.ticketUrl && (
+                    <span style={{ padding: '.4rem .8rem', borderRadius: 8, background: catColor, color: '#fff', fontSize: '.78rem', fontWeight: 700, minHeight: 44, display: 'flex', alignItems: 'center' }}>🎫 Tickets</span>
+                  )}
+                  {evt.websiteUrl && (
+                    <span style={{ padding: '.4rem .8rem', borderRadius: 8, background: 'var(--surface2)', color: 'var(--text2)', fontSize: '.78rem', fontWeight: 600, border: '1px solid var(--border-light)', minHeight: 44, display: 'flex', alignItems: 'center' }}>🌐 Info</span>
+                  )}
+                </div>
+              </div>
             </a>
           )
         })}

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { getEmoji, getKreis, getMapsUrl, getSourceInfo, fmt, CUISINE_MAP, KEYWORD_ICONS, TRADE_ICONS, SHOP_ICONS, isFav, toggleFav } from '@/lib/data'
+import { getEmoji, getKreis, getMapsUrl, getSourceInfo, fmt, CUISINE_MAP, KEYWORD_ICONS, TRADE_ICONS, SHOP_ICONS, isFav, toggleFav, openInMapsApp } from '@/lib/data'
 import { Stars } from './SpotCard'
 import PhotoCarousel from './PhotoCarousel'
 
@@ -75,7 +75,7 @@ export default function SpotModal({ spot, allSpots, onClose }) {
 
           {/* CTA */}
           <div style={{ display: 'flex', gap: '.5rem', marginBottom: '1rem' }}>
-            <a href={mapsUrl} target="_blank" rel="noopener" style={{ flex: 1, textAlign: 'center', padding: '.6rem', borderRadius: 12, background: 'var(--primary)', color: '#fff', fontWeight: 700, fontSize: '.85rem', textDecoration: 'none' }}>📍 Google Maps</a>
+            <a href={mapsUrl} onClick={(e) => { e.preventDefault(); openInMapsApp(spot) }} style={{ flex: 1, textAlign: 'center', padding: '.6rem', borderRadius: 12, background: 'var(--primary)', color: '#fff', fontWeight: 700, fontSize: '.85rem', textDecoration: 'none', cursor: 'pointer', minHeight: 44, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>📍 Google Maps</a>
             {spot.web && <a href={spot.web} target="_blank" rel="noopener" style={{ flex: 1, textAlign: 'center', padding: '.6rem', borderRadius: 12, background: 'var(--surface2)', color: 'var(--text)', fontWeight: 600, fontSize: '.85rem', textDecoration: 'none', border: '1px solid var(--border)' }}>🌐 Website</a>}
           </div>
 

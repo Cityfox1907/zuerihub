@@ -128,7 +128,7 @@ export default function PhotoCarousel({ placeId, height = 80, fallbackEmoji = 'ð
                   onLoad={() => setImgLoaded(prev => ({ ...prev, [i]: true }))}
                   onError={() => setImgLoaded(prev => ({ ...prev, [i]: true }))}
                   style={{
-                    width: '100%', height: '100%', objectFit: 'cover', display: 'block',
+                    width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block',
                     opacity: imgLoaded[i] ? 1 : 0, transition: 'opacity .3s',
                   }}
                 />
