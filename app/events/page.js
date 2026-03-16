@@ -33,7 +33,7 @@ export default function EventsPage() {
   const [events, setEvents] = useState([])
   const [loading, setLoading] = useState(true)
   const [activeCat, setActiveCat] = useState('')
-  const [activeMonth, setActiveMonth] = useState(null)
+  const [selectedMonths, setSelectedMonths] = useState(new Set())
   const monthRefs = useRef({})
 
   useEffect(() => {
@@ -45,7 +45,19 @@ export default function EventsPage() {
 
   const now = new Date()
   const sorted = useMemo(() => [...events].sort((a, b) => new Date(a.date) - new Date(b.date)), [events])
-  const filtered = useMemo(() => activeCat ? sorted.filter(e => e.category === activeCat) : sorted, [sorted, activeCat])
+
+  // Filter by category
+  const catFiltered = useMemo(() => activeCat ? sorted.filter(e => e.category === activeCat) : sorted, [sorted, activeCat])
+
+  // Filter by selected months
+  const filtered = useMemo(() => {
+    if (selectedMonths.size === 0) return catFiltered
+    return catFiltered.filter(e => {
+      const d = new Date(e.date)
+      const monthIdx = d.getMonth() // 0-11
+      return selectedMonths.has(monthIdx)
+    })
+  }, [catFiltered, selectedMonths])
 
   // Group by month
   const grouped = useMemo(() => {
@@ -71,22 +83,18 @@ export default function EventsPage() {
   const nextHighlight = useMemo(() =>
     sorted.find(e => e.highlight && new Date(e.date) > now), [sorted])
 
-  // All upcoming
-  const upcoming = useMemo(() => sorted.filter(e => new Date(e.dateEnd || e.date) >= now), [sorted])
-
-  const scrollToMonth = (key) => {
-    setActiveMonth(key)
-    const el = monthRefs.current[key]
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  // Toggle month selection
+  const toggleMonth = (monthIdx) => {
+    setSelectedMonths(prev => {
+      const next = new Set(prev)
+      if (next.has(monthIdx)) {
+        next.delete(monthIdx)
+      } else {
+        next.add(monthIdx)
+      }
+      return next
+    })
   }
-
-  // Detect current month
-  useEffect(() => {
-    if (monthKeys.length > 0 && !activeMonth) {
-      const currentKey = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`
-      setActiveMonth(monthKeys.includes(currentKey) ? currentKey : monthKeys[0])
-    }
-  }, [monthKeys])
 
   if (loading) return <div style={{ padding: '4rem', textAlign: 'center', color: 'var(--text3)' }}>Laden…</div>
 
@@ -106,7 +114,7 @@ export default function EventsPage() {
               style={{
                 padding: '.8rem .5rem', borderRadius: 14, border: `2px solid ${activeCat === key ? info.color : 'var(--border-light)'}`,
                 background: activeCat === key ? info.color + '12' : 'var(--card-bg)', cursor: 'pointer',
-                textAlign: 'center', transition: 'all .2s', boxShadow: 'var(--shadow-xs)',
+                textAlign: 'center', transition: 'all .2s', boxShadow: 'var(--shadow-xs)', minHeight: 44,
               }}>
               <div style={{ fontSize: '1.5rem', marginBottom: '.2rem' }}>{info.emoji}</div>
               <div style={{ fontSize: '.78rem', fontWeight: 700, color: activeCat === key ? info.color : 'var(--text)' }}>{info.label}</div>
@@ -115,37 +123,25 @@ export default function EventsPage() {
           ))}
         </div>
 
-        {/* Month Navigation Pills */}
-        <div className="filter-bar" style={{ display: 'flex', gap: '.35rem', marginBottom: '1.5rem', position: 'sticky', top: 52, zIndex: 50, background: 'var(--bg)', padding: '.5rem 0', flexWrap: 'nowrap', overflowX: 'auto' }}>
-          {monthKeys.map(key => {
-            const [y, m] = key.split('-')
-            const monthDate = new Date(+y, +m - 1)
-            const isPast = monthDate < new Date(now.getFullYear(), now.getMonth())
+        {/* Month Filter Pills - Jan to Dec */}
+        <div style={{ display: 'flex', gap: '.35rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+          {MONTH_NAMES.map((name, idx) => {
+            const isSelected = selectedMonths.has(idx)
             return (
-              <button key={key} onClick={() => scrollToMonth(key)}
-                className={`filter-chip ${activeMonth === key ? 'active' : ''}`}
+              <button key={idx} onClick={() => toggleMonth(idx)}
                 style={{
-                  opacity: isPast ? 0.5 : 1,
-                  ...(activeMonth === key ? { background: 'var(--primary)', borderColor: 'var(--primary)' } : {}),
+                  padding: '.4rem .8rem', borderRadius: 20, border: `1.5px solid ${isSelected ? 'var(--primary)' : 'var(--border)'}`,
+                  background: isSelected ? 'var(--primary)' : 'var(--surface)',
+                  color: isSelected ? '#fff' : 'var(--text2)',
+                  fontSize: '.78rem', fontWeight: isSelected ? 700 : 500,
+                  cursor: 'pointer', transition: 'all .15s', minHeight: 44,
                   minWidth: 'fit-content',
                 }}>
-                {MONTH_NAMES[+m - 1]} {y !== String(now.getFullYear()) ? y : ''}
+                {name}
               </button>
             )
           })}
         </div>
-
-        {/* Upcoming Events Section */}
-        {upcoming.length > 0 && !activeCat && (
-          <div style={{ marginBottom: '2rem' }}>
-            <h2 style={{ fontSize: '1.1rem', fontWeight: 800, fontFamily: 'var(--font-display)', marginBottom: '.75rem', display: 'flex', alignItems: 'center', gap: '.4rem' }}>
-              🔜 Kommende Events <span style={{ fontSize: '.75rem', fontWeight: 500, color: 'var(--text3)' }}>({upcoming.length})</span>
-            </h2>
-            <div className="event-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '.75rem' }}>
-              {upcoming.slice(0, 6).map(e => <EventCard key={e.id} event={e} />)}
-            </div>
-          </div>
-        )}
 
         {/* Events by Month */}
         {monthKeys.map(key => {
@@ -166,7 +162,7 @@ export default function EventsPage() {
         {filtered.length === 0 && (
           <div style={{ textAlign: 'center', padding: '3rem', color: 'var(--text3)' }}>
             <div style={{ fontSize: '2.5rem', marginBottom: '.5rem' }}>🎪</div>
-            Keine Events in dieser Kategorie gefunden.
+            Keine Events {selectedMonths.size > 0 ? 'in den ausgewählten Monaten' : 'in dieser Kategorie'} gefunden.
           </div>
         )}
       </div>
@@ -198,10 +194,10 @@ function PulseHero({ event }) {
         )}
         <div style={{ display: 'flex', gap: '.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           {event.ticketUrl && (
-            <a href={event.ticketUrl} target="_blank" rel="noopener" style={{ padding: '.55rem 1.2rem', borderRadius: 10, background: '#fff', color: cat.color, fontWeight: 700, fontSize: '.85rem', textDecoration: 'none' }}>🎫 Tickets</a>
+            <a href={event.ticketUrl} target="_blank" rel="noopener" style={{ padding: '.55rem 1.2rem', borderRadius: 10, background: '#fff', color: cat.color, fontWeight: 700, fontSize: '.85rem', textDecoration: 'none', minHeight: 44, display: 'inline-flex', alignItems: 'center' }}>🎫 Tickets</a>
           )}
           {event.websiteUrl && (
-            <a href={event.websiteUrl} target="_blank" rel="noopener" style={{ padding: '.55rem 1.2rem', borderRadius: 10, background: 'rgba(255,255,255,.15)', color: '#fff', fontWeight: 600, fontSize: '.85rem', textDecoration: 'none', border: '1px solid rgba(255,255,255,.3)' }}>🌐 Website</a>
+            <a href={event.websiteUrl} target="_blank" rel="noopener" style={{ padding: '.55rem 1.2rem', borderRadius: 10, background: 'rgba(255,255,255,.15)', color: '#fff', fontWeight: 600, fontSize: '.85rem', textDecoration: 'none', border: '1px solid rgba(255,255,255,.3)', minHeight: 44, display: 'inline-flex', alignItems: 'center' }}>🌐 Website</a>
           )}
         </div>
       </div>
@@ -236,7 +232,7 @@ function EventCard({ event }) {
         <div style={{ position: 'absolute', top: 8, right: 8, padding: '.15rem .5rem', borderRadius: 8, background: '#fee2e2', color: '#dc2626', fontSize: '.65rem', fontWeight: 700 }}>Ausverkauft</div>
       )}
       {event.highlight && event.status !== 'soldout' && (
-        <div style={{ position: 'absolute', top: 8, right: 8, padding: '.15rem .5rem', borderRadius: 8, background: 'rgba(234,179,8,.12)', color: '#b45309', fontSize: '.65rem', fontWeight: 700 }}>⭐ Highlight</div>
+        <div style={{ position: 'absolute', top: 8, right: 8, padding: '.15rem .5rem', borderRadius: 8, background: 'rgba(234,179,8,.12)', color: '#b45309', fontSize: '.65rem', fontWeight: 700 }}>Highlight</div>
       )}
       <div style={{ display: 'flex', gap: '.75rem', alignItems: 'flex-start' }}>
         <div style={{ fontSize: '1.8rem', lineHeight: 1 }}>{event.emoji}</div>
@@ -246,17 +242,17 @@ function EventCard({ event }) {
           <div style={{ fontSize: '.75rem', color: 'var(--text3)', marginBottom: '.4rem' }}>📍 {event.location}</div>
           <div style={{ display: 'flex', gap: '.25rem', flexWrap: 'wrap', marginBottom: '.5rem' }}>
             <span style={{ padding: '.12rem .45rem', borderRadius: 6, fontSize: '.65rem', fontWeight: 600, background: cat.color + '15', color: cat.color }}>{cat.emoji} {cat.label}</span>
-            {event.tags.slice(0, 2).map(t => (
+            {event.tags?.slice(0, 2).map(t => (
               <span key={t} style={{ padding: '.12rem .4rem', borderRadius: 6, fontSize: '.65rem', fontWeight: 500, background: 'var(--surface2)', color: 'var(--text3)' }}>{t}</span>
             ))}
           </div>
           {!isPast && (
             <div style={{ display: 'flex', gap: '.4rem' }}>
               {event.ticketUrl && (
-                <a href={event.ticketUrl} target="_blank" rel="noopener" style={{ padding: '.35rem .7rem', borderRadius: 8, background: cat.color, color: '#fff', fontSize: '.75rem', fontWeight: 700, textDecoration: 'none' }}>🎫 Tickets</a>
+                <a href={event.ticketUrl} target="_blank" rel="noopener" style={{ padding: '.35rem .7rem', borderRadius: 8, background: cat.color, color: '#fff', fontSize: '.75rem', fontWeight: 700, textDecoration: 'none', minHeight: 44, display: 'inline-flex', alignItems: 'center' }}>🎫 Tickets</a>
               )}
               {event.websiteUrl && (
-                <a href={event.websiteUrl} target="_blank" rel="noopener" style={{ padding: '.35rem .7rem', borderRadius: 8, background: 'var(--surface2)', color: 'var(--text2)', fontSize: '.75rem', fontWeight: 600, textDecoration: 'none', border: '1px solid var(--border-light)' }}>🌐 Info</a>
+                <a href={event.websiteUrl} target="_blank" rel="noopener" style={{ padding: '.35rem .7rem', borderRadius: 8, background: 'var(--surface2)', color: 'var(--text2)', fontSize: '.75rem', fontWeight: 600, textDecoration: 'none', border: '1px solid var(--border-light)', minHeight: 44, display: 'inline-flex', alignItems: 'center' }}>🌐 Info</a>
               )}
             </div>
           )}

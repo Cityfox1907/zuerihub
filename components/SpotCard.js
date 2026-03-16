@@ -1,22 +1,23 @@
 'use client'
 
-import { getEmoji, getKreis, getSourceInfo, fmt, isFav, openInMapsApp } from '@/lib/data'
+import { getEmoji, getKreis, getSourceInfo, getSpotTag, fmt, isFav, openInMapsApp } from '@/lib/data'
 import PhotoCarousel from './PhotoCarousel'
 
 export default function SpotCard({ spot, rank, onClick }) {
   const emoji = getEmoji(spot)
   const kreis = getKreis(spot.addr)
   const src = getSourceInfo(spot.source)
+  const tag = getSpotTag(spot)
   const favorited = typeof window !== 'undefined' && isFav(spot)
 
   const srcColors = {
-    'src-gastro': { bg: 'rgba(59,130,246,.1)', color: '#2563eb' },
-    'src-attr': { bg: 'rgba(168,85,247,.1)', color: '#7c3aed' },
-    'src-museum': { bg: 'rgba(245,158,11,.1)', color: '#d97706' },
-    'src-shop': { bg: 'rgba(34,197,94,.1)', color: '#16a34a' },
-    'src-fun': { bg: 'rgba(236,72,153,.1)', color: '#db2777' },
+    'src-gastro': { bg: 'rgba(59,130,246,.1)', color: '#2563eb', tagBg: 'rgba(37,99,235,.65)' },
+    'src-attr': { bg: 'rgba(168,85,247,.1)', color: '#7c3aed', tagBg: 'rgba(124,58,237,.65)' },
+    'src-museum': { bg: 'rgba(245,158,11,.1)', color: '#d97706', tagBg: 'rgba(217,119,6,.65)' },
+    'src-shop': { bg: 'rgba(34,197,94,.1)', color: '#16a34a', tagBg: 'rgba(22,163,74,.65)' },
+    'src-fun': { bg: 'rgba(236,72,153,.1)', color: '#db2777', tagBg: 'rgba(219,39,119,.65)' },
   }
-  const sc = srcColors[src.cls] || { bg: 'var(--primary-light)', color: 'var(--primary)' }
+  const sc = srcColors[src.cls] || { bg: 'var(--primary-light)', color: 'var(--primary)', tagBg: 'rgba(15,71,175,.65)' }
 
   return (
     <div onClick={onClick} style={{
@@ -28,7 +29,16 @@ export default function SpotCard({ spot, rank, onClick }) {
       onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = 'var(--shadow-hover)' }}
       onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = 'var(--shadow-soft)' }}
     >
-      {favorited && <div style={{ position: 'absolute', top: 6, right: 6, zIndex: 2, fontSize: '.7rem', lineHeight: 1 }}>⭐</div>}
+      {/* Specific tag overlay on photo */}
+      {tag && (
+        <div style={{
+          position: 'absolute', top: 6, right: 6, zIndex: 2,
+          fontSize: '.62rem', fontWeight: 600, padding: '.15rem .4rem', borderRadius: 6,
+          background: sc.tagBg, color: '#fff',
+          backdropFilter: 'blur(4px)', lineHeight: 1.3,
+        }}>{tag}</div>
+      )}
+      {favorited && <div style={{ position: 'absolute', top: 6, left: 6, zIndex: 2, fontSize: '.7rem', lineHeight: 1 }}>⭐</div>}
 
       {/* Photo with 4:3 aspect ratio */}
       <div className="spot-card-photo">

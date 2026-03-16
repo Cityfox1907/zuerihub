@@ -149,6 +149,8 @@ body { min-height: 100vh; -webkit-font-smoothing: antialiased; }
 /* Hide scrollbar utility */
 .dice-scroll::-webkit-scrollbar { display: none; }
 .dice-scroll { scrollbar-width: none; }
+.highlight-event-scroll::-webkit-scrollbar { display: none; }
+.highlight-event-scroll { scrollbar-width: none; }
 
 /* SpotCard photo 4:3 aspect ratio */
 .spot-card-photo { aspect-ratio: 4/3; overflow: hidden; }
@@ -201,6 +203,9 @@ body { min-height: 100vh; -webkit-font-smoothing: antialiased; }
 
   /* Dice cards: 2 visible on mobile */
   .dice-scroll > div { flex: 0 0 calc(50% - .375rem) !important; min-width: 160px !important; }
+
+  /* Highlight event cards on mobile */
+  .highlight-event-scroll > a { flex: 0 0 280px !important; min-width: 280px !important; }
 }
 
 /* Small mobile */
