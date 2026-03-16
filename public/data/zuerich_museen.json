@@ -1,0 +1,3759 @@
+{
+  "meta": {
+    "erstellt_am": "2026-03-14 23:55:49",
+    "aktualisiert_am": "2026-03-15",
+    "region": "Kanton Zürich",
+    "hauptkategorie": "Kultur & Natur",
+    "kategorie": "Museen",
+    "taxonomie": {
+      "unterkategorien": [
+        "Allgemeines Museum",
+        "Historisches Museum",
+        "Kindermuseum",
+        "Kulturmuseum",
+        "Kunstmuseum",
+        "Wissenschaftsmuseum"
+      ],
+      "tags": [
+        "Archäologisches Museum",
+        "Ethnologisches Museum",
+        "Freilichtmuseum",
+        "Historisches Museum",
+        "Kindermuseum",
+        "Kunstmuseum",
+        "Museum für moderne Kunst",
+        "Naturhistorisches Museum",
+        "Wissenschaftsmuseum",
+        "Zoologisches Museum"
+      ],
+      "emojis": {
+        "cat:Kunstmuseum": "🎨",
+        "cat:Wissenschaftsmuseum": "🔬",
+        "cat:Naturhistorisches Museum": "🦕",
+        "cat:Historisches Museum": "🏰",
+        "cat:Kulturmuseum": "🎭",
+        "cat:Kindermuseum": "🧒",
+        "cat:Erlebnismuseum": "🎪",
+        "cat:Allgemeines Museum": "🏛️"
+      }
+    },
+    "total_eintraege": 168
+  },
+  "orte": [
+    {
+      "place_id": "ChIJ1WdqYUenmkcRhKgqNBIK3Vo",
+      "name": "Lindt Home of Chocolate",
+      "adresse": "Seestrasse 204, 8802 Kilchberg, Schweiz",
+      "koordinaten": {
+        "lat": 47.3182167,
+        "lng": 8.551136399999999
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 23520,
+      "google_maps_url": "https://maps.google.com/?cid=6547400506567469188&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.lindt-home-of-chocolate.ch/",
+      "telefon": "+41 44 716 20 00",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJw0uKlhuamkcRAEP9rbDfi2c",
+      "name": "Swiss Science Center Technorama",
+      "adresse": "Technoramastrasse 1, 8404 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.5139164,
+        "lng": 8.764362499999999
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 9616,
+      "google_maps_url": "https://maps.google.com/?cid=7461303157595652864&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.technorama.ch/",
+      "telefon": "+41 52 244 08 44",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum",
+        "Wissenschaftsmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJw12aEaygmkcRowvgojyyzdk",
+      "name": "Kunsthaus Zürich",
+      "adresse": "Heimpl. 1/5, 8001 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3710978,
+        "lng": 8.5490786
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 8890,
+      "google_maps_url": "https://maps.google.com/?cid=15694396249956420515&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.kunsthaus.ch/",
+      "telefon": "+41 44 253 84 84",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJLYUQHAkKkEcRzA4gWFr1Hf8",
+      "name": "Landesmuseum Zürich",
+      "adresse": "Museumstrasse 2, 8001 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3791037,
+        "lng": 8.540542799999999
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 9750,
+      "google_maps_url": "https://maps.google.com/?cid=18383119022370590412&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.landesmuseum.ch/",
+      "telefon": "+41 44 218 65 11",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJs__AavkJkEcR7cf-Mk_UPRU",
+      "name": "FIFA Museum",
+      "adresse": "Seestrasse 27, 8002 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3633348,
+        "lng": 8.5317033
+      },
+      "rating_durchschnitt": 4.4,
+      "rating_anzahl": 6524,
+      "google_maps_url": "https://maps.google.com/?cid=1530612884998899693&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.fifamuseum.com/",
+      "telefon": "+41 43 388 25 00",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Kindermuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJI_rPtXa7mkcRGCwc2lIHCHI",
+      "name": "Sauriermuseum Aathal",
+      "adresse": "Zürichstrasse 69, 8607 Aathal, Schweiz",
+      "koordinaten": {
+        "lat": 47.338822699999994,
+        "lng": 8.76194
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 3720,
+      "google_maps_url": "https://maps.google.com/?cid=8216825572565462040&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.sauriermuseum.ch/",
+      "telefon": "+41 44 932 14 18",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum",
+        "Zoologisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJTZJtjX-hmkcRlb5gBTLTcaA",
+      "name": "Naturhistorisches Museum der Universität Zürich",
+      "adresse": "Karl-Schmid-Strasse 4, 8006 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.375332799999995,
+        "lng": 8.5479973
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 1992,
+      "google_maps_url": "https://maps.google.com/?cid=11561253930228825749&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.nmz.uzh.ch/en/besucherinformation.html",
+      "telefon": "+41 44 634 38 38",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Kindermuseum",
+        "Kunstmuseum",
+        "Naturhistorisches Museum",
+        "Zoologisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJyZu-3eIJkEcRXOZQuFz-O9Y",
+      "name": "Sukkulenten-Sammlung Zürich",
+      "adresse": "Mythenquai 88, 8002 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.356099,
+        "lng": 8.535093999999999
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 1665,
+      "google_maps_url": "https://maps.google.com/?cid=15437211821925262940&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.stadt-zuerich.ch/sukkulentensammlung",
+      "telefon": "+41 44 412 12 80",
+      "primary_type": "Botanischer Garten",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJgcawFfsJkEcRnXtmMoXBxJ4",
+      "name": "Museum Rietberg",
+      "adresse": "Gablerstrasse 15, 8002 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3589294,
+        "lng": 8.530225
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 1814,
+      "google_maps_url": "https://maps.google.com/?cid=11440481731248290717&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://rietberg.ch/",
+      "telefon": "+41 44 415 31 31",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJsx5pI9dxkEcRY43V9XaDIcE",
+      "name": "Ebianum Baggermuseum",
+      "adresse": "Museumstrasse 1, 5467 Fisibach, Schweiz",
+      "koordinaten": {
+        "lat": 47.5662126,
+        "lng": 8.4097698
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 1796,
+      "google_maps_url": "https://maps.google.com/?cid=13916548870505336163&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.ebianum.ch/",
+      "telefon": "+41 44 858 27 77",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum",
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJx9VzS_sJkEcRImyC8Qx5u0I",
+      "name": "Rieterpark",
+      "adresse": "Gablerstrasse 15, 8002 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3576933,
+        "lng": 8.5309958
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 1436,
+      "google_maps_url": "https://maps.google.com/?cid=4808570123646561314&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.zuerich.com/en/visit/nature/rieterpark",
+      "telefon": "+41 44 412 24 05",
+      "primary_type": "Park",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJcbI_EoyhmkcRKVSNLO8jSHo",
+      "name": "Flieger Flab Museum",
+      "adresse": "Ueberlandstrasse 271, 8600 Dübendorf, Schweiz",
+      "koordinaten": {
+        "lat": 47.397290999999996,
+        "lng": 8.631743
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 1307,
+      "google_maps_url": "https://maps.google.com/?cid=8811332181101990953&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.airforcecenter.ch/",
+      "telefon": "+41 44 824 55 11",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJy8X0R7QNkEcRhp2aaVpYDyo",
+      "name": "Bruno Weber Park",
+      "adresse": "Zur Weinrebe 3, 8953 Dietikon, Schweiz",
+      "koordinaten": {
+        "lat": 47.40552830000001,
+        "lng": 8.381254
+      },
+      "rating_durchschnitt": 4.4,
+      "rating_anzahl": 1686,
+      "google_maps_url": "https://maps.google.com/?cid=3030738219585674630&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://weberpark.ch/",
+      "telefon": "+41 79 535 85 87",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJM4-CMwwKkEcRMgIY0F2elgE",
+      "name": "Museum für Gestaltung Zürich",
+      "adresse": "Ausstellungsstrasse 60, 8005 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.382767199999996,
+        "lng": 8.5358278
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 1041,
+      "google_maps_url": "https://maps.google.com/?cid=114452966304907826&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://museum-gestaltung.ch/besuch",
+      "telefon": "+41 43 446 67 76",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum",
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJ0xncYyELkEcRFvI7-j1OYuA",
+      "name": "WOW Museum",
+      "adresse": "Werdmühlestrasse 10, 8001 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3750984,
+        "lng": 8.5404326
+      },
+      "rating_durchschnitt": 3.9,
+      "rating_anzahl": 2614,
+      "google_maps_url": "https://maps.google.com/?cid=16168571640311706134&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.wow-museum.ch/",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum",
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJVVUVH-C2mkcRmCFJacdH8Ds",
+      "name": "Schloss Catering Rapperswil",
+      "adresse": "Lindenhügel, 8640 Rapperswil-Jona, Schweiz",
+      "koordinaten": {
+        "lat": 47.227595099999995,
+        "lng": 8.8158402
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 696,
+      "google_maps_url": "https://maps.google.com/?cid=4319030964438770072&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://schlosscatering.ch/de/",
+      "telefon": "+41 55 210 18 28",
+      "primary_type": "Veranstaltungsstätte",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kulturmuseum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJvSPwpTGnmkcRFTSkOsv0U7U",
+      "name": "Tram-Museum Zürich",
+      "adresse": "Forchstrasse 260, 8008 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.357741700000005,
+        "lng": 8.571327499999999
+      },
+      "rating_durchschnitt": 4.4,
+      "rating_anzahl": 920,
+      "google_maps_url": "https://maps.google.com/?cid=13066056097631319061&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.tram-museum.ch/",
+      "telefon": "+41 44 380 21 62",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Kindermuseum",
+        "Kunstmuseum",
+        "Wissenschaftsmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJHaae_6agmkcR3IX4xXHKZ58",
+      "name": "focusTerra – ETH Zürich",
+      "adresse": "Sonneggstrasse 5, 8006 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.378325,
+        "lng": 8.5475171
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 529,
+      "google_maps_url": "https://maps.google.com/?cid=11486371964633253340&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.focusterra.ethz.ch/",
+      "telefon": "+41 44 632 62 81",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum",
+        "Wissenschaftsmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJHSM3JwEKkEcREruF5i3U3Ns",
+      "name": "Uhrenmuseum Beyer Zürich",
+      "adresse": "Bahnhofstrasse 31, 8001 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3707778,
+        "lng": 8.5386956
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 604,
+      "google_maps_url": "https://maps.google.com/?cid=15842770882788702994&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.beyer-ch.com/",
+      "telefon": "+41 43 344 63 63",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Wissenschaftsmuseum",
+      "tags": [
+        "Wissenschaftsmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJER-Ht-YLkEcRuIHbSO6Wv6M",
+      "name": "GamePlaza",
+      "adresse": "Badenerstrasse 569, 8048 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.383341699999995,
+        "lng": 8.495602
+      },
+      "rating_durchschnitt": 5,
+      "rating_anzahl": 290,
+      "google_maps_url": "https://maps.google.com/?cid=11799315498902716856&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.gameplaza.ch/",
+      "telefon": "+41 43 543 04 49",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJP4Javg0KkEcRk8O9Snj5VQ0",
+      "name": "Museum für Gestaltung Zürich",
+      "adresse": "Pfingstweidstrasse 96, 8005 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.390136,
+        "lng": 8.512039999999999
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 518,
+      "google_maps_url": "https://maps.google.com/?cid=960948390558811027&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.museum-gestaltung.ch/",
+      "telefon": "+41 43 446 67 67",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJx9LrUaigmkcREZh-0CZzhxo",
+      "name": "Zentralbibliothek Zürich",
+      "adresse": "Zähringerpl. 6, 8001 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.374138099999996,
+        "lng": 8.5449067
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 472,
+      "google_maps_url": "https://maps.google.com/?cid=1911623177385973777&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.zb.uzh.ch/",
+      "telefon": "+41 44 636 40 00",
+      "primary_type": "Bibliothek",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kulturmuseum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJWZ8wS52ZmkcR1LQdTK-zc-4",
+      "name": "Kunst Museum Winterthur | Reinhart am Stadtgarten",
+      "adresse": "Stadthausstrasse 6, 8400 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.500501,
+        "lng": 8.729005899999999
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 401,
+      "google_maps_url": "https://maps.google.com/?cid=17182274568826238164&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.kmw.ch/",
+      "telefon": "+41 52 267 67 84",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum",
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJvWTVGwkKkEcR9joPCx7k7uM",
+      "name": "Landesmuseum Zürich Auditorium Willy G.S Hirzel",
+      "adresse": "Museumstrasse 2, 8001 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3795065,
+        "lng": 8.5401057
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 394,
+      "google_maps_url": "https://maps.google.com/?cid=16424315708752476918&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.landesmuseum.ch/de/dienstleistungen/raumvermietung/auditorium-willy-g.s.-hirzel",
+      "telefon": "+41 44 218 65 20",
+      "primary_type": "Auditorium",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJQ8ibn5CZmkcREcKsjddSrMs",
+      "name": "Fotomuseum Winterthur",
+      "adresse": "Grüzenstrasse 44-45, 8400 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.4961525,
+        "lng": 8.738885999999999
+      },
+      "rating_durchschnitt": 4.4,
+      "rating_anzahl": 485,
+      "google_maps_url": "https://maps.google.com/?cid=14676196371441959441&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.fotomuseum.ch/",
+      "telefon": "+41 52 234 10 60",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum",
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJXaK6T7KgmkcRbv2-6nkB3n0",
+      "name": "KULTURAMA Museum des Menschen",
+      "adresse": "Englischviertelstrasse 9, 8032 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3688127,
+        "lng": 8.555675299999999
+      },
+      "rating_durchschnitt": 4.4,
+      "rating_anzahl": 477,
+      "google_maps_url": "https://maps.google.com/?cid=9069688322711813486&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://kulturama.ch/",
+      "telefon": "+41 44 260 60 44",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum",
+        "Kunstmuseum",
+        "Wissenschaftsmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJF2DyQ0inmkcRTsNf0AW2HQc",
+      "name": "Heimatschutzzentrum in der Villa Patumbah",
+      "adresse": "Zollikerstrasse 128, 8008 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3568954,
+        "lng": 8.5597544
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 321,
+      "google_maps_url": "https://maps.google.com/?cid=512766068677133134&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.heimatschutzzentrum.ch/",
+      "telefon": "+41 44 254 57 90",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Kunstmuseum",
+        "Wissenschaftsmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJeeCofg0KkEcRfPs1zYlVDU0",
+      "name": "Photobastei",
+      "adresse": "Sihlquai 125, 8005 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3847789,
+        "lng": 8.534096
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 407,
+      "google_maps_url": "https://maps.google.com/?cid=5552187965959437180&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.photobastei.ch/",
+      "telefon": "+41 44 240 22 00",
+      "primary_type": "Kunstgalerie",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJfz2unci5mkcRQ4X-YZVIBY8",
+      "name": "KMM Kulturzentrum",
+      "adresse": "Edikerstrasse 16, 8635 Dürnten, Schweiz",
+      "koordinaten": {
+        "lat": 47.2812738,
+        "lng": 8.842973899999999
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 305,
+      "google_maps_url": "https://maps.google.com/?cid=10305723128738645315&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.kmm-duernten.ch/",
+      "telefon": "+41 55 260 17 17",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Kindermuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJdZDQ2oKZmkcRUqJxVnPHMZM",
+      "name": "Naturmuseum Winterthur",
+      "adresse": "Museumstrasse 52, 8400 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.5014186,
+        "lng": 8.7299685
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 379,
+      "google_maps_url": "https://maps.google.com/?cid=10606477895619682898&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://natur.winterthur.ch/",
+      "telefon": "+41 52 267 51 66",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Kindermuseum",
+        "Kunstmuseum",
+        "Naturhistorisches Museum",
+        "Zoologisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJx7M8gwQKkEcRdPe2XKs5Qwc",
+      "name": "Museum Haus Konstruktiv",
+      "adresse": "Limmatstrasse 268, 8005 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.389247999999995,
+        "lng": 8.5254814
+      },
+      "rating_durchschnitt": 4.4,
+      "rating_anzahl": 431,
+      "google_maps_url": "https://maps.google.com/?cid=523325389862795124&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.hauskonstruktiv.ch/",
+      "telefon": "+41 44 217 70 80",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum",
+        "Kunstmuseum",
+        "Museum für moderne Kunst",
+        "Wissenschaftsmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJHytJlQcKkEcRC01paW7HcnE",
+      "name": "Giacometti-Halle",
+      "adresse": "Bahnhofquai 3, 8001 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3754389,
+        "lng": 8.541687099999999
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 371,
+      "google_maps_url": "https://maps.google.com/?cid=8174815550659710219&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "",
+      "telefon": "+41 44 411 71 17",
+      "primary_type": "Sehenswürdigkeit",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJW3F-6YKZmkcR5r2MzS-q0c8",
+      "name": "Kunst Museum Winterthur | Beim Stadthaus",
+      "adresse": "Museumstrasse 52, 8400 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.5015102,
+        "lng": 8.7305225
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 368,
+      "google_maps_url": "https://maps.google.com/?cid=14974937358272347622&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.kmw.ch/",
+      "telefon": "+41 52 267 51 62",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum",
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJv4KLmDinmkcRhPsgsgB9lWk",
+      "name": "Museum Mühlerama",
+      "adresse": "Seefeldstrasse 231, 8008 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3514708,
+        "lng": 8.561146599999999
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 306,
+      "google_maps_url": "https://maps.google.com/?cid=7608124587454299012&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.muehlerama.ch",
+      "telefon": "+41 44 422 76 60",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum",
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJ2R5cu6igmkcRAkpwYUsdJ4I",
+      "name": "Paläontologisches Institut, Universität Zürich",
+      "adresse": "Karl-Schmid-Strasse 4, 8006 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.375363,
+        "lng": 8.547991999999999
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 265,
+      "google_maps_url": "https://maps.google.com/?cid=9378496958616848898&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.pim.uzh.ch/",
+      "telefon": "+41 44 634 38 38",
+      "primary_type": "Universität",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Archäologisches Museum",
+        "Kindermuseum",
+        "Wissenschaftsmuseum",
+        "Zoologisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJPzHDak-mmkcRe3mBdsWRrCo",
+      "name": "Museum Haus C.G. Jung",
+      "adresse": "Seestrasse 228, 8700 Küsnacht, Schweiz",
+      "koordinaten": {
+        "lat": 47.3106465,
+        "lng": 8.5828876
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 232,
+      "google_maps_url": "https://maps.google.com/?cid=3074992922869987707&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.cgjunghaus.ch/",
+      "telefon": "+41 44 910 08 09",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJn-VImTinmkcRNskt2vJybnE",
+      "name": "Kulturareal Mühle Tiefenbrunnen",
+      "adresse": "Seefeldstrasse 219 Seefeldstrasse 223 Seefeldstrasse 225 Seefeldstrasse 231, Seefeldstrasse 233, 8008 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3519424,
+        "lng": 8.5609408
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 294,
+      "google_maps_url": "https://maps.google.com/?cid=8173596761092114742&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.muehle-tiefenbrunnen.ch/",
+      "telefon": "+41 44 389 90 50",
+      "primary_type": "Kulturzentrum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kulturmuseum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJC2i9_yGSmkcR2sg7sj4l9qo",
+      "name": "Naturmuseum Thurgau",
+      "adresse": "Freiestrasse 24, 8510 Frauenfeld, Schweiz",
+      "koordinaten": {
+        "lat": 47.556556699999994,
+        "lng": 8.8985564
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 229,
+      "google_maps_url": "https://maps.google.com/?cid=12319074781927033050&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://naturmuseum.tg.ch/",
+      "telefon": "+41 58 345 74 00",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Archäologisches Museum",
+        "Kindermuseum",
+        "Kunstmuseum",
+        "Naturhistorisches Museum",
+        "Wissenschaftsmuseum",
+        "Zoologisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJPZ8cR2W8mkcRvHKo1OfnOA0",
+      "name": "Römer Kastell Irgenhausen",
+      "adresse": "8330 Pfäffikon, Schweiz",
+      "koordinaten": {
+        "lat": 47.358229699999995,
+        "lng": 8.7925139
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 326,
+      "google_maps_url": "https://maps.google.com/?cid=952766304080130748&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://ad.zh.ch/das-kastell-irgenhausen-ein-ausflug-zur-ruine-ueber-dem-pfaeffikersee/",
+      "telefon": "+41 44 952 52 52",
+      "primary_type": "Historische Sehenswürdigkeit",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Archäologisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJHy1WQaqgmkcRGnuclxLntZc",
+      "name": "Helmhaus",
+      "adresse": "Limmatquai 31, 8001 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.369881,
+        "lng": 8.543263999999999
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 324,
+      "google_maps_url": "https://maps.google.com/?cid=10931897737550789402&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.helmhaus.org/",
+      "telefon": "+41 44 415 56 77",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJ8Y30-La9mkcRZoiWh3MyXxs",
+      "name": "Naturzentrum Pfäffikersee",
+      "adresse": "Usterstrasse 31, 8330 Pfäffikon, Schweiz",
+      "koordinaten": {
+        "lat": 47.3644619,
+        "lng": 8.7785642
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 280,
+      "google_maps_url": "https://maps.google.com/?cid=1972350633588983910&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://naturzentrum-pfaeffikersee.ch/",
+      "telefon": "+41 44 995 13 96",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJF8PSF52ZmkcRIU10FgfPbLo",
+      "name": "Gewerbemuseum Winterthur",
+      "adresse": "Kirchpl. 14, 8400 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.4992367,
+        "lng": 8.729453
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 273,
+      "google_maps_url": "https://maps.google.com/?cid=13433339417887788321&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.gewerbemuseum.ch/",
+      "telefon": "+41 52 267 51 36",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum",
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJ2VkjliGSmkcRl-Xs675Ak4E",
+      "name": "Schloss Frauenfeld",
+      "adresse": "Rathauspl. 2, 8500 Frauenfeld, Schweiz",
+      "koordinaten": {
+        "lat": 47.555197,
+        "lng": 8.8968557
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 239,
+      "google_maps_url": "https://maps.google.com/?cid=9336877641215305111&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://historisches-museum.tg.ch/ausstellungen-/schloss-frauenfeld.html/7374",
+      "telefon": "+41 58 345 73 80",
+      "primary_type": "Schloss",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJDUQSJXwNkEcRE_1jFTLrn5o",
+      "name": "Umwelt Arena Schweiz",
+      "adresse": "Türliackerstrasse 4, 8957 Spreitenbach, Schweiz",
+      "koordinaten": {
+        "lat": 47.424036099999995,
+        "lng": 8.3676073
+      },
+      "rating_durchschnitt": 3.9,
+      "rating_anzahl": 628,
+      "google_maps_url": "https://maps.google.com/?cid=11141882603477662995&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.umweltarena.ch/",
+      "telefon": "+41 56 418 13 00",
+      "primary_type": "Besucherzentrum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJ4ZaiymO6mkcRT5eIpO1CtkQ",
+      "name": "Schloss Grüningen",
+      "adresse": "Kirchgass 5, 8627 Grüningen, Schweiz",
+      "koordinaten": {
+        "lat": 47.28465430000001,
+        "lng": 8.7620151
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 229,
+      "google_maps_url": "https://maps.google.com/?cid=4951218428775536463&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.schlossgrueningen.ch/",
+      "telefon": "+41 43 833 70 69",
+      "primary_type": "Schloss",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJoX9Q0D2nmkcR8ynltYzzEHw",
+      "name": "Nordamerika Native Museum NONAM",
+      "adresse": "Seefeldstrasse 317, 8008 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.347023,
+        "lng": 8.5657446
+      },
+      "rating_durchschnitt": 4.4,
+      "rating_anzahl": 293,
+      "google_maps_url": "https://maps.google.com/?cid=8939913046003100147&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.nonam.ch/",
+      "telefon": "+41 44 413 49 90",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kulturmuseum",
+      "tags": [
+        "Ethnologisches Museum",
+        "Kindermuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJrc0JcCaOmkcRSSwkPx5L_28",
+      "name": "Ittinger Museum, Warth",
+      "adresse": "Ittinger Museum, 8532 Warth, Schweiz",
+      "koordinaten": {
+        "lat": 47.5836026,
+        "lng": 8.8665187
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 250,
+      "google_maps_url": "https://maps.google.com/?cid=8070251650551655497&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.kunstmuseum.tg.ch/",
+      "telefon": "+41 58 345 10 60",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum",
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJF7gTs4SZmkcRoVm0Pm9W4Nc",
+      "name": "Museum Lindengut",
+      "adresse": "Römerstrasse 8, 8400 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.5001611,
+        "lng": 8.734973799999999
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 236,
+      "google_maps_url": "https://maps.google.com/?cid=15555528148731058593&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://historischer-verein-winterthur.ch/site/",
+      "telefon": "+41 52 267 23 18",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJV8k448K-mkcRlL9BEql3II4",
+      "name": "Museum Neuthal Textil- & Industriekultur",
+      "adresse": "Im Neuthal 6, 8344 Bäretswil, Schweiz",
+      "koordinaten": {
+        "lat": 47.3593969,
+        "lng": 8.8653917
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 167,
+      "google_maps_url": "https://maps.google.com/?cid=10241317120679985044&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.neuthal-industriekultur.ch/",
+      "telefon": "+41 52 397 10 20",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Wissenschaftsmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJqR85IuC2mkcR8jqY1zfjN5w",
+      "name": "Polenmuseum in Rapperswil",
+      "adresse": "Hauptpl. 8, 8640 Rapperswil-Jona, Schweiz",
+      "koordinaten": {
+        "lat": 47.226993,
+        "lng": 8.816109599999999
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 207,
+      "google_maps_url": "https://maps.google.com/?cid=11256715622615628530&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://polenmuseum.ch/",
+      "telefon": "+41 55 210 18 62",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJvTFDJDCvmkcRC-NDMorI8VI",
+      "name": "Kohlenmagazin Museum & Bergwerk Käpfnach",
+      "adresse": "Bergwerkstrasse 27, 8810 Horgen, Schweiz",
+      "koordinaten": {
+        "lat": 47.253329099999995,
+        "lng": 8.6135197
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 143,
+      "google_maps_url": "https://maps.google.com/?cid=5976778676371710731&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.bergwerk-kaepfnach.ch/index.php",
+      "telefon": "+41 44 725 82 49",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJxxzq82aamkcRMBvSrOsyhVs",
+      "name": "Schloss Mörsburg",
+      "adresse": "Mörsburgstrasse 30, 8404 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.5399177,
+        "lng": 8.7687382
+      },
+      "rating_durchschnitt": 4.4,
+      "rating_anzahl": 199,
+      "google_maps_url": "https://maps.google.com/?cid=6594733217152113456&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://schlosshalde-winterthur.ch/",
+      "telefon": "+41 52 233 78 78",
+      "primary_type": "Historisches Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJYXVKv0ILkEcR9gdiKtNVhys",
+      "name": "Halle 622b",
+      "adresse": "Therese-Giehse-Strasse 6, 8050 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.412296,
+        "lng": 8.542389
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 176,
+      "google_maps_url": "https://maps.google.com/?cid=3136570030924367862&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://banksy-zuerich.ch/",
+      "telefon": "",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJK8Ni7moKkEcRTqzHs_nJYu0",
+      "name": "Migros Museum für Gegenwartskunst",
+      "adresse": "Limmatstrasse 270, 8005 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3893211,
+        "lng": 8.525082399999999
+      },
+      "rating_durchschnitt": 4.1,
+      "rating_anzahl": 292,
+      "google_maps_url": "https://maps.google.com/?cid=17105456409006812238&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.migrosmuseum.ch/",
+      "telefon": "+41 44 277 20 50",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum",
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJWZ8wS52ZmkcRJ58XhH_pQ6w",
+      "name": "Kunst Museum Winterthur | Villa Flora",
+      "adresse": "Tösstalstrasse 44, 8400 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.496418,
+        "lng": 8.735343
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 132,
+      "google_maps_url": "https://maps.google.com/?cid=12413021731849477927&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.kmw.ch/",
+      "telefon": "+41 52 212 99 60",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJK8Ni7moKkEcRcHzYCS8SDqo",
+      "name": "Kunsthalle Zürich",
+      "adresse": "Limmatstrasse 270, 8005 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3891905,
+        "lng": 8.525065
+      },
+      "rating_durchschnitt": 4.1,
+      "rating_anzahl": 238,
+      "google_maps_url": "https://maps.google.com/?cid=12253751629359643760&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.kunsthallezurich.ch/",
+      "telefon": "+41 44 272 15 15",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJ3RdJzqagmkcRrWXQNtv9IpI",
+      "name": "Moulagenmuseum",
+      "adresse": "Haldenbachstrasse 14, 8091 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3804392,
+        "lng": 8.548586799999999
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 117,
+      "google_maps_url": "https://maps.google.com/?cid=10530257996704933293&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.moulagen.uzh.ch/",
+      "telefon": "+41 44 255 56 85",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Wissenschaftsmuseum",
+      "tags": [
+        "Wissenschaftsmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJg5HE6QMKkEcR-m6y43Djh2w",
+      "name": "Völkerkundemuseum der Universität Zürich",
+      "adresse": "Pelikanstrasse 40, 8001 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.370881,
+        "lng": 8.534587
+      },
+      "rating_durchschnitt": 4.4,
+      "rating_anzahl": 158,
+      "google_maps_url": "https://maps.google.com/?cid=7820469351948119802&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.musethno.uzh.ch/",
+      "telefon": "+41 44 634 90 11",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kulturmuseum",
+      "tags": [
+        "Ethnologisches Museum",
+        "Historisches Museum",
+        "Wissenschaftsmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJa36MdEkKkEcRNVlAQO4HYII",
+      "name": "Schweizer Finanzmuseum",
+      "adresse": "Pfingstweidstrasse 110, 8005 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3915502,
+        "lng": 8.5068831
+      },
+      "rating_durchschnitt": 4,
+      "rating_anzahl": 239,
+      "google_maps_url": "https://maps.google.com/?cid=9394517542556424501&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.finanzmuseum.ch/",
+      "telefon": "+41 58 399 32 88",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Kindermuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJbUGNPkR_kEcRoHEJJ7yRGbM",
+      "name": "Moser Familienmuseum Charlottenfels",
+      "adresse": "Charlottenfels, Charlottenweg 2, 8212 Neuhausen am Rheinfall, Schweiz",
+      "koordinaten": {
+        "lat": 47.6905243,
+        "lng": 8.621404799999999
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 124,
+      "google_maps_url": "https://maps.google.com/?cid=12905506444501676448&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.charlottenfels-museum.ch/",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJifG_EYVtkEcRUBmvp1l_Ffw",
+      "name": "Mammutmuseum",
+      "adresse": "Im Mitteldorf 1, 8166 Niederweningen, Schweiz",
+      "koordinaten": {
+        "lat": 47.505407399999996,
+        "lng": 8.3773783
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 96,
+      "google_maps_url": "https://maps.google.com/?cid=18164564695110850896&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.mammutmuseum.ch/",
+      "telefon": "+41 43 422 82 92",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJC5GyZKK7mkcR9EYnx2yU_m0",
+      "name": "FBW-Museum",
+      "adresse": "Zürcherstrasse 95, 8620 Wetzikon, Schweiz",
+      "koordinaten": {
+        "lat": 47.328364,
+        "lng": 8.7806967
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 94,
+      "google_maps_url": "https://maps.google.com/?cid=7925935589137270516&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.fbw.ch/museum/",
+      "telefon": "+41 44 934 32 32",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJ3-W2QHahmkcRw9Y--0UIz1s",
+      "name": "Air Force Center",
+      "adresse": "Ueberlandstrasse 271, 8600 Dübendorf, Schweiz",
+      "koordinaten": {
+        "lat": 47.3972616,
+        "lng": 8.631791800000002
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 103,
+      "google_maps_url": "https://maps.google.com/?cid=6615515474291513027&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://airforcecenter.ch/",
+      "telefon": "+41 44 824 55 11",
+      "primary_type": "Veranstaltungsstätte",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kulturmuseum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJfxzaoXOZmkcRTBu8aWTcfsk",
+      "name": "Dampfzentrum Winterthur",
+      "adresse": "Lagerpl. 27, 8400 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.4935812,
+        "lng": 8.7174012
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 92,
+      "google_maps_url": "https://maps.google.com/?cid=14519284572517833548&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.dampfzentrum.ch/",
+      "telefon": "+41 32 511 74 08",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum",
+        "Kunstmuseum",
+        "Wissenschaftsmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJ_WOSiQAKkEcRztmf5y0ES6M",
+      "name": "Centralhof Monument",
+      "adresse": "8001 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3692785,
+        "lng": 8.5401103
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 93,
+      "google_maps_url": "https://maps.google.com/?cid=11766503046641605070&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "",
+      "telefon": "",
+      "primary_type": "Historische Sehenswürdigkeit",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJSR9tI7eXB0ERvxeKGxUcF0M",
+      "name": "Kunst(Zeug)Haus",
+      "adresse": "Schönbodenstrasse 1, 8640 Rapperswil-Jona, Schweiz",
+      "koordinaten": {
+        "lat": 47.227753,
+        "lng": 8.8263878
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 75,
+      "google_maps_url": "https://maps.google.com/?cid=4834363601987442623&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.kunstzeughaus.ch/",
+      "telefon": "+41 55 220 20 80",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJz42-OAavmkcRPUXEhdeTH3w",
+      "name": "Weinbaumuseum am Zürichsee",
+      "adresse": "Austrasse 41, 8804 Au ZH, Schweiz",
+      "koordinaten": {
+        "lat": 47.2475678,
+        "lng": 8.649484
+      },
+      "rating_durchschnitt": 4.4,
+      "rating_anzahl": 96,
+      "google_maps_url": "https://maps.google.com/?cid=8944029938852578621&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.weinbaumuseum.ch/",
+      "telefon": "+41 44 781 35 65",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJ8_iDraigmkcRUkrUXjW7bq4",
+      "name": "UB Klassische Archäologie",
+      "adresse": "Rämistrasse 73, 8006 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.375332199999995,
+        "lng": 8.5488991
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 84,
+      "google_maps_url": "https://maps.google.com/?cid=12569189447936264786&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.ub.uzh.ch/de/ub-besuchen/standorte/klassische_archaeologie.html",
+      "telefon": "+41 44 634 45 33",
+      "primary_type": "Bibliothek",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Archäologisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJnZ9dUvsJkEcRyyZso1EJhtQ",
+      "name": "Park-Villa Rieter – Museum Rietberg",
+      "adresse": "Seestrasse 110, 8002 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.357674499999995,
+        "lng": 8.530991499999999
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 63,
+      "google_maps_url": "https://maps.google.com/?cid=15313937829158725323&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.rietberg.ch/",
+      "telefon": "+41 44 415 31 31",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJL8w0KuWfmkcR3qRph0clCRQ",
+      "name": "Ortsmuseum Bücheler-Hus",
+      "adresse": "Dorfstrasse 47, 8302 Kloten, Schweiz",
+      "koordinaten": {
+        "lat": 47.4523891,
+        "lng": 8.5879722
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 74,
+      "google_maps_url": "https://maps.google.com/?cid=1443726144693707998&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://ortsmuseum-kloten.ch/",
+      "telefon": "+41 44 803 00 00",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJi3QSt_EHkEcRXPpV5QvbwXA",
+      "name": "Museum Pegasus Small World",
+      "adresse": "Habersaatweg 3, 8914 Aeugstertal, Schweiz",
+      "koordinaten": {
+        "lat": 47.2778393,
+        "lng": 8.5033634
+      },
+      "rating_durchschnitt": 4.4,
+      "rating_anzahl": 90,
+      "google_maps_url": "https://maps.google.com/?cid=8125016046891825756&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.spielzeug-museum.ch/",
+      "telefon": "+41 44 776 22 77",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum",
+        "Wissenschaftsmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJsbRbMwcKkEcRb7cqvUdjhxY",
+      "name": "Museum Strauhof",
+      "adresse": "Augustinergasse 9, 8001 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3717113,
+        "lng": 8.5400052
+      },
+      "rating_durchschnitt": 4.4,
+      "rating_anzahl": 89,
+      "google_maps_url": "https://maps.google.com/?cid=1623375350457874287&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://strauhof.ch/",
+      "telefon": "+41 44 221 93 51",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJLfoA1h-3mkcR80UbC5Ls34U",
+      "name": "Stadtmuseum Rapperswil-Jona",
+      "adresse": "Herrenberg 40, 8640 Rapperswil-Jona, Schweiz",
+      "koordinaten": {
+        "lat": 47.2279483,
+        "lng": 8.8176015
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 73,
+      "google_maps_url": "https://maps.google.com/?cid=9646689038846608883&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.stadtmuseum-rapperswil-jona.ch/",
+      "telefon": "+41 55 225 79 16",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJwSAB3moKkEcRZ22YOxxw3hQ",
+      "name": "Löwenbräukunst Areal: Kunstzentrum Zürich",
+      "adresse": "Limmatstrasse 268, & 270, 8005 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3891521,
+        "lng": 8.5252162
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 77,
+      "google_maps_url": "https://maps.google.com/?cid=1503762592149564775&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.lowenbraukunst.ch/de?utm_source=google&utm_medium=organic&utm_campaign=gmb",
+      "telefon": "",
+      "primary_type": "",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJFcB090-nmkcREB-ABq2o_n0",
+      "name": "ZAZ Bellerive - Zentrum Architektur Zürich",
+      "adresse": "Höschgasse 3, 8008 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3564954,
+        "lng": 8.5499143
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 71,
+      "google_maps_url": "https://maps.google.com/?cid=9078879359917367056&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.zaz-bellerive.ch/",
+      "telefon": "+41 44 545 80 01",
+      "primary_type": "Kulturzentrum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum",
+        "Wissenschaftsmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJuw8qpBSZmkcRhkm5V4R_60M",
+      "name": "Zentrum Töss",
+      "adresse": "Zürcherstrasse 106, 8406 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.4915801,
+        "lng": 8.7061064
+      },
+      "rating_durchschnitt": 3.9,
+      "rating_anzahl": 129,
+      "google_maps_url": "https://maps.google.com/?cid=4894145626452347270&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "",
+      "telefon": "+41 52 202 53 21",
+      "primary_type": "Historischer Ort",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kulturmuseum",
+      "tags": [
+        "Freilichtmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJ0VR9pO-jmkcRHvaXPrqHwYQ",
+      "name": "ehemalige Kiesgrube (Veranstaltungsort Freilichtspiele Illnau)",
+      "adresse": "Illnau 8308, 8308 Illnau-Effretikon, Schweiz",
+      "koordinaten": {
+        "lat": 47.413423099999996,
+        "lng": 8.7180917
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 51,
+      "google_maps_url": "https://maps.google.com/?cid=9566076317495457310&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.freilichtspiele-illnau.ch/",
+      "telefon": "",
+      "primary_type": "Theater",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kulturmuseum",
+      "tags": [
+        "Freilichtmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJu7CeSbirmkcRCQRcFfReS5c",
+      "name": "ZDT Zuger Depot Technikgeschichte",
+      "adresse": "Sihlbruggstrasse 51, 6345 Neuheim, Schweiz",
+      "koordinaten": {
+        "lat": 47.2052839,
+        "lng": 8.5835782
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 50,
+      "google_maps_url": "https://maps.google.com/?cid=10901911725403800585&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://zdt.ch/",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJEU9svSGSmkcR-aPjvLJ3DEw",
+      "name": "Historisches Museum Thurgau",
+      "adresse": "Schloss Frauenfeld, Rathauspl. 2, 8500 Frauenfeld, Schweiz",
+      "koordinaten": {
+        "lat": 47.5552316,
+        "lng": 8.8967061
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 50,
+      "google_maps_url": "https://maps.google.com/?cid=5479886456159970297&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.historisches-museum.tg.ch/",
+      "telefon": "+41 58 345 73 80",
+      "primary_type": "Historisches Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJK6smtcB0kEcRRkuRj_z2fWg",
+      "name": "Museum die Scheune",
+      "adresse": "8156 Niederhasli, Schweiz",
+      "koordinaten": {
+        "lat": 47.463723599999994,
+        "lng": 8.4979025
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 49,
+      "google_maps_url": "https://maps.google.com/?cid=7529445716634192710&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://museumoberhasli.ch/",
+      "telefon": "+41 78 622 31 55",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJEyLNq6mgmkcRgWh0EEqI1pY",
+      "name": "Musée Visionnaire",
+      "adresse": "Predigerpl. 10, 8001 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3735001,
+        "lng": 8.5452906
+      },
+      "rating_durchschnitt": 4.4,
+      "rating_anzahl": 65,
+      "google_maps_url": "https://maps.google.com/?cid=10869024602390292609&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.museevisionnaire.ch/",
+      "telefon": "+41 44 251 66 57",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum",
+        "Museum für moderne Kunst",
+        "Wissenschaftsmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJG4qSjKe9mkcRXNd9Z5-KRnc",
+      "name": "Museum am Pfäffikersee",
+      "adresse": "Stogelenweg 2, 8330 Pfäffikon, Schweiz",
+      "koordinaten": {
+        "lat": 47.364281999999996,
+        "lng": 8.781395
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 51,
+      "google_maps_url": "https://maps.google.com/?cid=8594709356123903836&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.agp-pfaeffikon.ch/",
+      "telefon": "+41 44 951 07 03",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJKZ4T69QLkEcROk4-BiJlt_M",
+      "name": "Ortsmuseum Albisrieden",
+      "adresse": "Triemlistrasse 2, 8047 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.374399,
+        "lng": 8.483107
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 50,
+      "google_maps_url": "https://maps.google.com/?cid=17561616468762578490&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.ortsmuseum-albisrieden.ch/",
+      "telefon": "+41 44 492 03 31",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJDRpPF4kLkEcRHoFr3wu_eO8",
+      "name": "Museum Wagonsfabrik Schlieren",
+      "adresse": "Wagistrasse 15, 8952 Schlieren, Schweiz",
+      "koordinaten": {
+        "lat": 47.3995058,
+        "lng": 8.4576871
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 37,
+      "google_maps_url": "https://maps.google.com/?cid=17255752029983965470&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://wagonsfabrik.ch/",
+      "telefon": "+41 44 545 27 42",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJK_GNGKagmkcRjB-hvlZCaCY",
+      "name": "Graphische Sammlung ETH Zürich",
+      "adresse": "Eidgenössische Technische Hochschule Zürich, Rämistrasse 101, 8092 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3764203,
+        "lng": 8.5479948
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 43,
+      "google_maps_url": "https://maps.google.com/?cid=2767534911352020876&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.gs.ethz.ch/",
+      "telefon": "+41 44 632 40 46",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJqVajFZ2ZmkcRMJ_EwMcarIg",
+      "name": "Uhrenmuseum Winterthur",
+      "adresse": "Kirchpl. 14, 8400 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.499144199999996,
+        "lng": 8.7295631
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 36,
+      "google_maps_url": "https://maps.google.com/?cid=9848275930387357488&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.uhrenmuseumwinterthur.ch/",
+      "telefon": "+41 52 267 51 36",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJVaex4Q5zkEcRpzUwXRRMzPE",
+      "name": "Ateliers und Skulpturenpark",
+      "adresse": "8162 Steinmaur, Schweiz",
+      "koordinaten": {
+        "lat": 47.48587380000001,
+        "lng": 8.4453914
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 45,
+      "google_maps_url": "https://maps.google.com/?cid=17423384708736103847&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.skulpturenpark-steinmaur.ch/",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJaeqX97qumkcRWBJQo0MqivM",
+      "name": "Johanna-Spyri-Museum",
+      "adresse": "Dorfstrasse 48, 8816 Hirzel, Schweiz",
+      "koordinaten": {
+        "lat": 47.2164338,
+        "lng": 8.6064927
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 41,
+      "google_maps_url": "https://maps.google.com/?cid=17548885367993668184&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://spyri-museum.ch/de/",
+      "telefon": "+41 44 729 95 66",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJjaOuXHlehUcR-aPOPQpRC8k",
+      "name": "Rolf Knie Kunst AG",
+      "adresse": "Rütistrasse 165, 8645 Rapperswil-Jona, Schweiz",
+      "koordinaten": {
+        "lat": 47.244639899999996,
+        "lng": 8.82978
+      },
+      "rating_durchschnitt": 4.3,
+      "rating_anzahl": 53,
+      "google_maps_url": "https://maps.google.com/?cid=14486761730795807737&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://rolfknie.ch/",
+      "telefon": "+41 44 984 43 84",
+      "primary_type": "Kunstgalerie",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJZcoVFK0JkEcRG2ySdJLxMYQ",
+      "name": "Gedenkstein Dr. Arnold Bürkli",
+      "adresse": "General-Guisan-Quai 30, 8002 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.363489,
+        "lng": 8.5367999
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 39,
+      "google_maps_url": "https://maps.google.com/?cid=9525660298188581915&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.bürkliplatz.ch/arnold_buerkli/index.html",
+      "telefon": "+41 44 215 40 00",
+      "primary_type": "",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJN2GSx-YLkEcR2Z6XdFjTLpI",
+      "name": "Swiss Space Museum",
+      "adresse": "Trockenloostrasse 101, 8105 Regensdorf, Schweiz",
+      "koordinaten": {
+        "lat": 47.4418502,
+        "lng": 8.4710173
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 33,
+      "google_maps_url": "https://maps.google.com/?cid=10533588955332845273&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.swissspacemuseum.ch/",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Wissenschaftsmuseum",
+      "tags": [
+        "Wissenschaftsmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJq4AkuS0KkEcRSUZDtkZI3A0",
+      "name": "Stiftung FCZ Museum",
+      "adresse": "Freischützgasse 1, 8004 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.377088099999995,
+        "lng": 8.5324438
+      },
+      "rating_durchschnitt": 4.2,
+      "rating_anzahl": 55,
+      "google_maps_url": "https://maps.google.com/?cid=998752685912180297&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://fcz.ch/",
+      "telefon": "+41 43 521 12 12",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJzwnR4JG3mkcRjoMu88fG3Tk",
+      "name": "Schloss Rapperswil",
+      "adresse": "Lindenhügel, 8640 Rapperswil-Jona, Schweiz",
+      "koordinaten": {
+        "lat": 47.2272438,
+        "lng": 8.8156954
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 35,
+      "google_maps_url": "https://maps.google.com/?cid=4169707392095650702&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://schlossrapperswil.ch/ausstellung/?utm_source=google&utm_medium=gmb",
+      "telefon": "+41 55 225 79 00",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJqViuqkMKkEcRiLUMniZQVK8",
+      "name": "Zivilschutz-Museum (Schutz & Rettung Zürich)",
+      "adresse": "Habsburgstrasse 14, 8037 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.391920999999996,
+        "lng": 8.5269654
+      },
+      "rating_durchschnitt": 4.3,
+      "rating_anzahl": 49,
+      "google_maps_url": "https://maps.google.com/?cid=12633810981471696264&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.stadt-zuerich.ch/zivilschutzmuseum",
+      "telefon": "+41 44 411 21 12",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJJ6QkAR63mkcRCXZh-AgEajU",
+      "name": "Alte Fabrik",
+      "adresse": "Klaus-Gebert-Strasse 5, 8640 Rapperswil-Jona, Schweiz",
+      "koordinaten": {
+        "lat": 47.2273509,
+        "lng": 8.819745
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 36,
+      "google_maps_url": "https://maps.google.com/?cid=3848893268114896393&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://alte-fabrik.ch/",
+      "telefon": "+41 55 225 74 74",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJszz6_zt3kEcRoSbebXrf1po",
+      "name": "Ortsmuseum Eglisau Museum Eglisau",
+      "adresse": "Weierbachstrasse 6, 8193 Eglisau, Schweiz",
+      "koordinaten": {
+        "lat": 47.575672999999995,
+        "lng": 8.528219
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 39,
+      "google_maps_url": "https://maps.google.com/?cid=11157350843779262113&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.weierbachhus.ch/",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJy_ex0HOZmkcRb0mWsSIF9z4",
+      "name": "Jungkunst",
+      "adresse": "Barbara-Reinhart-Strasse 27/Halle 710, 8404 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.5045976,
+        "lng": 8.763128
+      },
+      "rating_durchschnitt": 4.2,
+      "rating_anzahl": 47,
+      "google_maps_url": "https://maps.google.com/?cid=4537100796165507439&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.jungkunst.ch/",
+      "telefon": "",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJH-Z57p6gmkcRAlP6Cw15FrQ",
+      "name": "MoneyMuseum",
+      "adresse": "Hadlaubstrasse 106, 8006 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.388719900000005,
+        "lng": 8.5516036
+      },
+      "rating_durchschnitt": 4.2,
+      "rating_anzahl": 46,
+      "google_maps_url": "https://maps.google.com/?cid=12976692473257153282&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.moneymuseum.com/",
+      "telefon": "+41 44 350 73 80",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJ5eeqQQcKkEcRP5xZ4zMh9yM",
+      "name": "Grabstein Lucius (Archäologisches Fenster)",
+      "adresse": "Lindenhofstrasse 19, 8001 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3726973,
+        "lng": 8.5407279
+      },
+      "rating_durchschnitt": 4.4,
+      "rating_anzahl": 37,
+      "google_maps_url": "https://maps.google.com/?cid=2591576617316359231&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "",
+      "telefon": "",
+      "primary_type": "Historische Sehenswürdigkeit",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Archäologisches Museum",
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJU-T9VoKZmkcRkR2-sIMLH-E",
+      "name": "Münzkabinett",
+      "adresse": "Villa Bühler, Lindstrasse 8, 8400 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.5030419,
+        "lng": 8.7310518
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 27,
+      "google_maps_url": "https://maps.google.com/?cid=16221697043045686673&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://muenzkabinett.ch/",
+      "telefon": "+41 52 267 51 46",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJ5wKcKjaumkcR8Y1erQCVXLI",
+      "name": "Kulturgarage",
+      "adresse": "Florhofstrasse 15, 8820 Wädenswil, Schweiz",
+      "koordinaten": {
+        "lat": 47.231462699999994,
+        "lng": 8.6696703
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 26,
+      "google_maps_url": "https://maps.google.com/?cid=12852311266749746673&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.kulturgarage-waedenswil.ch/",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJ3YVh9nGZmkcRgslBdx8u-UA",
+      "name": "Museum Schaffen",
+      "adresse": "Lagerpl. 9, 8400 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.4953207,
+        "lng": 8.7186521
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 29,
+      "google_maps_url": "https://maps.google.com/?cid=4681824000308005250&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.museumschaffen.ch/",
+      "telefon": "+41 52 550 51 28",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJhdBln2ekmkcRXF6HY3YOCe0",
+      "name": "Museen Maur - Burg Maur und Ortsmuseum Mühle",
+      "adresse": "Burgstrasse 8, 8124 Maur, Schweiz",
+      "koordinaten": {
+        "lat": 47.3384887,
+        "lng": 8.668528
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 25,
+      "google_maps_url": "https://maps.google.com/?cid=17080198963418062428&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.museenmaur.ch/",
+      "telefon": "+41 44 980 26 33",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJp90-BaygmkcRUsy4ZbZBMRQ",
+      "name": "Höllentor von Auguste Rodin",
+      "adresse": "Heimpl. 1, 8032 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.370450399999996,
+        "lng": 8.5481787
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 25,
+      "google_maps_url": "https://maps.google.com/?cid=1455016406263843922&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.zuerich.com/de/besuchen/sehenswuerdigkeiten/hoellentor-auguste-rodin",
+      "telefon": "",
+      "primary_type": "Skulptur",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJhd6kBu6xmkcRLFmt0kHE4NM",
+      "name": "Ortsmuseum Richterswil",
+      "adresse": "Dorfbachstrasse 12, 8805 Richterswil, Schweiz",
+      "koordinaten": {
+        "lat": 47.207187499999996,
+        "lng": 8.704334099999999
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 31,
+      "google_maps_url": "https://maps.google.com/?cid=15267418523772475692&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.ortsmuseum-richterswil.ch/",
+      "telefon": "+41 44 786 34 39",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJD8aDEqmgmkcRXRv_jzf7ZtU",
+      "name": "Kunstwarenhaus Galerie",
+      "adresse": "Neumarkt 6, 8001 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.372481799999996,
+        "lng": 8.5459485
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 28,
+      "google_maps_url": "https://maps.google.com/?cid=15377254193760770909&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.kunstwarenhaus.ch/",
+      "telefon": "+41 44 501 88 18",
+      "primary_type": "Kunstgalerie",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJcdj0YLMNkEcRuIyDfeQKyWI",
+      "name": "Ortsmuseum Dietikon",
+      "adresse": "Schöneggstrasse 20, 8953 Dietikon, Schweiz",
+      "koordinaten": {
+        "lat": 47.4016028,
+        "lng": 8.4033914
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 26,
+      "google_maps_url": "https://maps.google.com/?cid=7118232662510374072&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://stadtverein.ch/",
+      "telefon": "+41 44 740 48 54",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJYfF_gamgmkcRONQA0MlyKlM",
+      "name": "Ausstellung Zunftstadt Zürich",
+      "adresse": "Obere Zäune 19, 8001 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.371612,
+        "lng": 8.5447566
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 28,
+      "google_maps_url": "https://maps.google.com/?cid=5992728465273574456&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://zunftstadt.ch/",
+      "telefon": "+41 79 667 38 24",
+      "primary_type": "Historisches Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJdxeGo1GnmkcRBNC3yljPPNE",
+      "name": "Johann Jacobs Museum",
+      "adresse": "Seefeldquai 17, 8034 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3597233,
+        "lng": 8.5480754
+      },
+      "rating_durchschnitt": 3.8,
+      "rating_anzahl": 52,
+      "google_maps_url": "https://maps.google.com/?cid=15077153632794693636&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.johannjacobs.com/",
+      "telefon": "+41 44 388 61 90",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJA912noSomkcRTXJjxLJo_Gc",
+      "name": "Museum Thalwil",
+      "adresse": "Alte Landstrasse 100, 8800 Thalwil, Schweiz",
+      "koordinaten": {
+        "lat": 47.2912569,
+        "lng": 8.5663255
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 27,
+      "google_maps_url": "https://maps.google.com/?cid=7492978997045981773&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.museumthalwil.ch/",
+      "telefon": "+41 44 721 33 38",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJz8XLNkYKkEcRopr_C0s-Aus",
+      "name": "Toni-Areal",
+      "adresse": "Förrlibuckstrasse 109, 8005 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.390366900000004,
+        "lng": 8.5123751
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 27,
+      "google_maps_url": "https://maps.google.com/?cid=16934166040911256226&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "",
+      "telefon": "+41 43 446 50 00",
+      "primary_type": "Universität",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJbQHGoVSpmkcRw3vkXnk5l5M",
+      "name": "Sust Museum Horgen",
+      "adresse": "Bahnhofstrasse 27, 8810 Horgen, Schweiz",
+      "koordinaten": {
+        "lat": 47.26116,
+        "lng": 8.599526
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 25,
+      "google_maps_url": "https://maps.google.com/?cid=10635032238504573891&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://susthorgen.ch/",
+      "telefon": "+41 44 725 15 58",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Archäologisches Museum",
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJlRZkcVqmmkcRXIWyy1D5SKs",
+      "name": "Ortsmuseum Küsnacht",
+      "adresse": "Tobelweg 1, 8700 Küsnacht, Schweiz",
+      "koordinaten": {
+        "lat": 47.317261099999996,
+        "lng": 8.5869319
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 21,
+      "google_maps_url": "https://maps.google.com/?cid=12342388904219018588&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.ortsmuseum-kuesnacht.ch/",
+      "telefon": "+41 44 910 59 70",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJhQ4FKccLkEcRdZHH5Bkvo0s",
+      "name": "Ortsmuseum Altstetten",
+      "adresse": "Dachslernstrasse 20, 8048 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3885698,
+        "lng": 8.480653199999999
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 24,
+      "google_maps_url": "https://maps.google.com/?cid=5450251762307404149&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://ortsmuseum-altstetten.ch/",
+      "telefon": "+41 44 432 74 41",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJpXa7O6uRmkcRZoXdbgVdIOw",
+      "name": "Telephonica (Telefonmuseum)",
+      "adresse": "Hauptstrasse 15 Im Greuterhof, 8546 Islikon, Schweiz",
+      "koordinaten": {
+        "lat": 47.544670599999996,
+        "lng": 8.8405433
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 20,
+      "google_maps_url": "https://maps.google.com/?cid=17014701670121964902&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.telephonica.ch/",
+      "telefon": "+41 52 375 27 27",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJgxIWqvWgmkcRpU5btjeZZ1A",
+      "name": "Ortsmuseum Schwamendingen",
+      "adresse": "Probsteistrasse 10, 8051 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.401105199999996,
+        "lng": 8.5781315
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 18,
+      "google_maps_url": "https://maps.google.com/?cid=5793767910197120677&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.schwamendingen.info/immuseum.html",
+      "telefon": "+41 44 822 27 76",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJtcR9HTwKkEcRq6fhgehCkvM",
+      "name": "Art Dock Zürich",
+      "adresse": "Hohlstrasse 258, 8004 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.383327699999995,
+        "lng": 8.51607
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 18,
+      "google_maps_url": "https://maps.google.com/?cid=17551164264195139499&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.artdock.ch/",
+      "telefon": "+41 43 322 07 90",
+      "primary_type": "Kunstgalerie",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJs21tHTCxmkcR5i0LSQs5vRo",
+      "name": "Asterix und Obelix",
+      "adresse": "Brähenstrasse 143, 8708 Männedorf, Schweiz",
+      "koordinaten": {
+        "lat": 47.262966,
+        "lng": 8.7098567
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 19,
+      "google_maps_url": "https://maps.google.com/?cid=1926758936217333222&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJi-KPd8hvkEcRahjguXOz7L4",
+      "name": "Lounge-Bank mit AUSSICHT",
+      "adresse": "Unnamed Road, 79771, 79771 Hohentengen am Hochrhein, Deutschland",
+      "koordinaten": {
+        "lat": 47.604497699999996,
+        "lng": 8.4116854
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 19,
+      "google_maps_url": "https://maps.google.com/?cid=13757568271331104874&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJeYJDMtyvmkcRVhfEPdZFvDk",
+      "name": "Kulturschüür",
+      "adresse": "Alte Landstrasse 230, 8708 Männedorf, Schweiz",
+      "koordinaten": {
+        "lat": 47.2539525,
+        "lng": 8.6937414
+      },
+      "rating_durchschnitt": 4.9,
+      "rating_anzahl": 16,
+      "google_maps_url": "https://maps.google.com/?cid=4160276942245074774&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.kulturschüür.ch/",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJe7UIAEygmkcRY3UxYfeksAQ",
+      "name": "Ortsmuseum Wallisellen",
+      "adresse": "Riedenerstrasse 75, 8304 Wallisellen, Schweiz",
+      "koordinaten": {
+        "lat": 47.41820140000001,
+        "lng": 8.5979279
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 17,
+      "google_maps_url": "https://maps.google.com/?cid=337951354447295843&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.wallisellen.ch/freizeitortsmuseum",
+      "telefon": "+41 44 883 78 93",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJszO6D6e5mkcRGqBRxdS2VsU",
+      "name": "Ortsmuseum Hinwil",
+      "adresse": "Oberdorfstrasse 11, 8340 Hinwil, Schweiz",
+      "koordinaten": {
+        "lat": 47.30225,
+        "lng": 8.84605
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 18,
+      "google_maps_url": "https://maps.google.com/?cid=14219753898428702746&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.ortsmuseum.ch/",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJ_1GwRf-6mkcRTYYGZ6bVYsU",
+      "name": "Imkereimuseum Müli",
+      "adresse": "8625 Grüningen, Schweiz",
+      "koordinaten": {
+        "lat": 47.2847228,
+        "lng": 8.7605344
+      },
+      "rating_durchschnitt": 4.9,
+      "rating_anzahl": 15,
+      "google_maps_url": "https://maps.google.com/?cid=14223165483859215949&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.imkereimuseum.ch/",
+      "telefon": "+41 55 243 19 08",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJ8Zi_aVKnmkcR9LV6Xddeiho",
+      "name": "Jedlitschka Gallery",
+      "adresse": "Seefeldstrasse 52, 8008 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.362486600000004,
+        "lng": 8.5502065
+      },
+      "rating_durchschnitt": 4.9,
+      "rating_anzahl": 15,
+      "google_maps_url": "https://maps.google.com/?cid=1912445270851499508&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.jedlitschka-gallery.ch/",
+      "telefon": "+41 44 252 35 30",
+      "primary_type": "Kunstgalerie",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJQ2Ja_wUKkEcRfreFskKTK-4",
+      "name": "Galerie Mark Müller",
+      "adresse": "Hafnerstrasse 44, 8005 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.381692,
+        "lng": 8.53643
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 19,
+      "google_maps_url": "https://maps.google.com/?cid=17161972719697639294&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.markmueller.ch/",
+      "telefon": "+41 44 211 81 55",
+      "primary_type": "Kunstgalerie",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJfeo9XyIMkEcR_pAbj9KNR8c",
+      "name": "Stiftung Ortsmuseum Urdorf",
+      "adresse": "Birmensdorferstrasse 102, 8902 Urdorf, Schweiz",
+      "koordinaten": {
+        "lat": 47.382787,
+        "lng": 8.4219108
+      },
+      "rating_durchschnitt": 4.3,
+      "rating_anzahl": 21,
+      "google_maps_url": "https://maps.google.com/?cid=14359601872377712894&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://ortsmuseum-urdorf.ch/",
+      "telefon": "+41 44 734 14 88",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJrcOCdMC7mkcRMaeYoI02GHY",
+      "name": "Museum Wetzikon",
+      "adresse": "Farbstrasse 1, 8620 Wetzikon, Schweiz",
+      "koordinaten": {
+        "lat": 47.326361,
+        "lng": 8.7967097
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 15,
+      "google_maps_url": "https://maps.google.com/?cid=8509611477829199665&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.museum-wetzikon.ch/",
+      "telefon": "+41 44 930 00 61",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Archäologisches Museum",
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJRY3Alv8JkEcRgcR1dm3LG3E",
+      "name": "ART INTERNATIONAL ZURICH - Internationale Kunstmesse in Zürich / Contemporary Art Fair",
+      "adresse": "PULS 5 - Giessereihalle, Giessereistrasse 18, 8005 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.390499999999996,
+        "lng": 8.517844
+      },
+      "rating_durchschnitt": 3.8,
+      "rating_anzahl": 29,
+      "google_maps_url": "https://maps.google.com/?cid=8150331621656347777&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.art-zurich.com/",
+      "telefon": "+41 76 332 24 36",
+      "primary_type": "Veranstaltungsstätte",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJUwjcf_UJkEcRFV76PtnquH0",
+      "name": "Heimat- und Ortsmuseum Wiedikon",
+      "adresse": "Steinstrasse 8, 8003 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3682549,
+        "lng": 8.5195692
+      },
+      "rating_durchschnitt": 4.3,
+      "rating_anzahl": 19,
+      "google_maps_url": "https://maps.google.com/?cid=9059248869241150997&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.ortsmuseum-wiedikon.ch/",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJ6TMOSACfmkcR3QAI_1kuiBs",
+      "name": "Museum klassischen Archäologien",
+      "adresse": "Institute of Art History, Rämistrasse 73, 8006 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3754511,
+        "lng": 8.548917
+      },
+      "rating_durchschnitt": 4.4,
+      "rating_anzahl": 17,
+      "google_maps_url": "https://maps.google.com/?cid=1983886599922385117&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.archaeologie.uzh.ch/de/klarch.html",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Archäologisches Museum",
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJ4eOFZjinmkcRkJP31SA_Fcw",
+      "name": "Stiftung Sammlung E. G. Bührle",
+      "adresse": "Bleicherweg 18, 8002 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3683731,
+        "lng": 8.5364461
+      },
+      "rating_durchschnitt": 4.4,
+      "rating_anzahl": 17,
+      "google_maps_url": "https://maps.google.com/?cid=14705729568509498256&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.buehrle.ch/",
+      "telefon": "+41 44 422 00 86",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJC2i9_yGSmkcROZ7Tqo-ifHw",
+      "name": "Museum für Archäologie",
+      "adresse": "Freiestrasse 24, 8510 Frauenfeld, Schweiz",
+      "koordinaten": {
+        "lat": 47.5564402,
+        "lng": 8.8984503
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 15,
+      "google_maps_url": "https://maps.google.com/?cid=8970223295745203769&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://archaeologiemuseum.tg.ch/",
+      "telefon": "+41 58 345 74 00",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Archäologisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJdxfCIFKwmkcRkH8N_eibe2s",
+      "name": "Museum zur Farb",
+      "adresse": "Dorfstrasse 15, 8712 Stäfa, Schweiz",
+      "koordinaten": {
+        "lat": 47.238662299999994,
+        "lng": 8.7343102
+      },
+      "rating_durchschnitt": 4.4,
+      "rating_anzahl": 16,
+      "google_maps_url": "https://maps.google.com/?cid=7744955409173938064&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.lesegesellschaft.ch/",
+      "telefon": "+41 44 926 64 38",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJ47RdjEoLkEcRaFFVymrcV3g",
+      "name": "Science Pavilion UZH",
+      "adresse": "Winterthurerstrasse 190 Gebaude Y10, 8057 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3977764,
+        "lng": 8.5472215
+      },
+      "rating_durchschnitt": 4.4,
+      "rating_anzahl": 16,
+      "google_maps_url": "https://maps.google.com/?cid=8671641958744412520&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.sciencepavilion.uzh.ch/de.html",
+      "telefon": "+41 44 635 49 54",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Wissenschaftsmuseum",
+      "tags": [
+        "Wissenschaftsmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJL4MSaiaOmkcRZmt7h9JBZYM",
+      "name": "Kunstmuseum Thurgau",
+      "adresse": "Kartause Ittingen, 8532 Warth, Schweiz",
+      "koordinaten": {
+        "lat": 47.583599899999996,
+        "lng": 8.86636
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 14,
+      "google_maps_url": "https://maps.google.com/?cid=9468046164088286054&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.kunstmuseum.tg.ch/",
+      "telefon": "+41 58 345 10 60",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJwclTSWsKkEcRfqhugri9gsU",
+      "name": "Lullin + Ferrari",
+      "adresse": "Limmatstrasse 214, 8005 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.387711599999996,
+        "lng": 8.527538999999999
+      },
+      "rating_durchschnitt": 5,
+      "rating_anzahl": 11,
+      "google_maps_url": "https://maps.google.com/?cid=14232146372604110974&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.lullinferrari.com/",
+      "telefon": "+41 43 205 26 07",
+      "primary_type": "Kunstgalerie",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJ45DGBG-vmkcRbwtn7MJArw0",
+      "name": "Ortsmuseum",
+      "adresse": "Kirchgasse 14, 8706 Meilen, Schweiz",
+      "koordinaten": {
+        "lat": 47.268437999999996,
+        "lng": 8.640653
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 13,
+      "google_maps_url": "https://maps.google.com/?cid=986078049351437167&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.ortsmuseum-meilen.ch/",
+      "telefon": "+41 44 923 47 27",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Archäologisches Museum",
+        "Historisches Museum",
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJYe8mk911kEcR3cB0xVl_WVw",
+      "name": "Museum Bülach",
+      "adresse": "Brunngasse 1, 8180 Bülach, Schweiz",
+      "koordinaten": {
+        "lat": 47.5176435,
+        "lng": 8.541426399999999
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 12,
+      "google_maps_url": "https://maps.google.com/?cid=6654489947958198493&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.museum-buelach.ch/",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Archäologisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJK8Ni7moKkEcRBtYvTpxw8_E",
+      "name": "Galerie Peter Kilchmann",
+      "adresse": "Zahnradstrasse 21, 8005 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.386443299999996,
+        "lng": 8.5171915
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 12,
+      "google_maps_url": "https://maps.google.com/?cid=17434402399110288902&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.peterkilchmann.com/",
+      "telefon": "+41 44 278 10 10",
+      "primary_type": "Kunstgalerie",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJ0QwOkSGlmkcRnktpv4yCDdw",
+      "name": "Bechtler Stiftung",
+      "adresse": "Weiherweg 1, 8610 Uster, Schweiz",
+      "koordinaten": {
+        "lat": 47.347321199999996,
+        "lng": 8.7036842
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 13,
+      "google_maps_url": "https://maps.google.com/?cid=15856473404059765662&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.bechtlerstiftung.ch/",
+      "telefon": "+41 44 521 25 20",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJQ4VG37sJkEcR2BGsmIw3nXo",
+      "name": "Ngala African Contemporary Art Space",
+      "adresse": "Seestrasse 92, 8002 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3591978,
+        "lng": 8.531974199999999
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 12,
+      "google_maps_url": "https://maps.google.com/?cid=8835279120967143896&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.ngala.ch/",
+      "telefon": "+41 44 210 02 44",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJRSvtfqygmkcRJ02VKy9NjQo",
+      "name": "Kunstberatung Zürich AG",
+      "adresse": "Börsenstrasse 27, 8001 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3676015,
+        "lng": 8.5389442
+      },
+      "rating_durchschnitt": 5,
+      "rating_anzahl": 10,
+      "google_maps_url": "https://maps.google.com/?cid=760348777085488423&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://kunstberatung-zurich.com/",
+      "telefon": "+41 44 381 50 40",
+      "primary_type": "Kunstgalerie",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJmcKh3y0LkEcR0sO9-pcmBBE",
+      "name": "Livie Gallery",
+      "adresse": "Claridenstrasse 34, 8002 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.367821,
+        "lng": 8.5373065
+      },
+      "rating_durchschnitt": 5,
+      "rating_anzahl": 10,
+      "google_maps_url": "https://maps.google.com/?cid=1226147432740275154&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.liviegallery.com/",
+      "telefon": "+41 78 631 89 26",
+      "primary_type": "Kunstgalerie",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJL_A4P52ZmkcRSpQ07oOw-8M",
+      "name": "Kunsthalle Winterthur",
+      "adresse": "Marktgasse 25, 8400 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.4996311,
+        "lng": 8.7289815
+      },
+      "rating_durchschnitt": 4.1,
+      "rating_anzahl": 17,
+      "google_maps_url": "https://maps.google.com/?cid=14122075137233949770&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://kunsthallewinterthur.ch/",
+      "telefon": "+41 52 267 51 32",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJqVYfrRcKkEcRrEaYb3F0RwM",
+      "name": "Starkart Art Gallery",
+      "adresse": "Brauerstrasse 126, 8004 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.380274799999995,
+        "lng": 8.5226461
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 11,
+      "google_maps_url": "https://maps.google.com/?cid=236285536012617388&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://starkart.org",
+      "telefon": "",
+      "primary_type": "",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum",
+        "Museum für moderne Kunst"
+      ]
+    },
+    {
+      "place_id": "ChIJ76ES_newmkcRjohc6hj6TZw",
+      "name": "Weinbau-und Landwirtschaftsmuseum",
+      "adresse": "Holzhausen, 8618 Oetwil am See, Schweiz",
+      "koordinaten": {
+        "lat": 47.2709251,
+        "lng": 8.7403468
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 12,
+      "google_maps_url": "https://maps.google.com/?cid=11262933228041570446&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://museumholzhausen.ch/",
+      "telefon": "+41 44 929 19 79",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJP99YbgAPkEcRIe4sBUp2u2I",
+      "name": "Kristallmuseum",
+      "adresse": "Kelleramtstrasse 13, 8905 Arni, Schweiz",
+      "koordinaten": {
+        "lat": 47.3184979,
+        "lng": 8.4195282
+      },
+      "rating_durchschnitt": 5,
+      "rating_anzahl": 9,
+      "google_maps_url": "https://maps.google.com/?cid=7114410096648318497&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJLZwtNQcKkEcRftT5UOs4zxc",
+      "name": "Galerie Ypsilon",
+      "adresse": "Augustinergasse 6, 8001 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3715925,
+        "lng": 8.5402855
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 11,
+      "google_maps_url": "https://maps.google.com/?cid=1715652566378468478&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://ikonengalerie.ch/",
+      "telefon": "+41 44 211 65 01",
+      "primary_type": "Kunstgalerie",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJ2w_SP54MkEcRIe-3BfORVlY",
+      "name": "Gemeindemuseum Regensdorf",
+      "adresse": "Mühlestrasse 22, 8105 Regensdorf, Schweiz",
+      "koordinaten": {
+        "lat": 47.429821499999996,
+        "lng": 8.463580199999999
+      },
+      "rating_durchschnitt": 4.2,
+      "rating_anzahl": 14,
+      "google_maps_url": "https://maps.google.com/?cid=6221320408217939745&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.regensdorf.ch/de/verwaltung/aemter/welcome.php?amt_id=5345",
+      "telefon": "+41 44 842 36 11",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJ51eYQuK5mkcRorSKVUiQVmc",
+      "name": "Château Grenouille Kunst & Interieur",
+      "adresse": "Wolfhauserstrasse 6, 8608 Bubikon, Schweiz",
+      "koordinaten": {
+        "lat": 47.2679839,
+        "lng": 8.8185691
+      },
+      "rating_durchschnitt": 4.9,
+      "rating_anzahl": 9,
+      "google_maps_url": "https://maps.google.com/?cid=7446297674250892450&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.chateau-grenouille.ch/",
+      "telefon": "+41 55 243 21 86",
+      "primary_type": "",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJabIHG-28mkcRXG3W6Qcia6w",
+      "name": "Schreibmaschinenmuseum Beck",
+      "adresse": "Speckstrasse 3, 8330 Pfäffikon, Schweiz",
+      "koordinaten": {
+        "lat": 47.3706565,
+        "lng": 8.770764
+      },
+      "rating_durchschnitt": 4.7,
+      "rating_anzahl": 10,
+      "google_maps_url": "https://maps.google.com/?cid=12424061414414904668&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.curta.ch/",
+      "telefon": "+41 44 950 36 00",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJzw9sW2OnmkcRCqpxm2leZhc",
+      "name": "Ortsmuseum Wollishofen",
+      "adresse": "Widmerstrasse 8, 8038 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.3382408,
+        "lng": 8.5373077
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 9,
+      "google_maps_url": "https://maps.google.com/?cid=1686138918169324042&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.wollishofen-zh.ch/ortsmuseum",
+      "telefon": "+41 44 481 50 20",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJv81c3vmZmkcR--0xJTtCpsk",
+      "name": "oxyd – Kunsträume",
+      "adresse": "u. Vogelsangstrasse 4, 8400 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.497851399999995,
+        "lng": 8.7226802
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 9,
+      "google_maps_url": "https://maps.google.com/?cid=14530374069552016891&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.oxydart.ch/",
+      "telefon": "+41 52 316 29 20",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJjTQCZox3kEcRZrB1kcYtmNA",
+      "name": "Gattersagi",
+      "adresse": "Hohlegasse 10, 8454 Buchberg, Schweiz",
+      "koordinaten": {
+        "lat": 47.5718579,
+        "lng": 8.5608428
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 10,
+      "google_maps_url": "https://maps.google.com/?cid=15030814087216214118&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.gattersagi.ch/",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJI-2Ko30MkEcRb2hL_KVwNlU",
+      "name": "Ortsmuseum",
+      "adresse": "8103 Unterengstringen, Schweiz",
+      "koordinaten": {
+        "lat": 47.4145349,
+        "lng": 8.4560996
+      },
+      "rating_durchschnitt": 4.3,
+      "rating_anzahl": 12,
+      "google_maps_url": "https://maps.google.com/?cid=6140219000170965103&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.ortsmuseum-unterengstringen.ch/",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJzT-NKFyZmkcR2marTqwS5_o",
+      "name": "Atelier Marlies Steiner",
+      "adresse": "Oberfeldstrasse 50, 8408 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.5073729,
+        "lng": 8.7016405
+      },
+      "rating_durchschnitt": 4,
+      "rating_anzahl": 14,
+      "google_maps_url": "https://maps.google.com/?cid=18079439760365676250&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.atelier-marlies-steiner.ch/",
+      "telefon": "+41 52 222 07 14",
+      "primary_type": "",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJceIan5CZmkcRMNRg5c4uf9U",
+      "name": "Fotozentrum",
+      "adresse": "Grüzenstrasse 44, 8400 Winterthur, Schweiz",
+      "koordinaten": {
+        "lat": 47.4961412,
+        "lng": 8.7389043
+      },
+      "rating_durchschnitt": 4.5,
+      "rating_anzahl": 10,
+      "google_maps_url": "https://maps.google.com/?cid=15384066318267372592&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kunstmuseum",
+      "tags": [
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJpVXH7HMMkEcR4FOaCAQ4GqA",
+      "name": "Ortsmuseum",
+      "adresse": "Badenerstrasse 15, 8952 Schlieren, Schweiz",
+      "koordinaten": {
+        "lat": 47.397259999999996,
+        "lng": 8.4451673
+      },
+      "rating_durchschnitt": 3.9,
+      "rating_anzahl": 14,
+      "google_maps_url": "https://maps.google.com/?cid=11536594985438303200&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.ortsmuseumschlieren.ch/",
+      "telefon": "+41 79 417 74 51",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJl6Nry5ynmkcRJplUpD6EuDI",
+      "name": "Bauerhof Kilchberg",
+      "adresse": "Stockenstrasse 86, 8802 Kilchberg, Schweiz",
+      "koordinaten": {
+        "lat": 47.323864799999996,
+        "lng": 8.5400742
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 8,
+      "google_maps_url": "https://maps.google.com/?cid=3654816502191003942&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJEbEGaZOvmkcRdjw-RJIZ43s",
+      "name": "Uetiker Museum",
+      "adresse": "Bergstrasse 109, 8707 Uetikon am See, Schweiz",
+      "koordinaten": {
+        "lat": 47.263531799999996,
+        "lng": 8.6772788
+      },
+      "rating_durchschnitt": 4.9,
+      "rating_anzahl": 7,
+      "google_maps_url": "https://maps.google.com/?cid=8927007002379304054&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.uetikermuseum.ch/",
+      "telefon": "+41 43 843 59 31",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJE4bRJxWRmkcRtauUToEhhA8",
+      "name": "WG zum theologischen Bananenbrot",
+      "adresse": "Schaffhauserstrasse 7a, 8500 Frauenfeld, Schweiz",
+      "koordinaten": {
+        "lat": 47.5606867,
+        "lng": 8.888767099999999
+      },
+      "rating_durchschnitt": 3.5,
+      "rating_anzahl": 17,
+      "google_maps_url": "https://maps.google.com/?cid=1118055446747589557&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Archäologisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJWez9SqqhmkcRFGoATB120-A",
+      "name": "Raumschiff",
+      "adresse": "Am Wasser 4, 8600 Dübendorf, Schweiz",
+      "koordinaten": {
+        "lat": 47.4036517,
+        "lng": 8.6047088
+      },
+      "rating_durchschnitt": 3.9,
+      "rating_anzahl": 12,
+      "google_maps_url": "https://maps.google.com/?cid=16200422152783030804&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://raumschiff.org/",
+      "telefon": "",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Kindermuseum",
+      "tags": [
+        "Kindermuseum",
+        "Wissenschaftsmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJB-BbeMSwmkcRGWBLs1pQy0M",
+      "name": "Dorfmuseum Hombrechtikon",
+      "adresse": "Langenrietstrasse 6, 8634 Hombrechtikon, Schweiz",
+      "koordinaten": {
+        "lat": 47.2433712,
+        "lng": 8.7766865
+      },
+      "rating_durchschnitt": 4.6,
+      "rating_anzahl": 7,
+      "google_maps_url": "https://maps.google.com/?cid=4885086571298775065&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.prohombrechtikon.ch/",
+      "telefon": "+41 55 244 47 16",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJ2-W6xCixmkcRIcUhPDsea88",
+      "name": "Helen Dahm Museum",
+      "adresse": "Chilenrain 10, 8618 Oetwil am See, Schweiz",
+      "koordinaten": {
+        "lat": 47.2703711,
+        "lng": 8.7225328
+      },
+      "rating_durchschnitt": 5,
+      "rating_anzahl": 5,
+      "google_maps_url": "https://maps.google.com/?cid=14946073028119872801&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.helen-dahm.ch/",
+      "telefon": "",
+      "primary_type": "Art museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum",
+        "Kunstmuseum"
+      ]
+    },
+    {
+      "place_id": "ChIJ9f2RAou8mkcRJncm_RXEPXM",
+      "name": "Heimatmuseum Pfäffikon",
+      "adresse": "Stogelenweg 2, 8330 Pfäffikon, Schweiz",
+      "koordinaten": {
+        "lat": 47.3642997,
+        "lng": 8.781411600000002
+      },
+      "rating_durchschnitt": 5,
+      "rating_anzahl": 5,
+      "google_maps_url": "https://maps.google.com/?cid=8304008886661576486&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.agp-pfaeffikon.ch/",
+      "telefon": "+41 44 951 07 03",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJZbT_jlCjmkcR5Bkfv511OFg",
+      "name": "Sammlungszentrum «Historisches Armeematerial Kommunikation und Übermittlung»",
+      "adresse": "Winikerstrasse 31, 8610 Uster, Schweiz",
+      "koordinaten": {
+        "lat": 47.3599049,
+        "lng": 8.7220737
+      },
+      "rating_durchschnitt": 4.3,
+      "rating_anzahl": 7,
+      "google_maps_url": "https://maps.google.com/?cid=6356960194410256868&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "https://www.hamfu.ch/de/",
+      "telefon": "+41 44 940 62 10",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    },
+    {
+      "place_id": "ChIJfWNdPygLkEcRu99RwhjHwFQ",
+      "name": "Living Museum Zürich",
+      "adresse": "Hardgutstrasse 7, 8048 Zürich, Schweiz",
+      "koordinaten": {
+        "lat": 47.385601300000005,
+        "lng": 8.5046769
+      },
+      "rating_durchschnitt": 4.8,
+      "rating_anzahl": 5,
+      "google_maps_url": "https://maps.google.com/?cid=6107100003867680699&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.lmzh.ch/",
+      "telefon": "+41 76 303 33 64",
+      "primary_type": "Kunstatelier",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Allgemeines Museum",
+      "tags": []
+    },
+    {
+      "place_id": "ChIJ5UXbjqiWmkcROTWwrubiRRQ",
+      "name": "Heimatmuseum Elgg",
+      "adresse": "Humbergstrasse 17, 8353 Elgg, Schweiz",
+      "koordinaten": {
+        "lat": 47.4889398,
+        "lng": 8.873066999999999
+      },
+      "rating_durchschnitt": 4.2,
+      "rating_anzahl": 6,
+      "google_maps_url": "https://maps.google.com/?cid=1460823134552732985&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "website": "http://www.heimatmuseum-elgg.ch/",
+      "telefon": "+41 52 364 21 32",
+      "primary_type": "Museum",
+      "business_status": "OPERATIONAL",
+      "hauptkategorie": "Kultur & Natur",
+      "kategorie": "Museen",
+      "unterkategorie": "Historisches Museum",
+      "tags": [
+        "Historisches Museum"
+      ]
+    }
+  ]
+}
