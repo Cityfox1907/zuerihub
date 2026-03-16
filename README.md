@@ -1,6 +1,4 @@
-# ZüriHub – Entdecke Zürich
-
-Professionelles Stadtportal für den Kanton Zürich. Built with Next.js 15, React 19, Tailwind CSS 4.
+5, React 19, Tailwind CSS 4.
 
 ## Stack
 - **Frontend:** Next.js 15 (App Router) + React 19
