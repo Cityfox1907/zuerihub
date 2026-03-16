@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback, useMemo } from 'react'
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import Header from '@/components/Header'
 import NavTabs from '@/components/NavTabs'
 import Hero from '@/components/Hero'
@@ -87,18 +87,24 @@ export default function HomePage() {
         <SpotRow icon="🔥" title="Beliebt in Zürich" items={sorted.slice(0, 10)} onOpenModal={setModalSpot} />
         <SectionDivider label="🍽️ Gastronomie" />
         <SpotRow icon="🍽️" title="Beliebteste Restaurants" items={topRestaurants.slice(0, 10)} link="/gastronomie" onOpenModal={setModalSpot} />
-        {topMuseen.length >= 3 && <>
-          <SectionDivider label="🖼️ Museen" />
-          <SpotRow icon="🖼️" title="Top Museen" items={topMuseen.slice(0, 10)} link="/kultur" onOpenModal={setModalSpot} />
-        </>}
-        {topShops.length >= 3 && <>
-          <SectionDivider label="🛍️ Shops" />
-          <SpotRow icon="🛍️" title="Beliebte Shops" items={topShops.slice(0, 10)} link="/shops" onOpenModal={setModalSpot} />
-        </>}
-        {topFun.length >= 3 && <>
-          <SectionDivider label="🎮 Spiel & Spass" />
-          <SpotRow icon="🎮" title="Top Entertainment" items={topFun.slice(0, 10)} link="/spiel-spass" onOpenModal={setModalSpot} />
-        </>}
+        <LazySection>
+          {topMuseen.length >= 3 && <>
+            <SectionDivider label="🖼️ Museen" />
+            <SpotRow icon="🖼️" title="Top Museen" items={topMuseen.slice(0, 10)} link="/kultur" onOpenModal={setModalSpot} />
+          </>}
+        </LazySection>
+        <LazySection>
+          {topShops.length >= 3 && <>
+            <SectionDivider label="🛍️ Shops" />
+            <SpotRow icon="🛍️" title="Beliebte Shops" items={topShops.slice(0, 10)} link="/shops" onOpenModal={setModalSpot} />
+          </>}
+        </LazySection>
+        <LazySection>
+          {topFun.length >= 3 && <>
+            <SectionDivider label="🎮 Spiel & Spass" />
+            <SpotRow icon="🎮" title="Top Entertainment" items={topFun.slice(0, 10)} link="/spiel-spass" onOpenModal={setModalSpot} />
+          </>}
+        </LazySection>
       </div>
 
       <Footer />
@@ -146,6 +152,33 @@ function MiniPulseBanner({ event }) {
       )}
       <span style={{ fontSize: '.75rem', opacity: .7 }}>›</span>
     </a>
+  )
+}
+
+function LazySection({ children }) {
+  const ref = useRef(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '200px' }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div ref={ref} style={{ minHeight: visible ? 'auto' : 100 }}>
+      {visible ? children : null}
+    </div>
   )
 }
 

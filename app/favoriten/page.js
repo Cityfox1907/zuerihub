@@ -55,7 +55,7 @@ export default function FavoritenPage() {
                   <span>{SOURCE_EMOJI[source]}</span> {info.label}
                   <span style={{ fontSize: '.78rem', fontWeight: 500, color: 'var(--text3)' }}>({grouped[source].length})</span>
                 </h2>
-                <div className="fav-group-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(195px, 1fr))', gap: '.75rem' }}>
+                <div className="fav-group-grid spot-grid" style={{ display: 'grid', gap: '.75rem' }}>
                   {grouped[source].map((spot, i) => <SpotCard key={spot.id || i} spot={spot} rank={-1} onClick={() => setModalSpot(spot)} />)}
                 </div>
               </div>

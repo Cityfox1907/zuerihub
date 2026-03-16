@@ -20,7 +20,7 @@ export default function SpotCard({ spot, rank, onClick }) {
 
   return (
     <div onClick={onClick} style={{
-      flex: '0 0 195px', minWidth: 195, scrollSnapAlign: 'start', cursor: 'pointer',
+      cursor: 'pointer',
       background: 'var(--card-bg)', borderRadius: 'var(--radius)', overflow: 'hidden',
       boxShadow: 'var(--shadow-soft)', transition: 'transform .25s, box-shadow .25s',
       border: '1px solid var(--border-light)', position: 'relative',
@@ -32,7 +32,7 @@ export default function SpotCard({ spot, rank, onClick }) {
       {spot.r >= 4.8 && <div style={{ position: 'absolute', top: 6, right: 6, zIndex: 2, fontSize: '.6rem', fontWeight: 700, padding: '.15rem .35rem', borderRadius: 8, background: 'rgba(234,179,8,.12)', color: '#b45309', border: '1px solid rgba(234,179,8,.2)' }}>⭐ Top</div>}
       {favorited && <div style={{ position: 'absolute', top: spot.r >= 4.8 ? 26 : 6, right: 6, zIndex: 2, fontSize: '.7rem', lineHeight: 1 }}>⭐</div>}
 
-      <PhotoCarousel placeId={spot.id} height={80} fallbackEmoji={emoji} />
+      <PhotoCarousel placeId={spot.id} height={80} fallbackEmoji={emoji} single />
 
       <div style={{ padding: '.5rem .6rem .6rem' }}>
         <div style={{ fontWeight: 700, fontSize: '.82rem', color: 'var(--text)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{spot.name}</div>
