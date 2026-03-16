@@ -6,18 +6,18 @@ import { getSourceInfo } from '@/lib/data'
 
 const TIERS = [
   { key: 'ultra', label: 'Ultra-Geheimtipp', emoji: '🔮', min: 42, max: 80, color: '#7c3aed', bg: 'rgba(124,58,237,.08)', count: 1 },
-  { key: 'hidden', label: 'Hidden Gem', emoji: '💎', min: 80, max: 250, color: '#0ea5e9', bg: 'rgba(14,165,233,.08)', count: 2 },
+  { key: 'hidden', label: 'Hidden Gem', emoji: '💎', min: 80, max: 250, color: '#0ea5e9', bg: 'rgba(14,165,233,.08)', count: 1 },
   { key: 'champion', label: 'Champion', emoji: '🏆', min: 250, max: Infinity, color: '#d97706', bg: 'rgba(217,119,6,.08)', count: 2 },
 ]
 
-function getSeen() { try { return JSON.parse(localStorage.getItem('zh-dice-seen') || '[]') } catch { return [] } }
-function addSeen(ids) { const s = new Set(getSeen()); ids.forEach(id => s.add(id)); localStorage.setItem('zh-dice-seen', JSON.stringify([...s])) }
-function clearSeen() { localStorage.removeItem('zh-dice-seen') }
+function getSeenKey(storageKey) { return storageKey || 'zh-dice-seen' }
+function getSeen(storageKey) { try { return JSON.parse(localStorage.getItem(getSeenKey(storageKey)) || '[]') } catch { return [] } }
+function addSeen(ids, storageKey) { const s = new Set(getSeen(storageKey)); ids.forEach(id => s.add(id)); localStorage.setItem(getSeenKey(storageKey), JSON.stringify([...s])) }
+function clearSeen(storageKey) { localStorage.removeItem(getSeenKey(storageKey)) }
 
 function pickFromTier(pool, count, seen, usedSources) {
   const unseen = pool.filter(p => !seen.has(p.id))
   if (unseen.length === 0) return []
-  // Prefer diverse sources
   const bySource = {}
   unseen.forEach(p => { (bySource[p.source] = bySource[p.source] || []).push(p) })
   const sources = Object.keys(bySource).sort((a, b) => {
@@ -41,7 +41,7 @@ function pickFromTier(pool, count, seen, usedSources) {
   return picked
 }
 
-export default function GeheimtippDice({ allSpots, onOpenModal }) {
+export default function GeheimtippDice({ allSpots, onOpenModal, storageKey }) {
   const [cards, setCards] = useState([])
   const [animating, setAnimating] = useState(false)
   const [allDiscovered, setAllDiscovered] = useState(false)
@@ -53,7 +53,7 @@ export default function GeheimtippDice({ allSpots, onOpenModal }) {
 
   const roll = useCallback(() => {
     if (animating) return
-    const seen = new Set(getSeen())
+    const seen = new Set(getSeen(storageKey))
     const usedSources = new Set()
     const allPicked = []
 
@@ -78,28 +78,28 @@ export default function GeheimtippDice({ allSpots, onOpenModal }) {
       setTimeout(() => {
         setFlyOut(false)
         setCards(allPicked)
-        addSeen(allPicked.map(p => p.id))
+        addSeen(allPicked.map(p => p.id), storageKey)
         setBtnState('success')
         setTimeout(() => { setAnimating(false); setBtnState('idle') }, 1200)
       }, 350)
     } else {
       setCards(allPicked)
-      addSeen(allPicked.map(p => p.id))
+      addSeen(allPicked.map(p => p.id), storageKey)
       setAnimating(true)
       setBtnState('success')
       setTimeout(() => { setAnimating(false); setBtnState('idle') }, 1200)
     }
-  }, [qualified, cards, animating])
+  }, [qualified, cards, animating, storageKey])
 
   const restart = () => {
-    clearSeen()
+    clearSeen(storageKey)
     setAllDiscovered(false)
     setCards([])
     setBtnState('idle')
   }
 
   const totalPool = qualified.length
-  const seenCount = getSeen().filter(id => qualified.some(p => p.id === id)).length
+  const seenCount = getSeen(storageKey).filter(id => qualified.some(p => p.id === id)).length
 
   const srcColors = {
     gastro: '#2563eb', attr: '#7c3aed', museum: '#d97706', shop: '#16a34a', fun: '#db2777',
@@ -150,7 +150,7 @@ export default function GeheimtippDice({ allSpots, onOpenModal }) {
               color: '#fff', fontWeight: 700, fontSize: '.9rem',
               boxShadow: '0 4px 14px rgba(124,58,237,.25)',
               transition: 'all .3s', transform: animating ? 'scale(0.97)' : 'scale(1)',
-              minWidth: 130,
+              minWidth: 130, minHeight: 44,
             }}
           >
             {btnState === 'rolling' ? '🎲 Würfle…' : btnState === 'success' ? '✅ Entdeckt!' : '🎲 Würfeln!'}
@@ -169,18 +169,18 @@ export default function GeheimtippDice({ allSpots, onOpenModal }) {
             <div style={{ fontSize: '2.5rem', marginBottom: '.5rem' }}>🎉</div>
             <div style={{ fontWeight: 700, color: '#7c3aed', marginBottom: '.3rem', fontSize: '1.05rem' }}>Alle Geheimtipps entdeckt!</div>
             <p style={{ fontSize: '.82rem', color: 'var(--text2)', marginBottom: '.75rem' }}>Du hast alle {totalPool} Top-Spots gesehen. Respekt!</p>
-            <button onClick={restart} style={{ padding: '.5rem 1.2rem', borderRadius: 10, border: '1.5px solid #7c3aed', background: 'transparent', color: '#7c3aed', fontWeight: 600, fontSize: '.82rem', cursor: 'pointer' }}>
+            <button onClick={restart} style={{ padding: '.5rem 1.2rem', borderRadius: 10, border: '1.5px solid #7c3aed', background: 'transparent', color: '#7c3aed', fontWeight: 600, fontSize: '.82rem', cursor: 'pointer', minHeight: 44 }}>
               🔄 Von vorne starten
             </button>
           </div>
         )}
 
-        {/* Cards - horizontal scroll on mobile */}
+        {/* Cards - 4 on desktop, 2 on mobile */}
         {cards.length > 0 && (
           <div className="dice-scroll" style={{ display: 'flex', gap: '.75rem', overflowX: 'auto', scrollSnapType: 'x mandatory', scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch', paddingBottom: '.25rem' }}>
             {cards.map((spot, i) => (
               <div key={spot.id} className={flyOut ? 'dice-fly-out' : 'dice-drop-in'}
-                style={{ animationDelay: `${i * 80}ms`, flex: '0 0 195px', minWidth: 195, scrollSnapAlign: 'start' }}>
+                style={{ animationDelay: `${i * 80}ms`, flex: '0 0 calc(25% - .56rem)', minWidth: 200, scrollSnapAlign: 'start' }}>
                 <div style={{ position: 'relative' }}>
                   {/* Tier badge */}
                   <div style={{ position: 'absolute', top: 6, left: 6, zIndex: 3, padding: '.15rem .45rem', borderRadius: 8, fontSize: '.58rem', fontWeight: 700, background: spot._tier.bg, color: spot._tier.color, border: `1px solid ${spot._tier.color}33` }}>

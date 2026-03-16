@@ -135,7 +135,7 @@ body { min-height: 100vh; -webkit-font-smoothing: antialiased; }
   cursor: pointer;
   transition: all .15s;
   white-space: nowrap;
-  min-height: 36px;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
 }
@@ -150,6 +150,18 @@ body { min-height: 100vh; -webkit-font-smoothing: antialiased; }
 .dice-scroll::-webkit-scrollbar { display: none; }
 .dice-scroll { scrollbar-width: none; }
 
+/* SpotCard photo 4:3 aspect ratio */
+.spot-card-photo { aspect-ratio: 4/3; overflow: hidden; }
+.spot-card-photo > div { height: 100% !important; }
+
+/* ═══════ Scroll row styles ═══════ */
+.spot-row-scroll::-webkit-scrollbar { display: none; }
+.spot-row-scroll { scrollbar-width: none; }
+
+/* Arrows: hidden by default, shown on section hover (desktop) */
+.spot-row-arrow { opacity: 0 !important; transition: opacity .2s !important; pointer-events: none; }
+.spot-row-section:hover .spot-row-arrow { opacity: 1 !important; pointer-events: auto; }
+
 /* ═══════ Grid layouts ═══════ */
 .spot-row-grid { grid-template-columns: repeat(4, 1fr); }
 .spot-grid { grid-template-columns: repeat(4, 1fr) !important; }
@@ -162,6 +174,7 @@ body { min-height: 100vh; -webkit-font-smoothing: antialiased; }
   .event-cat-grid { grid-template-columns: repeat(3, 1fr) !important; }
   .spot-row-grid { grid-template-columns: repeat(3, 1fr) !important; }
   .spot-grid { grid-template-columns: repeat(3, 1fr) !important; }
+  .spot-row-card { flex: 0 0 calc(33.333% - .5rem) !important; min-width: 200px !important; }
 }
 
 /* Mobile */
@@ -178,6 +191,16 @@ body { min-height: 100vh; -webkit-font-smoothing: antialiased; }
   .modal-content { max-width: 100% !important; margin: 0; border-radius: 16px 16px 0 0 !important; max-height: 92vh !important; }
   .similar-grid { grid-template-columns: repeat(2, 1fr) !important; }
   .fav-group-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* SpotCard photo: smaller on mobile */
+  .spot-card-photo { aspect-ratio: 4/3; }
+
+  /* Scroll rows on mobile: 2 visible cards, no arrows */
+  .spot-row-arrow { display: none !important; }
+  .spot-row-card { flex: 0 0 calc(50% - .375rem) !important; min-width: 160px !important; }
+
+  /* Dice cards: 2 visible on mobile */
+  .dice-scroll > div { flex: 0 0 calc(50% - .375rem) !important; min-width: 160px !important; }
 }
 
 /* Small mobile */
