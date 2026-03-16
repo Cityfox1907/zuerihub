@@ -12,7 +12,7 @@ import { usePhotos } from '@/lib/photos'
  * @param {string} fallbackEmoji - Emoji to show as placeholder
  * @param {boolean} large - If true, renders larger format for modal
  */
-export default function PhotoCarousel({ placeId, height = 80, fallbackEmoji = 'ðŸ“', large = false }) {
+export default function PhotoCarousel({ placeId, height = 80, fallbackEmoji = 'ðŸ“', large = false, single = false }) {
   const photos = usePhotos()
   const [urls, setUrls] = useState(null) // null = not loaded, [] = no photos
   const [current, setCurrent] = useState(0)
@@ -86,15 +86,17 @@ export default function PhotoCarousel({ placeId, height = 80, fallbackEmoji = 'ð
 
   const fallbackSvg = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23E8EEFB' rx='12'/%3E%3Ctext x='40' y='44' text-anchor='middle' dominant-baseline='middle' font-family='system-ui,sans-serif' font-size='28'%3E${encodeURIComponent(fallbackEmoji)}%3C/text%3E%3C/svg%3E`
 
+  const hasPhotosRaw = urls && urls.length > 0
+  const displayUrls = hasPhotosRaw && single ? [urls[0]] : urls
   const showFallback = urls === null || (urls && urls.length === 0)
-  const hasPhotos = urls && urls.length > 0
+  const hasPhotos = displayUrls && displayUrls.length > 0
 
   return (
     <div
       ref={containerRef}
       style={{ position: 'relative', width: '100%', height, overflow: 'hidden', background: 'var(--surface2)' }}
-      onTouchStart={hasPhotos ? onTouchStart : undefined}
-      onTouchEnd={hasPhotos ? onTouchEnd : undefined}
+      onTouchStart={hasPhotos && !single ? onTouchStart : undefined}
+      onTouchEnd={hasPhotos && !single ? onTouchEnd : undefined}
     >
       {/* Loading shimmer */}
       {urls === null && isVisible && (
@@ -114,7 +116,7 @@ export default function PhotoCarousel({ placeId, height = 80, fallbackEmoji = 'ð
             transform: `translateX(-${current * 100}%)`,
             height: '100%',
           }}>
-            {urls.map((url, i) => (
+            {displayUrls.map((url, i) => (
               <div key={i} style={{ flex: '0 0 100%', height: '100%', position: 'relative' }}>
                 {!imgLoaded[i] && (
                   <div className="skeleton" style={{ position: 'absolute', inset: 0 }} />
@@ -135,7 +137,7 @@ export default function PhotoCarousel({ placeId, height = 80, fallbackEmoji = 'ð
           </div>
 
           {/* Navigation arrows (desktop, large only) */}
-          {urls.length > 1 && large && (
+          {displayUrls.length > 1 && large && !single && (
             <>
               {current > 0 && (
                 <button onClick={goPrev} style={{
@@ -145,7 +147,7 @@ export default function PhotoCarousel({ placeId, height = 80, fallbackEmoji = 'ð
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}>â€¹</button>
               )}
-              {current < urls.length - 1 && (
+              {current < displayUrls.length - 1 && (
                 <button onClick={goNext} style={{
                   position: 'absolute', right: 6, top: '50%', transform: 'translateY(-50%)',
                   width: 28, height: 28, borderRadius: '50%', background: 'rgba(0,0,0,.45)',
@@ -157,12 +159,12 @@ export default function PhotoCarousel({ placeId, height = 80, fallbackEmoji = 'ð
           )}
 
           {/* Dot indicators */}
-          {urls.length > 1 && (
+          {displayUrls.length > 1 && !single && (
             <div style={{
               position: 'absolute', bottom: large ? 8 : 4, left: '50%', transform: 'translateX(-50%)',
               display: 'flex', gap: large ? 5 : 3,
             }}>
-              {urls.map((_, i) => (
+              {displayUrls.map((_, i) => (
                 <button
                   key={i}
                   onClick={(e) => { e.stopPropagation(); setCurrent(i) }}
