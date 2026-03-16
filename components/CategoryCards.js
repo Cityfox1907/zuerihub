@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function CategoryCards({ categories }) {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '.75rem', maxWidth: 1480, margin: '0 auto 1.5rem', padding: '0 1.5rem' }}>
+    <div className="category-grid-5" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '.75rem', maxWidth: 1480, margin: '0 auto 1.5rem', padding: '0 1.5rem' }}>
       {categories.map(cat => (
         <Link key={cat.title} href={cat.href} style={{
           background: 'var(--glass-bg, var(--card-bg))', backdropFilter: 'var(--glass-blur, none)',

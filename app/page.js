@@ -1,31 +1,33 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Header from '@/components/Header'
 import NavTabs from '@/components/NavTabs'
 import Hero from '@/components/Hero'
 import CategoryCards from '@/components/CategoryCards'
 import SpotRow from '@/components/SpotRow'
 import SpotModal from '@/components/SpotModal'
+import GeheimtippDice from '@/components/GeheimtippDice'
+import SplashScreen from '@/components/SplashScreen'
 import { loadAllData } from '@/lib/data'
 
 export default function HomePage() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [modalSpot, setModalSpot] = useState(null)
+  const [splashProgress, setSplashProgress] = useState(0)
+  const [splashDone, setSplashDone] = useState(false)
 
   useEffect(() => {
-    loadAllData().then(d => { setData(d); setLoading(false) }).catch(e => { console.error(e); setLoading(false) })
+    loadAllData((n) => setSplashProgress(n))
+      .then(d => { setData(d); setLoading(false) })
+      .catch(e => { console.error(e); setLoading(false) })
   }, [])
 
-  if (loading) {
-    return (
-      <div style={{ background: 'var(--primary)', position: 'fixed', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: '#fff', zIndex: 9999 }}>
-        <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,5vw,3rem)', fontWeight: 800 }}>ZüriHub</div>
-        <div style={{ fontSize: '.95rem', opacity: .7, marginTop: '.5rem' }}>Entdecke das Beste von Zürich</div>
-        <div style={{ width: 28, height: 28, border: '3px solid rgba(255,255,255,.2)', borderTopColor: '#fff', borderRadius: '50%', animation: 'spin .65s linear infinite', marginTop: '2rem' }} />
-      </div>
-    )
+  const handleSplashDone = useCallback(() => setSplashDone(true), [])
+
+  if (loading && !splashDone) {
+    return <SplashScreen progress={splashProgress} onDone={handleSplashDone} />
   }
 
   if (!data) return null
@@ -52,6 +54,11 @@ export default function HomePage() {
       <CategoryCards categories={categories} />
 
       <div style={{ maxWidth: 1480, margin: '0 auto', padding: '0 1.5rem 2rem' }}>
+        {/* Geheimtipp Dice */}
+        <SectionDivider label="🎲 Geheimtipp-Würfel" />
+        <GeheimtippDice allSpots={data.all} onOpenModal={setModalSpot} />
+
+        <SectionDivider label="🔥 Beliebt" />
         <SpotRow icon="🔥" title="Beliebt in Zürich" items={sorted.slice(0, 10)} onOpenModal={setModalSpot} />
         <SectionDivider label="🍽️ Gastronomie" />
         <SpotRow icon="🍽️" title="Beliebteste Restaurants" items={topRestaurants.slice(0, 10)} link="/gastronomie" onOpenModal={setModalSpot} />

@@ -13,7 +13,7 @@ const tabs = [
 
 export default function NavTabs({ active }) {
   return (
-    <nav style={{ maxWidth: 1480, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 0, borderBottom: '1px solid var(--border-light)', padding: '0 1.25rem', overflowX: 'auto' }}>
+    <nav className="nav-tabs-scroll" style={{ maxWidth: 1480, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 0, borderBottom: '1px solid var(--border-light)', padding: '0 1.25rem', overflowX: 'auto' }}>
       {tabs.map(tab => (
         <Link key={tab.id} href={tab.href} style={{
           padding: '.6rem .85rem', fontSize: '.82rem', fontWeight: active === tab.id ? 700 : 600,

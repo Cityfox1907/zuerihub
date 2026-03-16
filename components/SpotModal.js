@@ -1,6 +1,7 @@
 'use client'
 
-import { getEmoji, getKreis, getMapsUrl, getSourceInfo, fmt, CUISINE_MAP, KEYWORD_ICONS, TRADE_ICONS, SHOP_ICONS } from '@/lib/data'
+import { useState, useEffect } from 'react'
+import { getEmoji, getKreis, getMapsUrl, getSourceInfo, fmt, CUISINE_MAP, KEYWORD_ICONS, TRADE_ICONS, SHOP_ICONS, isFav, toggleFav } from '@/lib/data'
 import { Stars } from './SpotCard'
 
 export default function SpotModal({ spot, allSpots, onClose }) {
@@ -8,6 +9,15 @@ export default function SpotModal({ spot, allSpots, onClose }) {
   const emoji = getEmoji(spot)
   const kreis = getKreis(spot.addr)
   const mapsUrl = getMapsUrl(spot)
+
+  const [fav, setFav] = useState(false)
+  useEffect(() => { setFav(isFav(spot)) }, [spot.id])
+
+  const handleFav = (e) => {
+    e.stopPropagation()
+    const now = toggleFav(spot)
+    setFav(now)
+  }
 
   const tags = []
   if (spot.trade) tags.push((TRADE_ICONS[spot.trade] || '') + ' ' + spot.trade)
@@ -18,12 +28,17 @@ export default function SpotModal({ spot, allSpots, onClose }) {
   const similar = allSpots.filter(x => x.id !== spot.id && x.source === spot.source).sort((a, b) => (b.r * b.rv) - (a.r * a.rv)).slice(0, 3)
 
   return (
-    <div onClick={onClose} style={{ position: 'fixed', inset: 0, zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,.5)', backdropFilter: 'blur(4px)', padding: '1rem' }}>
-      <div onClick={e => e.stopPropagation()} style={{ background: 'var(--modal-bg)', borderRadius: 20, maxWidth: 500, width: '100%', maxHeight: '85vh', overflow: 'auto', boxShadow: 'var(--shadow-elevated)', animation: 'fadeUp .3s ease' }}>
+    <div onClick={onClose} style={{ position: 'fixed', inset: 0, zIndex: 1000, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', background: 'rgba(0,0,0,.5)', backdropFilter: 'blur(4px)', padding: '1rem' }}>
+      <div onClick={e => e.stopPropagation()} className="modal-content" style={{ background: 'var(--modal-bg)', borderRadius: 20, maxWidth: 500, width: '100%', maxHeight: '85vh', overflow: 'auto', boxShadow: 'var(--shadow-elevated)', animation: 'fadeUp .3s ease' }}>
         {/* Header */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '.75rem 1rem', borderBottom: '1px solid var(--border-light)' }}>
           <span style={{ fontWeight: 700, fontSize: '.9rem', color: 'var(--text)' }}>Details</span>
-          <button onClick={onClose} style={{ width: 28, height: 28, borderRadius: '50%', border: '1px solid var(--border)', background: 'var(--surface)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text2)', fontSize: '.8rem' }}>✕</button>
+          <div style={{ display: 'flex', gap: '.35rem', alignItems: 'center' }}>
+            <button onClick={handleFav} style={{ width: 32, height: 32, borderRadius: '50%', border: '1px solid var(--border)', background: fav ? 'var(--gold)' : 'var(--surface)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '.9rem', transition: 'all .2s' }} title={fav ? 'Favorit entfernen' : 'Als Favorit speichern'}>
+              {fav ? '⭐' : '☆'}
+            </button>
+            <button onClick={onClose} style={{ width: 28, height: 28, borderRadius: '50%', border: '1px solid var(--border)', background: 'var(--surface)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text2)', fontSize: '.8rem' }}>✕</button>
+          </div>
         </div>
         {/* Body */}
         <div style={{ padding: '1rem 1.25rem 1.5rem' }}>
@@ -62,7 +77,7 @@ export default function SpotModal({ spot, allSpots, onClose }) {
           {similar.length > 0 && (
             <div>
               <h4 style={{ fontSize: '.85rem', fontWeight: 700, marginBottom: '.4rem' }}>Ähnliche Spots</h4>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '.5rem' }}>
+              <div className="similar-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '.5rem' }}>
                 {similar.map(s => (
                   <div key={s.id} style={{ padding: '.6rem', borderRadius: 12, background: 'var(--surface2)', textAlign: 'center', cursor: 'pointer' }}>
                     <span style={{ fontSize: '1.3rem' }}>{getEmoji(s)}</span>

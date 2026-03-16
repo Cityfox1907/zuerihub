@@ -5,18 +5,19 @@ import Header from '@/components/Header'
 import NavTabs from '@/components/NavTabs'
 import SpotCard from '@/components/SpotCard'
 import SpotModal from '@/components/SpotModal'
+import FilterBar from '@/components/FilterBar'
 import { loadAllData, fmt } from '@/lib/data'
 
 export default function KulturPage() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [modalSpot, setModalSpot] = useState(null)
-  const [search, setSearch] = useState('')
+  const [filtered, setFiltered] = useState([])
 
   useEffect(() => { loadAllData().then(d => { setData(d); setLoading(false) }) }, [])
   if (loading || !data) return <div style={{ padding: '4rem', textAlign: 'center', color: 'var(--text3)' }}>Laden…</div>
 
-  const all = [...data.attr, ...data.museen].filter(p => p.r > 0 && (!search || p.name.toLowerCase().includes(search.toLowerCase()))).sort((a, b) => (b.r * b.rv) - (a.r * a.rv))
+  const allKultur = [...data.attr, ...data.museen]
 
   return (
     <>
@@ -24,11 +25,12 @@ export default function KulturPage() {
       <NavTabs active="kultur" />
       <div style={{ maxWidth: 1480, margin: '0 auto', padding: '1.5rem' }}>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.4rem,3vw,2rem)', fontWeight: 800, marginBottom: '.3rem' }}>🏛️ Kultur</h1>
-        <p style={{ color: 'var(--text2)', fontSize: '.9rem', marginBottom: '1rem' }}>{fmt(all.length)} Museen & Sehenswürdigkeiten</p>
-        <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Suche…" style={{ width: '100%', maxWidth: 400, padding: '.6rem 1rem', borderRadius: 10, border: '1.5px solid var(--border)', background: 'var(--surface)', color: 'var(--text)', fontSize: '.85rem', marginBottom: '1.5rem', outline: 'none' }} />
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(195px, 1fr))', gap: '.75rem' }}>
-          {all.slice(0, 60).map((spot, i) => <SpotCard key={spot.id || i} spot={spot} rank={-1} onClick={() => setModalSpot(spot)} />)}
+        <p style={{ color: 'var(--text2)', fontSize: '.9rem', marginBottom: '1rem' }}>{fmt(allKultur.length)} Museen & Sehenswürdigkeiten</p>
+        <FilterBar spots={allKultur} onFiltered={setFiltered} categoryLabel="Kategorie" />
+        <div className="spot-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(195px, 1fr))', gap: '.75rem' }}>
+          {filtered.slice(0, 60).map((spot, i) => <SpotCard key={spot.id || i} spot={spot} rank={-1} onClick={() => setModalSpot(spot)} />)}
         </div>
+        {filtered.length > 60 && <p style={{ textAlign: 'center', color: 'var(--text3)', marginTop: '1.5rem', fontSize: '.85rem' }}>Zeigt 60 von {fmt(filtered.length)} Ergebnissen</p>}
       </div>
       {modalSpot && <SpotModal spot={modalSpot} allSpots={data.all} onClose={() => setModalSpot(null)} />}
     </>
