@@ -5,6 +5,8 @@ import Header from '@/components/Header'
 import NavTabs from '@/components/NavTabs'
 import SpotCard from '@/components/SpotCard'
 import SpotModal from '@/components/SpotModal'
+import BackToTop from '@/components/BackToTop'
+import Footer from '@/components/Footer'
 import { loadAllData, getAllFavIds, getSourceInfo } from '@/lib/data'
 
 const SOURCE_ORDER = ['gastro', 'attr', 'museum', 'fun', 'shop']
@@ -21,7 +23,6 @@ export default function FavoritenPage() {
     loadAllData().then(d => { setData(d); setLoading(false) })
   }, [])
 
-  // Re-check favs when modal closes (user might have toggled)
   const handleCloseModal = () => {
     setModalSpot(null)
     setFavIds(getAllFavIds())
@@ -30,12 +31,8 @@ export default function FavoritenPage() {
   if (loading || !data) return <div style={{ padding: '4rem', textAlign: 'center', color: 'var(--text3)' }}>Laden…</div>
 
   const favSpots = data.all.filter(p => favIds.includes(p.id))
-
-  // Group by source
   const grouped = {}
-  favSpots.forEach(p => {
-    (grouped[p.source] = grouped[p.source] || []).push(p)
-  })
+  favSpots.forEach(p => { (grouped[p.source] = grouped[p.source] || []).push(p) })
 
   return (
     <>
@@ -66,6 +63,8 @@ export default function FavoritenPage() {
           })
         )}
       </div>
+      <Footer />
+      <BackToTop />
       {modalSpot && <SpotModal spot={modalSpot} allSpots={data.all} onClose={handleCloseModal} />}
     </>
   )

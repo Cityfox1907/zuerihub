@@ -92,12 +92,10 @@ body { min-height: 100vh; -webkit-font-smoothing: antialiased; }
 /* Animations */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes spin { to { transform: rotate(360deg); } }
 
 .fade-up { animation: fadeUp .35s ease both; }
 .skeleton { background: linear-gradient(90deg, var(--surface2) 25%, var(--border-light) 37%, var(--surface2) 63%); background-size: 200% 100%; animation: shimmer 1.8s ease infinite; }
-
-/* Spin animation for loaders */
-@keyframes spin { to { transform: rotate(360deg); } }
 
 /* Dice card animations */
 @keyframes diceDropIn {
@@ -117,8 +115,12 @@ body { min-height: 100vh; -webkit-font-smoothing: antialiased; }
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
 }
-@keyframes splashFadeOut {
-  to { opacity: 0; transform: scale(1.02); }
+
+/* Gradient border animation for dice */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Chip / filter styles */
@@ -133,6 +135,9 @@ body { min-height: 100vh; -webkit-font-smoothing: antialiased; }
   cursor: pointer;
   transition: all .15s;
   white-space: nowrap;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
 }
 .filter-chip:hover { border-color: var(--primary); color: var(--primary); }
 .filter-chip.active {
@@ -141,17 +146,35 @@ body { min-height: 100vh; -webkit-font-smoothing: antialiased; }
   border-color: var(--primary);
 }
 
-/* Mobile responsive */
+/* Hide scrollbar utility */
+.dice-scroll::-webkit-scrollbar { display: none; }
+.dice-scroll { scrollbar-width: none; }
+
+/* ═══════ Responsive ═══════ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .category-grid-5 { grid-template-columns: repeat(3, 1fr) !important; }
+  .event-cat-grid { grid-template-columns: repeat(3, 1fr) !important; }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
-  .nav-tabs-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .nav-tabs-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; justify-content: flex-start !important; }
   .nav-tabs-scroll::-webkit-scrollbar { display: none; }
   .filter-bar { flex-wrap: nowrap !important; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding-bottom: .5rem; }
   .filter-bar::-webkit-scrollbar { display: none; }
   .category-grid-5 { grid-template-columns: repeat(2, 1fr) !important; }
-  .spot-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important; }
-  .dice-grid { grid-template-columns: repeat(2, 1fr) !important; }
-  .dice-grid > :last-child:nth-child(odd) { grid-column: 1 / -1; max-width: 280px; margin: 0 auto; }
+  .event-cat-grid { grid-template-columns: repeat(3, 1fr) !important; }
+  .spot-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)) !important; }
+  .event-grid { grid-template-columns: 1fr !important; }
   .modal-content { max-width: 100% !important; margin: 0; border-radius: 16px 16px 0 0 !important; max-height: 92vh !important; }
   .similar-grid { grid-template-columns: repeat(2, 1fr) !important; }
-  .fav-group-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)) !important; }
+  .fav-group-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)) !important; }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .category-grid-5 { grid-template-columns: 1fr 1fr !important; gap: .5rem !important; }
+  .event-cat-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
