@@ -58,17 +58,18 @@ export default function HomePage() {
       return d >= now && d <= threeMonthsLater
     })
     .sort((a, b) => new Date(a.date) - new Date(b.date))
-  const highlightEvents = upcomingEvents.filter(e => e.highlight).slice(0, 6)
-  const topEvents = highlightEvents.length >= 3 ? highlightEvents : upcomingEvents.slice(0, 6)
-  const nextHighlight = upcomingEvents.find(e => e.highlight)
+  // Pick 5 top events: prioritize highlights, then by date
+  const highlightEvents = upcomingEvents.filter(e => e.highlight)
+  const nonHighlightEvents = upcomingEvents.filter(e => !e.highlight)
+  const topEvents = [...highlightEvents, ...nonHighlightEvents].slice(0, 5)
 
   // Events FIRST in categories
   const categories = [
     { emoji: '🎪', title: 'Events', sub: 'Veranstaltungen', count: upcomingEvents.length, href: '/events' },
-    { emoji: '🍽️', title: 'Gastronomie', sub: 'Restaurants & Bars', count: data.gastro.length, href: '/gastronomie' },
+    { emoji: '🍽️', title: 'Essen & Trinken', sub: 'Restaurants & Bars', count: data.gastro.length, href: '/essen-trinken' },
     { emoji: '🛍️', title: 'Shops', sub: 'Einkaufen in Zürich', count: data.shops.length, href: '/shops' },
-    { emoji: '🏛️', title: 'Kultur', sub: 'Museen & Sehenswürdigkeiten', count: data.attr.length + data.museen.length, href: '/kultur' },
-    { emoji: '🎮', title: 'Spiel & Spass', sub: 'Entertainment & Freizeit', count: data.fun.length, href: '/spiel-spass' },
+    { emoji: '🏛️', title: 'Kultur & Natur', sub: 'Museen & Sehenswürdigkeiten', count: data.attr.length + data.museen.length, href: '/kultur' },
+    { emoji: '🎮', title: 'Unterhaltung & Spass', sub: 'Entertainment & Freizeit', count: data.fun.length, href: '/spiel-spass' },
   ]
 
   return (
@@ -79,11 +80,8 @@ export default function HomePage() {
       <CategoryCards categories={categories} />
 
       <div style={{ maxWidth: 1480, margin: '0 auto', padding: '0 1.5rem 2rem' }}>
-        {/* Mini Pulse Banner for next highlight event */}
-        {nextHighlight && <MiniPulseBanner event={nextHighlight} />}
-
         {/* Top Events - large cards */}
-        {topEvents.length >= 3 && (
+        {topEvents.length > 0 && (
           <>
             <SectionDivider label="🎪 Top Events" />
             <HighlightEventRow events={topEvents} />
@@ -100,8 +98,8 @@ export default function HomePage() {
         <SectionDivider label="⭐ Bestbewertet" />
         <SpotRow icon="⭐" title="Bestbewertet in Zürich" items={bestRated} onOpenModal={setModalSpot} />
 
-        <SectionDivider label="🍽️ Gastronomie" />
-        <SpotRow icon="🍽️" title="Beliebteste Restaurants" items={topRestaurants.slice(0, 10)} link="/gastronomie" onOpenModal={setModalSpot} />
+        <SectionDivider label="🍽️ Essen & Trinken" />
+        <SpotRow icon="🍽️" title="Beliebteste Restaurants" items={topRestaurants.slice(0, 10)} link="/essen-trinken" onOpenModal={setModalSpot} />
         <LazySection>
           {topMuseen.length >= 3 && <>
             <SectionDivider label="🖼️ Museen" />
@@ -122,7 +120,7 @@ export default function HomePage() {
         </LazySection>
         <LazySection>
           {topFun.length >= 3 && <>
-            <SectionDivider label="🎮 Spiel & Spass" />
+            <SectionDivider label="🎮 Unterhaltung & Spass" />
             <SpotRow icon="🎮" title="Top Entertainment" items={topFun.slice(0, 10)} link="/spiel-spass" onOpenModal={setModalSpot} />
           </>}
         </LazySection>
@@ -143,36 +141,6 @@ function SectionDivider({ label }) {
   )
 }
 
-function MiniPulseBanner({ event }) {
-  const now = new Date()
-  const diff = new Date(event.date) - now
-  const days = Math.max(0, Math.floor(diff / 86400000))
-
-  return (
-    <a href="/events" style={{
-      display: 'flex', alignItems: 'center', gap: '.75rem', padding: '.75rem 1rem',
-      borderRadius: 14, background: 'linear-gradient(135deg, var(--primary), #7c3aed)',
-      color: '#fff', textDecoration: 'none', marginBottom: '.5rem',
-      boxShadow: '0 4px 16px rgba(15,71,175,.2)', transition: 'transform .2s',
-    }}
-      onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-2px)'}
-      onMouseLeave={e => e.currentTarget.style.transform = ''}
-    >
-      <span style={{ fontSize: '1.4rem' }}>{event.emoji}</span>
-      <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontSize: '.82rem', fontWeight: 700 }}>{event.name}</div>
-        <div style={{ fontSize: '.72rem', opacity: .8 }}>{event.dateLabel} · {event.location}</div>
-      </div>
-      {days > 0 && (
-        <div style={{ textAlign: 'center', padding: '0 .5rem' }}>
-          <div style={{ fontSize: '1.1rem', fontWeight: 800, fontFamily: 'var(--font-display)', lineHeight: 1 }}>{days}</div>
-          <div style={{ fontSize: '.6rem', opacity: .7 }}>Tage</div>
-        </div>
-      )}
-      <span style={{ fontSize: '.75rem', opacity: .7 }}>›</span>
-    </a>
-  )
-}
 
 function LazySection({ children }) {
   const ref = useRef(null)
@@ -215,19 +183,20 @@ function HighlightEventRow({ events }) {
         </h2>
         <a href="/events" style={{ fontSize: '.78rem', fontWeight: 600, color: 'var(--primary)', textDecoration: 'none' }}>Alle anzeigen ›</a>
       </div>
-      <div className="highlight-event-scroll" style={{
-        display: 'flex', gap: '1rem', overflowX: 'auto', scrollSnapType: 'x mandatory',
-        scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch', paddingBottom: '.25rem',
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: `repeat(${events.length}, 1fr)`,
+        gap: '.75rem',
       }}>
         {events.map(evt => {
           const catColor = CAT_COLORS[evt.category] || 'var(--primary)'
           const now = new Date()
           const diff = new Date(evt.date) - now
           const days = Math.max(0, Math.floor(diff / 86400000))
+          const linkUrl = evt.websiteUrl || evt.ticketUrl || '/events'
           return (
-            <a key={evt.id} href="/events" style={{
-              flex: '0 0 340px', minWidth: 340, scrollSnapAlign: 'start',
-              background: 'var(--card-bg)', borderRadius: 18, overflow: 'hidden',
+            <a key={evt.id} href={linkUrl} target={linkUrl !== '/events' ? '_blank' : undefined} rel={linkUrl !== '/events' ? 'noopener' : undefined} style={{
+              background: 'var(--card-bg)', borderRadius: 14, overflow: 'hidden',
               boxShadow: 'var(--shadow-soft)', border: '1px solid var(--border-light)',
               textDecoration: 'none', color: 'inherit', transition: 'transform .25s, box-shadow .25s',
               display: 'flex', flexDirection: 'column',
@@ -235,44 +204,26 @@ function HighlightEventRow({ events }) {
               onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = 'var(--shadow-hover)' }}
               onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = 'var(--shadow-soft)' }}
             >
-              {/* Colored header bar */}
               <div style={{
                 background: `linear-gradient(135deg, ${catColor}, ${catColor}cc)`,
-                padding: '1.2rem 1.25rem', color: '#fff', position: 'relative',
+                padding: '.8rem .9rem', color: '#fff',
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '.6rem' }}>
-                  <span style={{ fontSize: '2.2rem' }}>{evt.emoji}</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '.5rem' }}>
+                  <span style={{ fontSize: '1.6rem' }}>{evt.emoji}</span>
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontWeight: 800, fontSize: '1.05rem', lineHeight: 1.2 }}>{evt.name}</div>
-                    <div style={{ fontSize: '.78rem', opacity: .85, marginTop: '.2rem' }}>📅 {evt.dateLabel}</div>
+                    <div style={{ fontWeight: 800, fontSize: '.88rem', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{evt.name}</div>
+                    <div style={{ fontSize: '.7rem', opacity: .85, marginTop: '.15rem' }}>📅 {evt.dateLabel}</div>
                   </div>
                   {days > 0 && (
-                    <div style={{ textAlign: 'center', padding: '.3rem .6rem', background: 'rgba(255,255,255,.18)', borderRadius: 10 }}>
-                      <div style={{ fontSize: '1.2rem', fontWeight: 800, fontFamily: 'var(--font-display)', lineHeight: 1 }}>{days}</div>
-                      <div style={{ fontSize: '.55rem', opacity: .8 }}>Tage</div>
+                    <div style={{ textAlign: 'center', padding: '.2rem .4rem', background: 'rgba(255,255,255,.18)', borderRadius: 8, flexShrink: 0 }}>
+                      <div style={{ fontSize: '.95rem', fontWeight: 800, fontFamily: 'var(--font-display)', lineHeight: 1 }}>{days}</div>
+                      <div style={{ fontSize: '.5rem', opacity: .8 }}>Tage</div>
                     </div>
                   )}
                 </div>
               </div>
-              {/* Body */}
-              <div style={{ padding: '1rem 1.25rem 1.25rem', flex: 1, display: 'flex', flexDirection: 'column', gap: '.5rem' }}>
-                <div style={{ fontSize: '.82rem', color: 'var(--text2)' }}>📍 {evt.location}</div>
-                <div style={{ display: 'flex', gap: '.3rem', flexWrap: 'wrap' }}>
-                  <span style={{ padding: '.15rem .5rem', borderRadius: 6, fontSize: '.68rem', fontWeight: 600, background: catColor + '15', color: catColor }}>
-                    {evt.category}
-                  </span>
-                  {evt.tags?.slice(0, 2).map(t => (
-                    <span key={t} style={{ padding: '.15rem .45rem', borderRadius: 6, fontSize: '.65rem', fontWeight: 500, background: 'var(--surface2)', color: 'var(--text3)' }}>{t}</span>
-                  ))}
-                </div>
-                <div style={{ display: 'flex', gap: '.4rem', marginTop: 'auto' }}>
-                  {evt.ticketUrl && (
-                    <span style={{ padding: '.4rem .8rem', borderRadius: 8, background: catColor, color: '#fff', fontSize: '.78rem', fontWeight: 700, minHeight: 44, display: 'flex', alignItems: 'center' }}>🎫 Tickets</span>
-                  )}
-                  {evt.websiteUrl && (
-                    <span style={{ padding: '.4rem .8rem', borderRadius: 8, background: 'var(--surface2)', color: 'var(--text2)', fontSize: '.78rem', fontWeight: 600, border: '1px solid var(--border-light)', minHeight: 44, display: 'flex', alignItems: 'center' }}>🌐 Info</span>
-                  )}
-                </div>
+              <div style={{ padding: '.6rem .9rem .7rem', fontSize: '.75rem', color: 'var(--text2)' }}>
+                📍 {evt.location}
               </div>
             </a>
           )

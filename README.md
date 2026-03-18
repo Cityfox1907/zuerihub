@@ -16,10 +16,11 @@ npm run dev
 ```
 app/                    # Next.js App Router Pages
   page.js               # Discovery / Startseite
-  gastronomie/page.js   # Restaurants & Bars
+  essen-trinken/page.js # Essen & Trinken (Restaurants & Bars)
+  gastronomie/page.js   # Redirect → /essen-trinken
   shops/page.js         # Shopping
-  kultur/page.js        # Museen & Sehenswürdigkeiten
-  spiel-spass/page.js   # Entertainment
+  kultur/page.js        # Kultur & Natur (Museen & Sehenswürdigkeiten)
+  spiel-spass/page.js   # Unterhaltung & Spass (Entertainment)
   events/page.js        # Events (Placeholder)
   favoriten/page.js     # Gespeicherte Favoriten
 components/             # Wiederverwendbare UI-Komponenten

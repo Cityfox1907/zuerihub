@@ -35,7 +35,7 @@ export default function SpielSpassPage() {
       <Header />
       <NavTabs active="spiel-spass" />
       <div style={{ maxWidth: 1480, margin: '0 auto', padding: '1.5rem' }}>
-        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.4rem,3vw,2rem)', fontWeight: 800, marginBottom: '.3rem' }}>🎮 Spiel & Spass</h1>
+        <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.4rem,3vw,2rem)', fontWeight: 800, marginBottom: '.3rem' }}>🎮 Unterhaltung & Spass</h1>
         <p style={{ color: 'var(--text2)', fontSize: '.9rem', marginBottom: '1rem' }}>{fmt(data.fun.length)} Entertainment-Spots</p>
         <SubcategoryNav
           spots={data.fun}
