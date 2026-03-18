@@ -18,7 +18,6 @@ const MAIN_CATS = [
   { emoji: '🕹️', label: 'Spielhalle' },
   { emoji: '🥾', label: 'Wandern' },
   { emoji: '⛰️', label: 'Berggipfel' },
-  { emoji: '🦎', label: 'Naturschutzgebiet' },
 ]
 
 export default function SpielSpassPage() {

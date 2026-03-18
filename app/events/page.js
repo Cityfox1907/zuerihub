@@ -14,6 +14,17 @@ const CAT_INFO = {
 }
 
 const MONTH_NAMES = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez']
+const MONTH_FULL = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']
+const DAY_NAMES_SHORT = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
+
+const CAT_BG_COLORS = {
+  konzerte: '#dbeafe',    // light blue
+  festivals: '#ede9fe',   // light purple
+  sport: '#dcfce7',       // light green
+  tradition: '#ffedd5',   // light orange
+  kulinarik: '#fee2e2',   // light red
+  community: '#fef9c3',   // light yellow
+}
 
 function useCountdown(targetDate) {
   const [now, setNow] = useState(() => new Date())
@@ -152,8 +163,12 @@ export default function EventsPage() {
                 📅 {MONTH_NAMES[+m - 1]} {y}
                 <span style={{ fontSize: '.75rem', fontWeight: 500, color: 'var(--text3)' }}>({grouped[key].length})</span>
               </h2>
-              <div className="event-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '.75rem' }}>
-                {grouped[key].map(e => <EventCard key={e.id} event={e} />)}
+              <div className="event-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '.75rem' }}>
+                {[...grouped[key]].sort((a, b) => {
+                  const aPast = new Date(a.dateEnd || a.date) < now ? 1 : 0
+                  const bPast = new Date(b.dateEnd || b.date) < now ? 1 : 0
+                  return aPast - bPast
+                }).map(e => <EventCard key={e.id} event={e} />)}
               </div>
             </div>
           )
@@ -221,49 +236,127 @@ function CountdownUnit({ value, label, color }) {
   )
 }
 
+function getEventDayInfo(event) {
+  const start = new Date(event.date)
+  const end = event.dateEnd ? new Date(event.dateEnd) : start
+  const isMultiDay = end.getTime() !== start.getTime()
+  const startDay = start.getDate()
+  const endDay = end.getDate()
+  const startDow = start.getDay() // 0=Sun
+  const endDow = end.getDay()
+
+  // Weekend = Fr(5), Sa(6), So(0)
+  const isWeekend = [0, 5, 6].includes(startDow) || (isMultiDay && [0, 5, 6].includes(endDow))
+
+  let dayLabel
+  if (isMultiDay) {
+    dayLabel = `${DAY_NAMES_SHORT[startDow]}–${DAY_NAMES_SHORT[endDow]}`
+  } else {
+    dayLabel = DAY_NAMES_SHORT[startDow]
+  }
+
+  let dateRange
+  if (isMultiDay) {
+    if (start.getMonth() === end.getMonth()) {
+      dateRange = `${DAY_NAMES_SHORT[startDow]} ${startDay}. – ${DAY_NAMES_SHORT[endDow]} ${endDay}. ${MONTH_FULL[start.getMonth()]}`
+    } else {
+      dateRange = `${DAY_NAMES_SHORT[startDow]} ${startDay}. ${MONTH_NAMES[start.getMonth()]} – ${DAY_NAMES_SHORT[endDow]} ${endDay}. ${MONTH_NAMES[end.getMonth()]}`
+    }
+  } else {
+    dateRange = null
+  }
+
+  return { startDay, endDay, startMonth: start.getMonth(), dayLabel, isWeekend, isMultiDay, dateRange }
+}
+
 function EventCard({ event }) {
   const now = new Date()
   const isPast = new Date(event.dateEnd || event.date) < now
   const cat = CAT_INFO[event.category] || { emoji: '🎪', label: 'Event', color: 'var(--primary)' }
+  const catBg = CAT_BG_COLORS[event.category] || '#f3f4f6'
+  const info = getEventDayInfo(event)
 
   return (
     <div className="fade-up" style={{
-      background: 'var(--card-bg)', borderRadius: 'var(--radius)', border: '1px solid var(--border-light)',
-      padding: '1rem 1.1rem', boxShadow: 'var(--shadow-soft)', transition: 'transform .2s, box-shadow .2s',
-      opacity: isPast ? 0.5 : 1, position: 'relative',
+      background: 'var(--card-bg)', borderRadius: 14, border: '1px solid var(--border-light)',
+      boxShadow: 'var(--shadow-soft)', transition: 'transform .2s, box-shadow .2s',
+      opacity: isPast ? 0.45 : 1, position: 'relative', overflow: 'hidden',
+      display: 'flex', borderLeft: `4px solid ${cat.color}`,
     }}
       onMouseEnter={e => { if (!isPast) { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = 'var(--shadow-hover)' } }}
       onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = 'var(--shadow-soft)' }}
     >
-      {event.status === 'soldout' && (
-        <div style={{ position: 'absolute', top: 8, right: 8, padding: '.15rem .5rem', borderRadius: 8, background: '#fee2e2', color: '#dc2626', fontSize: '.65rem', fontWeight: 700 }}>Ausverkauft</div>
-      )}
-      {event.highlight && event.status !== 'soldout' && (
-        <div style={{ position: 'absolute', top: 8, right: 8, padding: '.15rem .5rem', borderRadius: 8, background: 'rgba(234,179,8,.12)', color: '#b45309', fontSize: '.65rem', fontWeight: 700 }}>Highlight</div>
-      )}
-      <div style={{ display: 'flex', gap: '.75rem', alignItems: 'flex-start' }}>
-        <div style={{ fontSize: '1.8rem', lineHeight: 1 }}>{event.emoji}</div>
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontWeight: 700, fontSize: '.92rem', color: 'var(--text)', marginBottom: '.15rem' }}>{event.name}</div>
-          <div style={{ fontSize: '.78rem', color: 'var(--text2)', marginBottom: '.15rem' }}>📅 {event.dateLabel}</div>
-          <div style={{ fontSize: '.75rem', color: 'var(--text3)', marginBottom: '.4rem' }}>📍 {event.location}</div>
-          <div style={{ display: 'flex', gap: '.25rem', flexWrap: 'wrap', marginBottom: '.5rem' }}>
-            <span style={{ padding: '.12rem .45rem', borderRadius: 6, fontSize: '.65rem', fontWeight: 600, background: cat.color + '15', color: cat.color }}>{cat.emoji} {cat.label}</span>
-            {event.tags?.slice(0, 2).map(t => (
-              <span key={t} style={{ padding: '.12rem .4rem', borderRadius: 6, fontSize: '.65rem', fontWeight: 500, background: 'var(--surface2)', color: 'var(--text3)' }}>{t}</span>
-            ))}
-          </div>
-          {!isPast && (event.websiteUrl || event.ticketUrl) && (
-            <div>
-              <a href={event.websiteUrl || event.ticketUrl} target="_blank" rel="noopener" style={{
-                padding: '.35rem .7rem', borderRadius: 8, background: cat.color, color: '#fff',
-                fontSize: '.75rem', fontWeight: 700, textDecoration: 'none', minHeight: 44,
-                display: 'inline-flex', alignItems: 'center',
-              }}>{event.websiteUrl ? '🌐 Mehr Infos' : '🎟️ Tickets & Infos'}</a>
-            </div>
-          )}
-          {isPast && <span style={{ fontSize: '.72rem', color: 'var(--text3)', fontStyle: 'italic' }}>Vergangen</span>}
+      {/* Calendar Leaf - left side */}
+      <div style={{
+        width: 80, minHeight: '100%', display: 'flex', flexDirection: 'column',
+        alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+        background: catBg, padding: '.5rem .25rem', position: 'relative',
+      }}>
+        <div style={{ fontSize: '1.6rem', lineHeight: 1, marginBottom: '.25rem' }}>{event.emoji}</div>
+        <div style={{ fontSize: '.6rem', fontWeight: 700, textTransform: 'uppercase', color: cat.color, letterSpacing: .5 }}>
+          {MONTH_NAMES[info.startMonth]}
         </div>
+        <div style={{
+          fontSize: info.isMultiDay ? '1.1rem' : '1.5rem', fontWeight: 800, lineHeight: 1.1,
+          fontFamily: 'var(--font-display)', color: 'var(--text)',
+        }}>
+          {info.isMultiDay ? `${info.startDay}–${info.endDay}` : info.startDay}
+        </div>
+        <div style={{
+          fontSize: '.68rem', fontWeight: 700, color: info.isWeekend ? cat.color : 'var(--text3)',
+          marginTop: '.1rem',
+        }}>
+          {info.dayLabel}
+        </div>
+        {isPast && (
+          <div style={{
+            position: 'absolute', top: '50%', left: 0, right: 0, height: 2,
+            background: 'var(--text3)', opacity: .5,
+          }} />
+        )}
+      </div>
+
+      {/* Content - right side */}
+      <div style={{ flex: 1, minWidth: 0, padding: '.75rem .9rem', display: 'flex', flexDirection: 'column', gap: '.3rem' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '.5rem' }}>
+          <div style={{
+            fontWeight: 700, fontSize: '.92rem', color: isPast ? 'var(--text3)' : 'var(--text)',
+            textDecoration: isPast ? 'line-through' : 'none', lineHeight: 1.25,
+          }}>{event.name}</div>
+          {event.status === 'soldout' && (
+            <span style={{ padding: '.1rem .4rem', borderRadius: 6, background: '#fee2e2', color: '#dc2626', fontSize: '.6rem', fontWeight: 700, whiteSpace: 'nowrap', flexShrink: 0 }}>Ausverkauft</span>
+          )}
+          {event.highlight && event.status !== 'soldout' && (
+            <span style={{ padding: '.1rem .4rem', borderRadius: 6, background: 'rgba(234,179,8,.12)', color: '#b45309', fontSize: '.6rem', fontWeight: 700, whiteSpace: 'nowrap', flexShrink: 0 }}>⭐ Highlight</span>
+          )}
+        </div>
+
+        {info.dateRange && (
+          <div style={{ fontSize: '.73rem', color: 'var(--text2)' }}>{info.dateRange}</div>
+        )}
+
+        <div style={{ fontSize: '.75rem', color: 'var(--text3)' }}>📍 {event.location}</div>
+
+        <div style={{ display: 'flex', gap: '.25rem', flexWrap: 'wrap', marginTop: '.15rem' }}>
+          <span style={{ padding: '.1rem .4rem', borderRadius: 6, fontSize: '.62rem', fontWeight: 600, background: cat.color + '15', color: cat.color }}>{cat.emoji} {cat.label}</span>
+          {event.tags?.slice(0, 2).map(t => (
+            <span key={t} style={{ padding: '.1rem .35rem', borderRadius: 6, fontSize: '.62rem', fontWeight: 500, background: 'var(--surface2)', color: 'var(--text3)' }}>{t}</span>
+          ))}
+          {info.isWeekend && !isPast && (
+            <span style={{ padding: '.1rem .4rem', borderRadius: 6, fontSize: '.62rem', fontWeight: 600, background: '#dcfce7', color: '#16a34a' }}>🗓️ Wochenende</span>
+          )}
+        </div>
+
+        {!isPast && (event.websiteUrl || event.ticketUrl) && (
+          <div style={{ marginTop: '.25rem' }}>
+            <a href={event.websiteUrl || event.ticketUrl} target="_blank" rel="noopener" style={{
+              padding: '.3rem .65rem', borderRadius: 8, background: cat.color, color: '#fff',
+              fontSize: '.72rem', fontWeight: 700, textDecoration: 'none', minHeight: 44,
+              display: 'inline-flex', alignItems: 'center',
+            }}>Mehr Infos →</a>
+          </div>
+        )}
+        {isPast && <span style={{ fontSize: '.68rem', color: 'var(--text3)', fontStyle: 'italic' }}>Vergangen</span>}
       </div>
     </div>
   )

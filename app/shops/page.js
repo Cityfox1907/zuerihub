@@ -15,9 +15,7 @@ const MAIN_CATS = [
   { emoji: '🏬', label: 'Einkaufszentren' },
   { emoji: '👗', label: 'Mode & Fashion' },
   { emoji: '🏃', label: 'Sportbekleidung' },
-  { emoji: '👟', label: 'Schuhe' },
   { emoji: '♻️', label: 'Second-Hand & Vintage' },
-  { emoji: '🎁', label: 'Spezialgeschäfte' },
 ]
 
 export default function ShopsPage() {
