@@ -50,13 +50,14 @@ export default function HomePage() {
   const topSecondHand = [...data.shops].filter(p => p.subcat === 'Second-Hand & Vintage').sort((a, b) => b.r !== a.r ? b.r - a.r : b.rv - a.rv).slice(0, 10)
   const topFun = [...data.fun].sort((a, b) => (b.rv * b.r) - (a.rv * a.r))
 
-  // Upcoming events (next 3 months)
+  // Upcoming events (next 3 months), filter out expired (24h after end date)
   const now = new Date()
   const threeMonthsLater = new Date(now.getFullYear(), now.getMonth() + 3, now.getDate())
   const upcomingEvents = events
     .filter(e => {
-      const d = new Date(e.dateEnd || e.date)
-      return d >= now && d <= threeMonthsLater
+      const endDate = new Date(e.dateEnd || e.date)
+      const expiry = new Date(endDate.getTime() + 24 * 60 * 60 * 1000)
+      return now <= expiry && endDate <= threeMonthsLater
     })
     .sort((a, b) => new Date(a.date) - new Date(b.date))
   // Pick 5 top events: prioritize highlights, then by date

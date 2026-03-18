@@ -5,10 +5,10 @@ import Header from '@/components/Header'
 import NavTabs from '@/components/NavTabs'
 
 const CAT_INFO = {
+  tradition: { emoji: '🎭', label: 'Züri Tradition', color: '#d97706' },
   konzerte: { emoji: '🎤', label: 'Konzerte', color: '#e63946' },
   festivals: { emoji: '🎵', label: 'Festivals', color: '#7c3aed' },
   sport: { emoji: '🏅', label: 'Sport', color: '#0ea5e9' },
-  tradition: { emoji: '🎭', label: 'Tradition', color: '#d97706' },
   kulinarik: { emoji: '🍷', label: 'Kulinarik', color: '#16a34a' },
   community: { emoji: '🎨', label: 'Community', color: '#db2777' },
 }
@@ -18,12 +18,12 @@ const MONTH_FULL = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli'
 const DAY_NAMES_SHORT = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']
 
 const CAT_BG_COLORS = {
-  konzerte: '#dbeafe',    // light blue
-  festivals: '#ede9fe',   // light purple
-  sport: '#dcfce7',       // light green
-  tradition: '#ffedd5',   // light orange
-  kulinarik: '#fee2e2',   // light red
-  community: '#fef9c3',   // light yellow
+  konzerte: '#dbeafe',
+  festivals: '#ede9fe',
+  sport: '#dcfce7',
+  tradition: '#ffedd5',
+  kulinarik: '#fee2e2',
+  community: '#fef9c3',
 }
 
 function useCountdown(targetDate) {
@@ -38,6 +38,14 @@ function useCountdown(targetDate) {
   const hours = Math.floor((diff % 86400000) / 3600000)
   const minutes = Math.floor((diff % 3600000) / 60000)
   return { days, hours, minutes, passed: false }
+}
+
+/** Check if an event is expired (24h after end date) */
+function isEventExpired(event) {
+  const now = new Date()
+  const endDate = new Date(event.dateEnd || event.date)
+  const expiry = new Date(endDate.getTime() + 24 * 60 * 60 * 1000)
+  return now > expiry
 }
 
 export default function EventsPage() {
@@ -55,7 +63,19 @@ export default function EventsPage() {
   }, [])
 
   const now = new Date()
-  const sorted = useMemo(() => [...events].sort((a, b) => new Date(a.date) - new Date(b.date)), [events])
+
+  // Filter out expired events (24h after end date)
+  const activeEvents = useMemo(() => events.filter(e => !isEventExpired(e)), [events])
+
+  const sorted = useMemo(() => [...activeEvents].sort((a, b) => new Date(a.date) - new Date(b.date)), [activeEvents])
+
+  // Top 3 highlighted events in next 3 months
+  const top3Highlights = useMemo(() => {
+    const threeMonths = new Date(now.getFullYear(), now.getMonth() + 3, now.getDate())
+    return sorted
+      .filter(e => e.highlight && new Date(e.date) > now && new Date(e.date) <= threeMonths)
+      .slice(0, 3)
+  }, [sorted])
 
   // Filter by category
   const catFiltered = useMemo(() => activeCat ? sorted.filter(e => e.category === activeCat) : sorted, [sorted, activeCat])
@@ -65,7 +85,7 @@ export default function EventsPage() {
     if (selectedMonths.size === 0) return catFiltered
     return catFiltered.filter(e => {
       const d = new Date(e.date)
-      const monthIdx = d.getMonth() // 0-11
+      const monthIdx = d.getMonth()
       return selectedMonths.has(monthIdx)
     })
   }, [catFiltered, selectedMonths])
@@ -83,12 +103,12 @@ export default function EventsPage() {
 
   const monthKeys = Object.keys(grouped).sort()
 
-  // Category counts
+  // Category counts (only active events)
   const catCounts = useMemo(() => {
     const c = {}
-    events.forEach(e => { c[e.category] = (c[e.category] || 0) + 1 })
+    activeEvents.forEach(e => { c[e.category] = (c[e.category] || 0) + 1 })
     return c
-  }, [events])
+  }, [activeEvents])
 
   // Next highlight event
   const nextHighlight = useMemo(() =>
@@ -114,10 +134,26 @@ export default function EventsPage() {
       <Header />
       <NavTabs active="events" />
 
-      {/* Pulse Hero Banner */}
-      {nextHighlight && <PulseHero event={nextHighlight} />}
-
       <div style={{ maxWidth: 1480, margin: '0 auto', padding: '1.5rem' }}>
+        {/* Top 3 Highlighted Events */}
+        {top3Highlights.length > 0 && (
+          <div style={{ marginBottom: '1.5rem' }}>
+            <h2 style={{ fontSize: '1.05rem', fontWeight: 800, fontFamily: 'var(--font-display)', marginBottom: '.75rem', display: 'flex', alignItems: 'center', gap: '.5rem' }}>
+              ⭐ Top Events
+            </h2>
+            <div className="event-highlight-grid" style={{
+              display: 'grid',
+              gridTemplateColumns: `repeat(${Math.min(top3Highlights.length, 3)}, 1fr)`,
+              gap: '.75rem',
+            }}>
+              {top3Highlights.map(evt => <HighlightCard key={evt.id} event={evt} />)}
+            </div>
+          </div>
+        )}
+
+        {/* Pulse Hero Banner */}
+        {nextHighlight && <PulseHero event={nextHighlight} />}
+
         {/* Category Filter Cards */}
         <div className="event-cat-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '.6rem', marginBottom: '1.5rem' }}>
           {Object.entries(CAT_INFO).map(([key, info]) => (
@@ -185,6 +221,50 @@ export default function EventsPage() {
   )
 }
 
+function HighlightCard({ event }) {
+  const cat = CAT_INFO[event.category] || { color: 'var(--primary)', emoji: '🎪' }
+  const now = new Date()
+  const diff = new Date(event.date) - now
+  const days = Math.max(0, Math.floor(diff / 86400000))
+  const linkUrl = event.websiteUrl || event.ticketUrl || '/events'
+
+  return (
+    <a href={linkUrl} target={linkUrl !== '/events' ? '_blank' : undefined} rel={linkUrl !== '/events' ? 'noopener' : undefined}
+      className="fade-up"
+      style={{
+        background: 'var(--card-bg)', borderRadius: 16, overflow: 'hidden',
+        boxShadow: 'var(--shadow-soft)', border: '1px solid var(--border-light)',
+        textDecoration: 'none', color: 'inherit', transition: 'transform .25s, box-shadow .25s',
+        display: 'flex', flexDirection: 'column',
+      }}
+      onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = 'var(--shadow-hover)' }}
+      onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = 'var(--shadow-soft)' }}
+    >
+      <div style={{
+        background: `linear-gradient(135deg, ${cat.color}, ${cat.color}cc)`,
+        padding: '1rem 1.1rem', color: '#fff',
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '.6rem' }}>
+          <span style={{ fontSize: '2rem' }}>{event.emoji}</span>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ fontWeight: 800, fontSize: '1rem', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{event.name}</div>
+            <div style={{ fontSize: '.75rem', opacity: .85, marginTop: '.2rem' }}>📅 {event.dateLabel}</div>
+          </div>
+          {days > 0 && (
+            <div style={{ textAlign: 'center', padding: '.3rem .5rem', background: 'rgba(255,255,255,.18)', borderRadius: 10, flexShrink: 0 }}>
+              <div style={{ fontSize: '1.1rem', fontWeight: 800, fontFamily: 'var(--font-display)', lineHeight: 1 }}>{days}</div>
+              <div style={{ fontSize: '.55rem', opacity: .8 }}>Tage</div>
+            </div>
+          )}
+        </div>
+      </div>
+      <div style={{ padding: '.65rem 1.1rem .75rem', fontSize: '.78rem', color: 'var(--text2)' }}>
+        📍 {event.location}
+      </div>
+    </a>
+  )
+}
+
 function PulseHero({ event }) {
   const { days, hours, minutes, passed } = useCountdown(event.date)
   const cat = CAT_INFO[event.category] || { color: 'var(--primary)', emoji: '🎪' }
@@ -192,9 +272,7 @@ function PulseHero({ event }) {
   const linkLabel = event.websiteUrl ? '🌐 Mehr Infos' : '🎟️ Tickets & Infos'
 
   return (
-    <div className="fade-up" style={{
-      maxWidth: 1480, margin: '0 auto', padding: '1rem 1.5rem 0',
-    }}>
+    <div className="fade-up" style={{ marginBottom: '1.5rem' }}>
       <div style={{
         background: `linear-gradient(135deg, var(--primary-light) 0%, ${cat.color}12 100%)`,
         border: '1px solid var(--border-light)',
@@ -242,10 +320,9 @@ function getEventDayInfo(event) {
   const isMultiDay = end.getTime() !== start.getTime()
   const startDay = start.getDate()
   const endDay = end.getDate()
-  const startDow = start.getDay() // 0=Sun
+  const startDow = start.getDay()
   const endDow = end.getDay()
 
-  // Weekend = Fr(5), Sa(6), So(0)
   const isWeekend = [0, 5, 6].includes(startDow) || (isMultiDay && [0, 5, 6].includes(endDow))
 
   let dayLabel
@@ -342,9 +419,6 @@ function EventCard({ event }) {
           {event.tags?.slice(0, 2).map(t => (
             <span key={t} style={{ padding: '.1rem .35rem', borderRadius: 6, fontSize: '.62rem', fontWeight: 500, background: 'var(--surface2)', color: 'var(--text3)' }}>{t}</span>
           ))}
-          {info.isWeekend && !isPast && (
-            <span style={{ padding: '.1rem .4rem', borderRadius: 6, fontSize: '.62rem', fontWeight: 600, background: '#dcfce7', color: '#16a34a' }}>🗓️ Wochenende</span>
-          )}
         </div>
 
         {!isPast && (event.websiteUrl || event.ticketUrl) && (
