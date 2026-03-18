@@ -28,8 +28,8 @@
       "tags": ["Laufen", "Marathon", "Sport"],
       "status": "confirmed",
       "highlight": false,
-      "ticketUrl": "https://www.zurichmarathon.ch/anmeldung",
-      "websiteUrl": "https://www.zurichmarathon.ch",
+      "ticketUrl": null,
+      "websiteUrl": "https://www.zuerichmarathon.ch",
       "description": "Der grösste Marathon der Schweiz führt durch die schönsten Ecken von Zürich."
     },
     {
@@ -61,7 +61,7 @@
       "status": "confirmed",
       "highlight": false,
       "ticketUrl": null,
-      "websiteUrl": "https://www.ironman.com/im703-zurich",
+      "websiteUrl": "https://www.ironman.com/im703-switzerland",
       "description": "Triathlon-Klassiker: 1.9 km Schwimmen im Zürichsee, 90 km Rad, 21.1 km Lauf."
     },
     {
@@ -92,8 +92,8 @@
       "tags": ["Musik", "Festival", "Openair", "Sommer"],
       "status": "confirmed",
       "highlight": true,
-      "ticketUrl": "https://www.zurichopenair.ch/tickets",
-      "websiteUrl": "https://www.zurichopenair.ch",
+      "ticketUrl": null,
+      "websiteUrl": "https://zurichopenair.ch",
       "description": "Eines der grössten Musikfestivals der Schweiz mit internationalen Headlinern."
     },
     {
@@ -140,7 +140,7 @@
       "tags": ["Film", "Kino", "Festival", "Premiere"],
       "status": "confirmed",
       "highlight": true,
-      "ticketUrl": "https://zff.com/en/tickets/",
+      "ticketUrl": null,
       "websiteUrl": "https://zff.com",
       "description": "Eines der bedeutendsten Filmfestivals im deutschsprachigen Raum."
     },
@@ -172,7 +172,7 @@
       "tags": ["Schwimmen", "Sommer", "Sport", "Limmat"],
       "status": "confirmed",
       "highlight": false,
-      "ticketUrl": "https://www.limmatschwimmen.ch",
+      "ticketUrl": null,
       "websiteUrl": "https://www.limmatschwimmen.ch",
       "description": "Gemeinsames Schwimmen in der Limmat durch die Zürcher Innenstadt."
     },
@@ -189,7 +189,7 @@
       "status": "confirmed",
       "highlight": false,
       "ticketUrl": null,
-      "websiteUrl": "https://www.caliente.ch",
+      "websiteUrl": "https://caliente.ch",
       "description": "Das grösste Latin-Festival der Schweiz mit Live-Musik und Tanz."
     },
     {
@@ -236,8 +236,8 @@
       "tags": ["Leichtathletik", "Diamond League", "Sport"],
       "status": "confirmed",
       "highlight": true,
-      "ticketUrl": "https://www.weltklassezurich.ch/tickets",
-      "websiteUrl": "https://www.weltklassezurich.ch",
+      "ticketUrl": null,
+      "websiteUrl": "https://www.weltklassezuerich.ch",
       "description": "Diamond-League-Meeting mit Weltstars der Leichtathletik im Letzigrund."
     },
     {
@@ -285,7 +285,7 @@
       "status": "confirmed",
       "highlight": false,
       "ticketUrl": null,
-      "websiteUrl": "https://www.weinlandwanderung.ch",
+      "websiteUrl": "https://www.zuerich.com/de/besuchen/sport-und-erholung/weinland",
       "description": "Wanderung durch die Rebberge des Zürcher Weinlands mit Degustationen."
     },
     {
@@ -300,8 +300,8 @@
       "tags": ["Digital", "Innovation", "Technologie", "Zukunft"],
       "status": "confirmed",
       "highlight": false,
-      "ticketUrl": "https://www.digitalfestival.ch",
-      "websiteUrl": "https://www.digitalfestival.ch",
+      "ticketUrl": null,
+      "websiteUrl": "https://digitalfestival.ch",
       "description": "Zürichs grösstes Festival für Digitalisierung und Innovation."
     },
     {
@@ -316,8 +316,8 @@
       "tags": ["Jazz", "Musik", "Festival", "Live"],
       "status": "confirmed",
       "highlight": false,
-      "ticketUrl": "https://www.jazznojazz.ch/tickets",
-      "websiteUrl": "https://www.jazznojazz.ch",
+      "ticketUrl": null,
+      "websiteUrl": "https://jazznojazz.ch",
       "description": "Internationales Jazz-Festival in Zürich mit Top-Acts und Newcomern."
     },
     {
@@ -349,7 +349,7 @@
       "status": "confirmed",
       "highlight": true,
       "ticketUrl": null,
-      "websiteUrl": "https://www.zuercher-christkindlimarkt.ch",
+      "websiteUrl": "https://www.zuerich.com/de/besuchen/veranstaltungen/christkindlimarkt",
       "description": "Der grösste überdachte Weihnachtsmarkt Europas im Zürcher Hauptbahnhof."
     },
     {
@@ -365,12 +365,12 @@
       "status": "confirmed",
       "highlight": false,
       "ticketUrl": null,
-      "websiteUrl": "https://www.lichterschwimmen.ch",
+      "websiteUrl": "https://www.zuerich.com/de/besuchen/veranstaltungen/lichterschwimmen",
       "description": "Tausende Kerzen treiben auf der Limmat – ein magischer Sommerabend."
     },
     {
       "id": "evt-bike-days-2026",
-      "name": "Zürich Bike Days",
+      "name": "Cycle Week Zürich",
       "emoji": "🚴",
       "date": "2026-05-16",
       "dateEnd": "2026-05-17",
@@ -381,7 +381,7 @@
       "status": "confirmed",
       "highlight": false,
       "ticketUrl": null,
-      "websiteUrl": "https://www.zurichbikedays.ch",
+      "websiteUrl": "https://cycleweek.ch",
       "description": "Das Festival rund ums Velo – Testrides, Shows und Community."
     }
   ]
