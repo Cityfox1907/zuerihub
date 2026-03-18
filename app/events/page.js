@@ -173,43 +173,50 @@ export default function EventsPage() {
 function PulseHero({ event }) {
   const { days, hours, minutes, passed } = useCountdown(event.date)
   const cat = CAT_INFO[event.category] || { color: 'var(--primary)', emoji: '🎪' }
+  const linkUrl = event.websiteUrl || event.ticketUrl
+  const linkLabel = event.websiteUrl ? '🌐 Mehr Infos' : '🎟️ Tickets & Infos'
 
   return (
     <div className="fade-up" style={{
-      background: `linear-gradient(135deg, ${cat.color}ee 0%, ${cat.color}99 50%, var(--primary) 100%)`,
-      color: '#fff', padding: '2rem 1.5rem', textAlign: 'center', position: 'relative', overflow: 'hidden',
+      maxWidth: 1480, margin: '0 auto', padding: '1rem 1.5rem 0',
     }}>
-      <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 300, height: 300, borderRadius: '50%', border: '2px solid rgba(255,255,255,.1)', animation: 'splashPulse 3s ease infinite' }} />
-      <div style={{ position: 'relative', maxWidth: 600, margin: '0 auto' }}>
-        <div style={{ fontSize: '.75rem', fontWeight: 600, opacity: .8, marginBottom: '.3rem', textTransform: 'uppercase', letterSpacing: 1 }}>Nächstes Highlight</div>
-        <div style={{ fontSize: '2rem', marginBottom: '.3rem' }}>{event.emoji}</div>
-        <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.3rem, 3vw, 1.8rem)', fontWeight: 800, marginBottom: '.3rem' }}>{event.name}</h2>
-        <div style={{ fontSize: '.85rem', opacity: .85, marginBottom: '1rem' }}>📅 {event.dateLabel} · 📍 {event.location}</div>
+      <div style={{
+        background: `linear-gradient(135deg, var(--primary-light) 0%, ${cat.color}12 100%)`,
+        border: '1px solid var(--border-light)',
+        borderRadius: 14, padding: '.75rem 1.25rem',
+        display: 'flex', alignItems: 'center', gap: '1rem',
+        maxHeight: 120, overflow: 'hidden',
+      }}>
+        <span style={{ fontSize: '2rem', flexShrink: 0 }}>{event.emoji}</span>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ fontSize: '.65rem', fontWeight: 600, color: cat.color, textTransform: 'uppercase', letterSpacing: .5, marginBottom: '.1rem' }}>Nächstes Highlight</div>
+          <div style={{ fontWeight: 800, fontSize: '1rem', color: 'var(--text)', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{event.name}</div>
+          <div style={{ fontSize: '.78rem', color: 'var(--text2)', marginTop: '.15rem' }}>📅 {event.dateLabel} · 📍 {event.location}</div>
+        </div>
         {!passed && (
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '1.2rem' }}>
-            <CountdownUnit value={days} label="Tage" />
-            <CountdownUnit value={hours} label="Std" />
-            <CountdownUnit value={minutes} label="Min" />
+          <div style={{ display: 'flex', gap: '.6rem', flexShrink: 0 }}>
+            <CountdownUnit value={days} label="Tage" color={cat.color} />
+            <CountdownUnit value={hours} label="Std" color={cat.color} />
+            <CountdownUnit value={minutes} label="Min" color={cat.color} />
           </div>
         )}
-        <div style={{ display: 'flex', gap: '.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-          {event.ticketUrl && (
-            <a href={event.ticketUrl} target="_blank" rel="noopener" style={{ padding: '.55rem 1.2rem', borderRadius: 10, background: '#fff', color: cat.color, fontWeight: 700, fontSize: '.85rem', textDecoration: 'none', minHeight: 44, display: 'inline-flex', alignItems: 'center' }}>🎫 Tickets</a>
-          )}
-          {event.websiteUrl && (
-            <a href={event.websiteUrl} target="_blank" rel="noopener" style={{ padding: '.55rem 1.2rem', borderRadius: 10, background: 'rgba(255,255,255,.15)', color: '#fff', fontWeight: 600, fontSize: '.85rem', textDecoration: 'none', border: '1px solid rgba(255,255,255,.3)', minHeight: 44, display: 'inline-flex', alignItems: 'center' }}>🌐 Website</a>
-          )}
-        </div>
+        {linkUrl && (
+          <a href={linkUrl} target="_blank" rel="noopener" style={{
+            padding: '.45rem 1rem', borderRadius: 10, background: cat.color, color: '#fff',
+            fontWeight: 700, fontSize: '.8rem', textDecoration: 'none', whiteSpace: 'nowrap',
+            minHeight: 44, display: 'inline-flex', alignItems: 'center', flexShrink: 0,
+          }}>{linkLabel}</a>
+        )}
       </div>
     </div>
   )
 }
 
-function CountdownUnit({ value, label }) {
+function CountdownUnit({ value, label, color }) {
   return (
     <div style={{ textAlign: 'center' }}>
-      <div style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', fontWeight: 800, lineHeight: 1, fontFamily: 'var(--font-display)' }}>{value}</div>
-      <div style={{ fontSize: '.7rem', opacity: .7, marginTop: '.15rem' }}>{label}</div>
+      <div style={{ fontSize: '1.3rem', fontWeight: 800, lineHeight: 1, fontFamily: 'var(--font-display)', color: color || 'var(--primary)' }}>{value}</div>
+      <div style={{ fontSize: '.6rem', color: 'var(--text3)', marginTop: '.1rem' }}>{label}</div>
     </div>
   )
 }
@@ -246,14 +253,13 @@ function EventCard({ event }) {
               <span key={t} style={{ padding: '.12rem .4rem', borderRadius: 6, fontSize: '.65rem', fontWeight: 500, background: 'var(--surface2)', color: 'var(--text3)' }}>{t}</span>
             ))}
           </div>
-          {!isPast && (
-            <div style={{ display: 'flex', gap: '.4rem' }}>
-              {event.ticketUrl && (
-                <a href={event.ticketUrl} target="_blank" rel="noopener" style={{ padding: '.35rem .7rem', borderRadius: 8, background: cat.color, color: '#fff', fontSize: '.75rem', fontWeight: 700, textDecoration: 'none', minHeight: 44, display: 'inline-flex', alignItems: 'center' }}>🎫 Tickets</a>
-              )}
-              {event.websiteUrl && (
-                <a href={event.websiteUrl} target="_blank" rel="noopener" style={{ padding: '.35rem .7rem', borderRadius: 8, background: 'var(--surface2)', color: 'var(--text2)', fontSize: '.75rem', fontWeight: 600, textDecoration: 'none', border: '1px solid var(--border-light)', minHeight: 44, display: 'inline-flex', alignItems: 'center' }}>🌐 Info</a>
-              )}
+          {!isPast && (event.websiteUrl || event.ticketUrl) && (
+            <div>
+              <a href={event.websiteUrl || event.ticketUrl} target="_blank" rel="noopener" style={{
+                padding: '.35rem .7rem', borderRadius: 8, background: cat.color, color: '#fff',
+                fontSize: '.75rem', fontWeight: 700, textDecoration: 'none', minHeight: 44,
+                display: 'inline-flex', alignItems: 'center',
+              }}>{event.websiteUrl ? '🌐 Mehr Infos' : '🎟️ Tickets & Infos'}</a>
             </div>
           )}
           {isPast && <span style={{ fontSize: '.72rem', color: 'var(--text3)', fontStyle: 'italic' }}>Vergangen</span>}
