@@ -45,7 +45,8 @@ export default function HomePage() {
 
   const topRestaurants = data.gastro.filter(p => p.trade === 'Restaurant' && p.r >= 4.3 && p.rv >= 200).sort((a, b) => b.r !== a.r ? b.r - a.r : b.rv - a.rv)
   const topMuseen = [...data.museen].sort((a, b) => (b.rv * b.r) - (a.rv * a.r))
-  const topShops = [...data.shops].sort((a, b) => (b.rv * b.r) - (a.rv * a.r))
+  const topShops = [...data.shops].filter(p => p.subcat !== 'Einkaufszentren').sort((a, b) => (b.rv * b.r) - (a.rv * a.r))
+  const topMalls = [...data.shops].filter(p => p.subcat === 'Einkaufszentren').sort((a, b) => (b.rv * b.r) - (a.rv * a.r))
   const topFun = [...data.fun].sort((a, b) => (b.rv * b.r) - (a.rv * a.r))
 
   // Upcoming events (next 3 months)
@@ -108,6 +109,12 @@ export default function HomePage() {
           </>}
         </LazySection>
         <LazySection>
+          {topMalls.length >= 3 && <>
+            <SectionDivider label="🏬 Einkaufszentren" />
+            <SpotRow icon="🏬" title="Beliebteste Einkaufszentren in Zürich" items={topMalls.slice(0, 10)} link="/shops" onOpenModal={setModalSpot} />
+          </>}
+        </LazySection>
+        <LazySection>
           {topShops.length >= 3 && <>
             <SectionDivider label="🛍️ Shops" />
             <SpotRow icon="🛍️" title="Beliebte Shops" items={topShops.slice(0, 10)} link="/shops" onOpenModal={setModalSpot} />
@@ -130,10 +137,8 @@ export default function HomePage() {
 
 function SectionDivider({ label }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '.75rem', margin: '1.8rem 0 1rem' }}>
-      <div style={{ flex: 1, height: 1, background: 'var(--border-light)' }} />
+    <div style={{ margin: '2rem 0 .75rem' }}>
       <span style={{ fontSize: '.82rem', fontWeight: 700, color: 'var(--text3)', whiteSpace: 'nowrap' }}>{label}</span>
-      <div style={{ flex: 1, height: 1, background: 'var(--border-light)' }} />
     </div>
   )
 }

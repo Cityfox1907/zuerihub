@@ -65,20 +65,20 @@
       "description": "Triathlon-Klassiker: 1.9 km Schwimmen im Zürichsee, 90 km Rad, 21.1 km Lauf."
     },
     {
-      "id": "evt-zurich-pride-2026",
-      "name": "Zürich Pride Festival",
+      "id": "evt-zurich-pride-demo-2026",
+      "name": "Zürich Pride Demo",
       "emoji": "🏳️‍🌈",
-      "date": "2026-06-05",
-      "dateEnd": "2026-06-07",
-      "dateLabel": "5. – 7. Juni 2026",
-      "location": "Kasernenareal & Innenstadt, Zürich",
+      "date": "2026-06-20",
+      "dateEnd": "2026-06-20",
+      "dateLabel": "20. Juni 2026",
+      "location": "Innenstadt, Zürich",
       "category": "community",
-      "tags": ["Pride", "LGBTQ+", "Festival", "Parade"],
+      "tags": ["Pride", "LGBTQ+", "Demo"],
       "status": "confirmed",
-      "highlight": true,
+      "highlight": false,
       "ticketUrl": null,
-      "websiteUrl": "https://www.zurichpridefestival.ch",
-      "description": "Das grösste LGBTQ+-Festival der Schweiz mit Parade, Bühnen und Partys."
+      "websiteUrl": "https://zurichpridefestival.ch/",
+      "description": "Demo findet statt – Festival pausiert 2026"
     },
     {
       "id": "evt-zurich-openair-2026",
@@ -207,22 +207,6 @@
       "ticketUrl": "https://www.tonhalle-orchester.ch",
       "websiteUrl": "https://www.tonhalle-orchester.ch",
       "description": "Klassische Konzerte in lockerer Atmosphäre – Abendprogramm in der Tonhalle."
-    },
-    {
-      "id": "evt-zueri-faescht-2026",
-      "name": "Züri Fäscht",
-      "emoji": "🎆",
-      "date": "2026-07-03",
-      "dateEnd": "2026-07-05",
-      "dateLabel": "3. – 5. Juli 2026",
-      "location": "Innenstadt & Seebecken, Zürich",
-      "category": "festivals",
-      "tags": ["Volksfest", "Feuerwerk", "Sommer", "Party"],
-      "status": "confirmed",
-      "highlight": true,
-      "ticketUrl": null,
-      "websiteUrl": "https://www.zuerifaescht.ch",
-      "description": "Das grösste Fest Zürichs findet alle drei Jahre statt – mit spektakulärem Feuerwerk."
     },
     {
       "id": "evt-long-night-museums-2026",
@@ -383,22 +367,6 @@
       "ticketUrl": null,
       "websiteUrl": "https://www.lichterschwimmen.ch",
       "description": "Tausende Kerzen treiben auf der Limmat – ein magischer Sommerabend."
-    },
-    {
-      "id": "evt-flohmarkt-kanzlei-2026",
-      "name": "Flohmarkt Kanzlei",
-      "emoji": "🛒",
-      "date": "2026-05-02",
-      "dateEnd": "2026-05-02",
-      "dateLabel": "2. Mai 2026",
-      "location": "Kanzleiareal, Zürich",
-      "category": "community",
-      "tags": ["Flohmarkt", "Second-Hand", "Shopping", "Quartier"],
-      "status": "confirmed",
-      "highlight": false,
-      "ticketUrl": null,
-      "websiteUrl": null,
-      "description": "Beliebter Quartier-Flohmarkt auf dem Kanzleiareal in Zürich 4."
     },
     {
       "id": "evt-bike-days-2026",
