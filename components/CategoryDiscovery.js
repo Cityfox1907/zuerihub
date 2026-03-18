@@ -1,22 +1,31 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useMemo } from 'react'
 import GeheimtippDice from './GeheimtippDice'
 import SpotRow from './SpotRow'
 import SpotCard from './SpotCard'
 import FilterBar from './FilterBar'
-import { fmt } from '@/lib/data'
+import { fmt, getSpotTag } from '@/lib/data'
 
-export default function CategoryDiscovery({ spots, allSpots, storageKey, onOpenModal }) {
+export default function CategoryDiscovery({ spots, allSpots, storageKey, onOpenModal, subcatFilter }) {
   const [showAll, setShowAll] = useState(false)
   const [filtered, setFiltered] = useState([])
   const gridRef = useRef(null)
 
+  // Apply subcategory filter if active
+  const filteredSpots = useMemo(() => {
+    if (!subcatFilter) return spots
+    return spots.filter(p => {
+      const tag = getSpotTag(p)
+      return tag === subcatFilter || p.trade === subcatFilter || p.subcat === subcatFilter || p.keyword === subcatFilter
+    })
+  }, [spots, subcatFilter])
+
   // Popular: top 10 by review count
-  const popular = [...spots].sort((a, b) => b.rv - a.rv).slice(0, 10)
+  const popular = [...filteredSpots].sort((a, b) => b.rv - a.rv).slice(0, 10)
 
   // Best rated: top 10 by rating with min 50 reviews
-  const bestRated = [...spots].filter(p => p.rv >= 50).sort((a, b) => b.r !== a.r ? b.r - a.r : b.rv - a.rv).slice(0, 10)
+  const bestRated = [...filteredSpots].filter(p => p.rv >= 50).sort((a, b) => b.r !== a.r ? b.r - a.r : b.rv - a.rv).slice(0, 10)
 
   const handleShowAll = () => {
     setShowAll(true)
@@ -28,7 +37,7 @@ export default function CategoryDiscovery({ spots, allSpots, storageKey, onOpenM
   return (
     <>
       {/* Category Geheimtipp Dice */}
-      <GeheimtippDice allSpots={spots} onOpenModal={onOpenModal} storageKey={storageKey} />
+      <GeheimtippDice allSpots={filteredSpots} onOpenModal={onOpenModal} storageKey={storageKey} />
 
       {/* Popular Row */}
       {popular.length >= 3 && (
@@ -52,7 +61,7 @@ export default function CategoryDiscovery({ spots, allSpots, storageKey, onOpenM
             onMouseEnter={e => { e.currentTarget.style.background = 'var(--primary)'; e.currentTarget.style.color = '#fff' }}
             onMouseLeave={e => { e.currentTarget.style.background = 'var(--primary-light)'; e.currentTarget.style.color = 'var(--primary)' }}
           >
-            Alle {fmt(spots.length)} Profile anzeigen
+            Alle {fmt(filteredSpots.length)} Profile anzeigen
           </button>
         </div>
       )}
@@ -65,7 +74,7 @@ export default function CategoryDiscovery({ spots, allSpots, storageKey, onOpenM
             <span style={{ fontSize: '.82rem', fontWeight: 700, color: 'var(--text3)', whiteSpace: 'nowrap' }}>Alle Profile</span>
             <div style={{ flex: 1, height: 1, background: 'var(--border-light)' }} />
           </div>
-          <FilterBar spots={spots} onFiltered={setFiltered} totalCount={spots.length} />
+          <FilterBar spots={filteredSpots} onFiltered={setFiltered} totalCount={filteredSpots.length} />
           <div className="spot-grid" style={{ display: 'grid', gap: '.75rem' }}>
             {filtered.slice(0, 60).map((spot, i) => <SpotCard key={spot.id || i} spot={spot} rank={-1} onClick={() => onOpenModal(spot)} />)}
           </div>
