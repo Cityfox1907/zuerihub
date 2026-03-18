@@ -47,6 +47,7 @@ export default function HomePage() {
   const topMuseen = [...data.museen].sort((a, b) => (b.rv * b.r) - (a.rv * a.r))
   const topShops = [...data.shops].filter(p => p.subcat !== 'Einkaufszentren').sort((a, b) => (b.rv * b.r) - (a.rv * a.r))
   const topMalls = [...data.shops].filter(p => p.subcat === 'Einkaufszentren').sort((a, b) => (b.rv * b.r) - (a.rv * a.r))
+  const topSecondHand = [...data.shops].filter(p => p.subcat === 'Second-Hand & Vintage').sort((a, b) => b.r !== a.r ? b.r - a.r : b.rv - a.rv).slice(0, 10)
   const topFun = [...data.fun].sort((a, b) => (b.rv * b.r) - (a.rv * a.r))
 
   // Upcoming events (next 3 months)
@@ -116,6 +117,12 @@ export default function HomePage() {
           {topShops.length >= 3 && <>
             <SectionDivider label="🛍️ Shops" />
             <SpotRow icon="🛍️" title="Beliebte Shops" items={topShops.slice(0, 10)} link="/shops" onOpenModal={setModalSpot} />
+          </>}
+        </LazySection>
+        <LazySection>
+          {topSecondHand.length >= 3 && <>
+            <SectionDivider label="♻️ Beliebteste Second-Hand & Vintage Geschäfte" />
+            <SpotRow icon="♻️" title="Beliebteste Second-Hand & Vintage Geschäfte" items={topSecondHand} link="/shops" onOpenModal={setModalSpot} />
           </>}
         </LazySection>
         <LazySection>

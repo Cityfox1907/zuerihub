@@ -3,7 +3,7 @@
 import Link from 'next/link'
 
 const tabs = [
-  { id: 'discovery', emoji: '🧭', label: 'Discovery', href: '/' },
+  { id: 'discovery', emoji: '🔮', label: 'Discovery', href: '/' },
   { id: 'events', emoji: '🎪', label: 'Events', href: '/events' },
   { id: 'shops', emoji: '🛍️', label: 'Shops', href: '/shops' },
   { id: 'gastronomie', emoji: '🍽️', label: 'Essen & Trinken', href: '/essen-trinken' },

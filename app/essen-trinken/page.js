@@ -15,7 +15,6 @@ const MAIN_CATS = [
   { emoji: '🍺', label: 'Bar' },
   { emoji: '☕', label: 'Café' },
   { emoji: '🥐', label: 'Bäckerei' },
-  { emoji: '🥡', label: 'Takeaway' },
 ]
 
 const TAG_CATS = [
