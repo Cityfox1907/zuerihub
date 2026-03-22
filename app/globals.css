@@ -123,6 +123,46 @@ body { min-height: 100vh; -webkit-font-smoothing: antialiased; }
   100% { background-position: 0% 50%; }
 }
 
+/* Golden shimmer sweep for dice container */
+@keyframes goldenSweep {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(200%) skewX(-15deg); }
+}
+
+/* Dice container hover shimmer */
+.dice-container { transition: box-shadow .3s var(--ease), transform .2s var(--ease); }
+.dice-container:hover {
+  box-shadow: 0 4px 20px rgba(212,147,13,0.15), 0 12px 40px rgba(15,71,175,0.10);
+  transform: translateY(-1px);
+}
+
+/* Dice roll button hover */
+.dice-roll-btn { position: relative; overflow: hidden; }
+.dice-roll-btn::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.2) 45%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.2) 55%, transparent 60%);
+  transform: translateX(-100%) skewX(-15deg);
+  transition: none;
+}
+.dice-roll-btn:not(:disabled):hover::after {
+  animation: goldenSweep .8s ease;
+}
+.dice-roll-btn:not(:disabled):hover {
+  transform: translateY(-1px) scale(1.02) !important;
+  box-shadow: 0 6px 20px rgba(15,71,175,0.35), 0 2px 6px rgba(212,147,13,0.2) !important;
+}
+.dice-roll-btn:not(:disabled):active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+/* Logo hover effects */
+.zh-logo-link:hover { transform: scale(1.02); opacity: .9; }
+.zh-logo-link:hover .zh-logo-icon {
+  box-shadow: 0 3px 12px rgba(15,71,175,0.28), 0 1px 4px rgba(15,71,175,0.16);
+  transform: translateY(-1px);
+}
+
 /* Chip / filter styles */
 .filter-chip {
   padding: .35rem .75rem;
@@ -211,6 +251,10 @@ body { min-height: 100vh; -webkit-font-smoothing: antialiased; }
 
   /* Dice cards: 2 visible on mobile */
   .dice-scroll > div { flex: 0 0 calc(50% - .375rem) !important; min-width: 160px !important; }
+
+  /* Dice container mobile padding */
+  .dice-container > div:last-child { padding: 1.25rem 1rem 1rem !important; }
+  .dice-badge { display: none !important; }
 
   /* Highlight event cards on mobile: swipeable, one card visible */
   .highlight-event-arrow { display: none !important; }
