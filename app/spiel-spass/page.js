@@ -23,7 +23,7 @@ export default function SpielSpassPage() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [modalSpot, setModalSpot] = useState(null)
-  const [subcatFilter, setSubcatFilter] = useState('')
+  const [subcatFilters, setSubcatFilters] = useState([])
 
   useEffect(() => { loadAllData().then(d => { setData(d); setLoading(false) }) }, [])
   if (loading || !data) return <div style={{ padding: '4rem', textAlign: 'center', color: 'var(--text3)' }}>Laden…</div>
@@ -38,10 +38,10 @@ export default function SpielSpassPage() {
         <SubcategoryNav
           spots={data.fun}
           mainCategories={MAIN_CATS}
-          activeFilter={subcatFilter}
-          onFilter={setSubcatFilter}
+          activeFilters={subcatFilters}
+          onFilter={setSubcatFilters}
         />
-        <CategoryDiscovery spots={data.fun} allSpots={data.all} storageKey="zh-dice-seen-fun" onOpenModal={setModalSpot} subcatFilter={subcatFilter} />
+        <CategoryDiscovery spots={data.fun} allSpots={data.all} storageKey="zh-dice-seen-fun" onOpenModal={setModalSpot} subcatFilter={subcatFilters} />
       </div>
       <Footer />
       <BackToTop />
