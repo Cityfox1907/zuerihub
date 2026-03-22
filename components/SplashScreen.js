@@ -33,15 +33,23 @@ export default function SplashScreen({ progress, onDone }) {
     }}>
       {/* Logo */}
       <div style={{ animation: 'splashPulse 2s ease infinite', marginBottom: '1.5rem' }}>
-        <svg width="64" height="64" viewBox="0 0 100 100" fill="none">
-          <rect x="4" y="4" width="92" height="92" rx="20" fill="rgba(255,255,255,.1)" stroke="#fff" strokeWidth="4"/>
-          <path d="M30 82V42l-4-2V38l12-14h2l2 5h16l2-5h2l12 14v2l-4 2v40" stroke="#fff" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round"/>
-          <rect x="35" y="40" width="10" height="42" rx="1.5" stroke="#fff" strokeWidth="3.5"/>
-          <rect x="55" y="40" width="10" height="42" rx="1.5" stroke="#fff" strokeWidth="3.5"/>
-          <circle cx="40" cy="30" r="3.5" fill="#fff"/>
-          <circle cx="60" cy="30" r="3.5" fill="#fff"/>
-          <line x1="26" y1="82" x2="74" y2="82" stroke="#fff" strokeWidth="4" strokeLinecap="round"/>
-        </svg>
+        <div style={{
+          width: 72, height: 72, borderRadius: 18,
+          background: 'rgba(255,255,255,0.15)',
+          backdropFilter: 'blur(8px)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          boxShadow: '0 4px 24px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.2)',
+          border: '1.5px solid rgba(255,255,255,0.2)',
+        }}>
+          <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
+            <path d="M30 82V42l-4-2V38l12-14h2l2 5h16l2-5h2l12 14v2l-4 2v40" stroke="#fff" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+            <rect x="35" y="40" width="10" height="42" rx="2" stroke="#fff" strokeWidth="3.5" fill="rgba(255,255,255,0.15)"/>
+            <rect x="55" y="40" width="10" height="42" rx="2" stroke="#fff" strokeWidth="3.5" fill="rgba(255,255,255,0.15)"/>
+            <circle cx="40" cy="30" r="3.5" fill="#fff"/>
+            <circle cx="60" cy="30" r="3.5" fill="#fff"/>
+            <line x1="26" y1="82" x2="74" y2="82" stroke="#fff" strokeWidth="4.5" strokeLinecap="round"/>
+          </svg>
+        </div>
       </div>
 
       <div style={{ fontFamily: 'var(--font-display, Georgia)', fontSize: 'clamp(2rem,5vw,3rem)', fontWeight: 800, marginBottom: '.3rem' }}>
