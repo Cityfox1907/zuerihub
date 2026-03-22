@@ -21,8 +21,11 @@ const MUSEUM_SUBCATS = [
   { emoji: '🦕', label: 'Naturhistorisches Museum' },
   { emoji: '🎭', label: 'Kulturmuseum' },
   { emoji: '🧒', label: 'Kindermuseum' },
-  { emoji: '🎪', label: 'Erlebnismuseum' },
 ]
+
+const MUSEUM_KEYWORDS = new Set(MUSEUM_SUBCATS.map(c => c.label))
+// Include Allgemeines Museum so these spots show when Museum is selected
+const ALL_MUSEUM_KEYWORDS = new Set([...MUSEUM_KEYWORDS, 'Allgemeines Museum'])
 
 const NATUR_CATS = [
   { emoji: '🌳', label: 'Park' },
@@ -66,8 +69,10 @@ export default function KulturPage() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [modalSpot, setModalSpot] = useState(null)
-  const [subcatFilter, setSubcatFilter] = useState('')
   const [activeGroup, setActiveGroup] = useState('') // 'kultur' or 'natur'
+  // Multi-select: array of active category labels
+  const [activeFilters, setActiveFilters] = useState([])
+  // Whether the museum subcategories panel is open
   const [museumOpen, setMuseumOpen] = useState(false)
 
   useEffect(() => { loadAllData().then(d => { setData(d); setLoading(false) }) }, [])
@@ -83,37 +88,64 @@ export default function KulturPage() {
     if (p.keyword) counts[p.keyword] = (counts[p.keyword] || 0) + 1
   })
   // Museum aggregate count
-  const museumCount = MUSEUM_SUBCATS.reduce((sum, c) => sum + (counts[c.label] || 0), 0)
+  const museumCount = allKultur.filter(p => ALL_MUSEUM_KEYWORDS.has(p.keyword)).length
 
   const handleGroupClick = (group) => {
     if (activeGroup === group) {
       setActiveGroup('')
-      setSubcatFilter('')
+      setActiveFilters([])
       setMuseumOpen(false)
     } else {
       setActiveGroup(group)
-      setSubcatFilter('')
+      setActiveFilters([])
       setMuseumOpen(false)
     }
   }
 
   const handleSubcatClick = (label) => {
     if (label === 'Museum') {
-      setMuseumOpen(!museumOpen)
-      if (!museumOpen) {
-        // When opening museum, don't filter yet - show all museum types
-        setSubcatFilter('')
+      if (museumOpen) {
+        // Close museum: remove all museum-related filters
+        setMuseumOpen(false)
+        setActiveFilters(prev => prev.filter(f => !ALL_MUSEUM_KEYWORDS.has(f) && f !== 'Museum'))
       } else {
-        setSubcatFilter('')
+        // Open museum: show all museums
+        setMuseumOpen(true)
+        setActiveFilters(prev => {
+          const withoutMuseum = prev.filter(f => !ALL_MUSEUM_KEYWORDS.has(f) && f !== 'Museum')
+          return [...withoutMuseum, 'Museum']
+        })
       }
     } else {
-      setMuseumOpen(false)
-      setSubcatFilter(subcatFilter === label ? '' : label)
+      // Toggle non-museum category
+      setActiveFilters(prev => {
+        if (prev.includes(label)) {
+          return prev.filter(f => f !== label)
+        } else {
+          return [...prev, label]
+        }
+      })
     }
   }
 
   const handleMuseumSubcatClick = (label) => {
-    setSubcatFilter(subcatFilter === label ? '' : label)
+    setActiveFilters(prev => {
+      const hasMuseumMarker = prev.includes('Museum')
+      if (prev.includes(label)) {
+        // Remove this subcat
+        const next = prev.filter(f => f !== label)
+        // If no specific museum subcats remain but Museum marker is there, keep showing all museums
+        const hasAnyMuseumSubcat = next.some(f => MUSEUM_KEYWORDS.has(f))
+        if (!hasAnyMuseumSubcat && !hasMuseumMarker) {
+          return [...next, 'Museum']
+        }
+        return next
+      } else {
+        // Add this subcat, remove the generic "Museum" marker if it exists
+        const next = prev.filter(f => f !== 'Museum')
+        return [...next, label]
+      }
+    })
   }
 
   // Build effective filter for CategoryDiscovery
@@ -129,7 +161,15 @@ export default function KulturPage() {
     return allKultur
   })()
 
+  // Build the subcatFilter array for CategoryDiscovery
+  // "Museum" marker means show all museum types
+  const effectiveSubcatFilter = activeFilters.flatMap(f => {
+    if (f === 'Museum') return [...ALL_MUSEUM_KEYWORDS]
+    return [f]
+  })
+
   const activeCats = activeGroup === 'kultur' ? KULTUR_CATS : activeGroup === 'natur' ? NATUR_CATS : null
+  const isMuseumActive = museumOpen || activeFilters.some(f => ALL_MUSEUM_KEYWORDS.has(f) || f === 'Museum')
 
   return (
     <>
@@ -152,16 +192,21 @@ export default function KulturPage() {
               display: 'flex', gap: '.6rem', overflowX: 'auto', scrollSnapType: 'x mandatory',
               scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch', paddingBottom: '.5rem',
             }}>
-              {activeCats.map(({ emoji, label }) => (
-                <CategoryTile
-                  key={label}
-                  emoji={emoji}
-                  label={label}
-                  count={label === 'Museum' ? museumCount : (counts[label] || 0)}
-                  isActive={subcatFilter === label || (label === 'Museum' && museumOpen)}
-                  onClick={() => handleSubcatClick(label)}
-                />
-              ))}
+              {activeCats.map(({ emoji, label }) => {
+                const isCatActive = label === 'Museum'
+                  ? isMuseumActive
+                  : activeFilters.includes(label)
+                return (
+                  <CategoryTile
+                    key={label}
+                    emoji={emoji}
+                    label={label}
+                    count={label === 'Museum' ? museumCount : (counts[label] || 0)}
+                    isActive={isCatActive}
+                    onClick={() => handleSubcatClick(label)}
+                  />
+                )
+              })}
             </div>
           )}
 
@@ -172,7 +217,7 @@ export default function KulturPage() {
               paddingLeft: '.5rem', borderLeft: '3px solid var(--primary-light)',
             }}>
               {MUSEUM_SUBCATS.map(({ emoji, label }) => {
-                const isActive = subcatFilter === label
+                const isActive = activeFilters.includes(label)
                 const count = counts[label] || 0
                 return (
                   <button
@@ -200,7 +245,7 @@ export default function KulturPage() {
           )}
         </nav>
 
-        <CategoryDiscovery spots={effectiveSpots} allSpots={data.all} storageKey="zh-dice-seen-kultur" onOpenModal={setModalSpot} subcatFilter={subcatFilter} />
+        <CategoryDiscovery spots={effectiveSpots} allSpots={data.all} storageKey="zh-dice-seen-kultur" onOpenModal={setModalSpot} subcatFilter={effectiveSubcatFilter} />
       </div>
       <Footer />
       <BackToTop />

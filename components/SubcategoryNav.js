@@ -6,16 +6,17 @@ import { getSpotTag } from '@/lib/data'
 /**
  * Subcategory navigation for category pages.
  * Supports main categories (large tiles) and secondary tags (small chips).
+ * Multi-select: multiple categories can be active simultaneously.
  *
  * Props:
  * - spots: array of normalized spots
  * - mainCategories: [{ emoji, label }] - primary category tiles
  * - tagCategories: [{ emoji, label }] - secondary tag chips (optional)
- * - activeFilter: currently selected filter string
- * - onFilter: (label: string) => void
+ * - activeFilters: string[] - currently selected filter labels
+ * - onFilter: (filters: string[]) => void
  * - tagLabel: string - label for the tags row (optional)
  */
-export default function SubcategoryNav({ spots, mainCategories, tagCategories, activeFilter, onFilter, tagLabel }) {
+export default function SubcategoryNav({ spots, mainCategories, tagCategories, activeFilters = [], onFilter, tagLabel }) {
   // Count spots per category
   const counts = useMemo(() => {
     const c = {}
@@ -50,6 +51,14 @@ export default function SubcategoryNav({ spots, mainCategories, tagCategories, a
     return c
   }, [spots])
 
+  const toggle = (label) => {
+    if (activeFilters.includes(label)) {
+      onFilter(activeFilters.filter(f => f !== label))
+    } else {
+      onFilter([...activeFilters, label])
+    }
+  }
+
   return (
     <nav style={{ marginBottom: '1.5rem' }}>
       {/* Main categories - large tiles */}
@@ -58,12 +67,12 @@ export default function SubcategoryNav({ spots, mainCategories, tagCategories, a
         scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch', paddingBottom: '.5rem',
       }}>
         {mainCategories.map(({ emoji, label }) => {
-          const isActive = activeFilter === label
+          const isActive = activeFilters.includes(label)
           const count = counts[label] || 0
           return (
             <button
               key={label}
-              onClick={() => onFilter(isActive ? '' : label)}
+              onClick={() => toggle(label)}
               className="subcat-main-tile"
               style={{
                 flex: '0 0 auto', scrollSnapAlign: 'start',
@@ -104,12 +113,12 @@ export default function SubcategoryNav({ spots, mainCategories, tagCategories, a
             display: 'flex', gap: '.35rem', flexWrap: 'wrap',
           }}>
             {tagCategories.map(({ emoji, label }) => {
-              const isActive = activeFilter === label
+              const isActive = activeFilters.includes(label)
               const count = counts[label] || 0
               return (
                 <button
                   key={label}
-                  onClick={() => onFilter(isActive ? '' : label)}
+                  onClick={() => toggle(label)}
                   style={{
                     display: 'inline-flex', alignItems: 'center', gap: '.3rem',
                     padding: '.3rem .65rem', borderRadius: 20,

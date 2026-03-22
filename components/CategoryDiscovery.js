@@ -12,12 +12,13 @@ export default function CategoryDiscovery({ spots, allSpots, storageKey, onOpenM
   const [filtered, setFiltered] = useState([])
   const gridRef = useRef(null)
 
-  // Apply subcategory filter if active
+  // Apply subcategory filter if active (supports array of filters for multi-select)
   const filteredSpots = useMemo(() => {
-    if (!subcatFilter) return spots
+    const filters = Array.isArray(subcatFilter) ? subcatFilter : (subcatFilter ? [subcatFilter] : [])
+    if (filters.length === 0) return spots
     return spots.filter(p => {
       const tag = getSpotTag(p)
-      return tag === subcatFilter || p.trade === subcatFilter || p.subcat === subcatFilter || p.keyword === subcatFilter
+      return filters.some(f => tag === f || p.trade === f || p.subcat === f || p.keyword === f)
     })
   }, [spots, subcatFilter])
 

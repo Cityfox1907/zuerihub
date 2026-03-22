@@ -33,11 +33,10 @@
         "cat:Historisches Museum": "🏰",
         "cat:Kulturmuseum": "🎭",
         "cat:Kindermuseum": "🧒",
-        "cat:Erlebnismuseum": "🎪",
         "cat:Allgemeines Museum": "🏛️"
       }
     },
-    "total_eintraege": 168
+    "total_eintraege": 165
   },
   "orte": [
     {
@@ -382,26 +381,6 @@
         "Kindermuseum",
         "Kunstmuseum"
       ]
-    },
-    {
-      "place_id": "ChIJVVUVH-C2mkcRmCFJacdH8Ds",
-      "name": "Schloss Catering Rapperswil",
-      "adresse": "Lindenhügel, 8640 Rapperswil-Jona, Schweiz",
-      "koordinaten": {
-        "lat": 47.227595099999995,
-        "lng": 8.8158402
-      },
-      "rating_durchschnitt": 4.6,
-      "rating_anzahl": 696,
-      "google_maps_url": "https://maps.google.com/?cid=4319030964438770072&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "website": "https://schlosscatering.ch/de/",
-      "telefon": "+41 55 210 18 28",
-      "primary_type": "Veranstaltungsstätte",
-      "business_status": "OPERATIONAL",
-      "hauptkategorie": "Kultur & Natur",
-      "kategorie": "Museen",
-      "unterkategorie": "Kulturmuseum",
-      "tags": []
     },
     {
       "place_id": "ChIJvSPwpTGnmkcRFTSkOsv0U7U",
@@ -1730,50 +1709,6 @@
       "tags": [
         "Kunstmuseum",
         "Wissenschaftsmuseum"
-      ]
-    },
-    {
-      "place_id": "ChIJuw8qpBSZmkcRhkm5V4R_60M",
-      "name": "Zentrum Töss",
-      "adresse": "Zürcherstrasse 106, 8406 Winterthur, Schweiz",
-      "koordinaten": {
-        "lat": 47.4915801,
-        "lng": 8.7061064
-      },
-      "rating_durchschnitt": 3.9,
-      "rating_anzahl": 129,
-      "google_maps_url": "https://maps.google.com/?cid=4894145626452347270&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "website": "",
-      "telefon": "+41 52 202 53 21",
-      "primary_type": "Historischer Ort",
-      "business_status": "OPERATIONAL",
-      "hauptkategorie": "Kultur & Natur",
-      "kategorie": "Museen",
-      "unterkategorie": "Kulturmuseum",
-      "tags": [
-        "Freilichtmuseum"
-      ]
-    },
-    {
-      "place_id": "ChIJ0VR9pO-jmkcRHvaXPrqHwYQ",
-      "name": "ehemalige Kiesgrube (Veranstaltungsort Freilichtspiele Illnau)",
-      "adresse": "Illnau 8308, 8308 Illnau-Effretikon, Schweiz",
-      "koordinaten": {
-        "lat": 47.413423099999996,
-        "lng": 8.7180917
-      },
-      "rating_durchschnitt": 4.8,
-      "rating_anzahl": 51,
-      "google_maps_url": "https://maps.google.com/?cid=9566076317495457310&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "website": "http://www.freilichtspiele-illnau.ch/",
-      "telefon": "",
-      "primary_type": "Theater",
-      "business_status": "OPERATIONAL",
-      "hauptkategorie": "Kultur & Natur",
-      "kategorie": "Museen",
-      "unterkategorie": "Kulturmuseum",
-      "tags": [
-        "Freilichtmuseum"
       ]
     },
     {

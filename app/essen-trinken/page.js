@@ -40,7 +40,7 @@ export default function GastronomiePage() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [modalSpot, setModalSpot] = useState(null)
-  const [subcatFilter, setSubcatFilter] = useState('')
+  const [subcatFilters, setSubcatFilters] = useState([])
 
   useEffect(() => { loadAllData().then(d => { setData(d); setLoading(false) }) }, [])
   if (loading || !data) return <div style={{ padding: '4rem', textAlign: 'center', color: 'var(--text3)' }}>Laden…</div>
@@ -57,10 +57,10 @@ export default function GastronomiePage() {
           mainCategories={MAIN_CATS}
           tagCategories={TAG_CATS}
           tagLabel="Küche & Spezialitäten"
-          activeFilter={subcatFilter}
-          onFilter={setSubcatFilter}
+          activeFilters={subcatFilters}
+          onFilter={setSubcatFilters}
         />
-        <CategoryDiscovery spots={data.gastro} allSpots={data.all} storageKey="zh-dice-seen-gastro" onOpenModal={setModalSpot} subcatFilter={subcatFilter} />
+        <CategoryDiscovery spots={data.gastro} allSpots={data.all} storageKey="zh-dice-seen-gastro" onOpenModal={setModalSpot} subcatFilter={subcatFilters} />
       </div>
       <Footer />
       <BackToTop />
