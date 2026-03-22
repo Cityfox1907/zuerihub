@@ -50,20 +50,17 @@ export default function HomePage() {
   const topSecondHand = [...data.shops].filter(p => p.subcat === 'Second-Hand & Vintage').sort((a, b) => b.r !== a.r ? b.r - a.r : b.rv - a.rv).slice(0, 10)
   const topFun = [...data.fun].sort((a, b) => (b.rv * b.r) - (a.rv * a.r))
 
-  // Upcoming events (next 3 months), filter out expired (24h after end date)
+  // Upcoming events, filter out expired (24h after end date)
   const now = new Date()
-  const threeMonthsLater = new Date(now.getFullYear(), now.getMonth() + 3, now.getDate())
   const upcomingEvents = events
     .filter(e => {
       const endDate = new Date(e.dateEnd || e.date)
       const expiry = new Date(endDate.getTime() + 24 * 60 * 60 * 1000)
-      return now <= expiry && endDate <= threeMonthsLater
+      return now <= expiry
     })
     .sort((a, b) => new Date(a.date) - new Date(b.date))
-  // Pick 5 top events: prioritize highlights, then by date
-  const highlightEvents = upcomingEvents.filter(e => e.highlight)
-  const nonHighlightEvents = upcomingEvents.filter(e => !e.highlight)
-  const topEvents = [...highlightEvents, ...nonHighlightEvents].slice(0, 5)
+  // Top-Events in Zürich: all highlighted events, chronologically
+  const topEvents = upcomingEvents.filter(e => e.highlight)
 
   // Events FIRST in categories
   const categories = [
@@ -198,7 +195,7 @@ function HighlightEventRow({ events }) {
     <section className="fade-up highlight-event-section" style={{ marginBottom: '1.2rem', position: 'relative' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '.55rem' }}>
         <h2 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '.35rem', margin: 0 }}>
-          <span style={{ fontSize: '1.1rem' }}>🎪</span> Top Events der nächsten 3 Monate
+          <span style={{ fontSize: '1.1rem' }}>🎪</span> Top-Events in Zürich
         </h2>
         <a href="/events" style={{ fontSize: '.78rem', fontWeight: 600, color: 'var(--primary)', textDecoration: 'none' }}>Alle anzeigen ›</a>
       </div>

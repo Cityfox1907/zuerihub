@@ -281,7 +281,7 @@
       "category": "sport",
       "tags": ["Laufen", "Marathon", "Sport"],
       "status": "confirmed",
-      "highlight": false,
+      "highlight": true,
       "ticketUrl": null,
       "websiteUrl": "https://www.zurichmarathon.ch/"
     },
@@ -1016,7 +1016,7 @@
       "category": "tradition",
       "tags": ["Theater", "Performance", "Kunst", "Festival"],
       "status": "confirmed",
-      "highlight": false,
+      "highlight": true,
       "ticketUrl": "https://www.theaterspektakel.ch/tickets",
       "websiteUrl": "https://www.theaterspektakel.ch"
     },
@@ -1106,7 +1106,7 @@
       "category": "tradition",
       "tags": ["Museum", "Nacht", "Kultur", "Kunst"],
       "status": "confirmed",
-      "highlight": false,
+      "highlight": true,
       "ticketUrl": null,
       "websiteUrl": "https://www.langenacht.ch/"
     },
@@ -1136,7 +1136,7 @@
       "category": "tradition",
       "tags": ["Schiessen", "Jahrmarkt", "Tradition", "Volksfest"],
       "status": "confirmed",
-      "highlight": false,
+      "highlight": true,
       "ticketUrl": null,
       "websiteUrl": "https://www.knabenschiessen.ch"
     },
