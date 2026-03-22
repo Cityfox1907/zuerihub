@@ -152,6 +152,10 @@ body { min-height: 100vh; -webkit-font-smoothing: antialiased; }
 .highlight-event-scroll::-webkit-scrollbar { display: none; }
 .highlight-event-scroll { scrollbar-width: none; }
 
+/* Highlight event arrows: hidden by default, shown on section hover (desktop) */
+.highlight-event-arrow { opacity: 0 !important; transition: opacity .2s !important; pointer-events: none; }
+.highlight-event-section:hover .highlight-event-arrow { opacity: 1 !important; pointer-events: auto; }
+
 /* SpotCard photo 4:3 aspect ratio */
 .spot-card-photo { aspect-ratio: 4/3; overflow: hidden; }
 .spot-card-photo > div { height: 100% !important; }
@@ -177,6 +181,7 @@ body { min-height: 100vh; -webkit-font-smoothing: antialiased; }
   .spot-row-grid { grid-template-columns: repeat(3, 1fr) !important; }
   .spot-grid { grid-template-columns: repeat(3, 1fr) !important; }
   .spot-row-card { flex: 0 0 calc(33.333% - .5rem) !important; min-width: 200px !important; }
+  .highlight-event-card { flex: 0 0 calc(33.333% - .5rem) !important; min-width: 240px !important; }
 }
 
 /* Subcategory nav scrollbar hide */
@@ -207,8 +212,9 @@ body { min-height: 100vh; -webkit-font-smoothing: antialiased; }
   /* Dice cards: 2 visible on mobile */
   .dice-scroll > div { flex: 0 0 calc(50% - .375rem) !important; min-width: 160px !important; }
 
-  /* Highlight event cards on mobile */
-  .highlight-event-scroll > a { flex: 0 0 280px !important; min-width: 280px !important; }
+  /* Highlight event cards on mobile: swipeable, one card visible */
+  .highlight-event-arrow { display: none !important; }
+  .highlight-event-card { flex: 0 0 calc(75% - .375rem) !important; min-width: 240px !important; }
 
   /* Subcategory nav: 2-column grid on mobile */
   .subcat-main-row { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; overflow-x: visible !important; }

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import Header from '@/components/Header'
 import NavTabs from '@/components/NavTabs'
 import Hero from '@/components/Hero'
@@ -84,53 +84,41 @@ export default function HomePage() {
       <div style={{ maxWidth: 1480, margin: '0 auto', padding: '0 1.5rem 2rem' }}>
         {/* Top Events - large cards */}
         {topEvents.length > 0 && (
-          <>
-            <SectionDivider label="🎪 Top Events" />
-            <HighlightEventRow events={topEvents} />
-          </>
+          <HighlightEventRow events={topEvents} />
         )}
 
         {/* Geheimtipp Dice */}
-        <SectionDivider label="🎲 Geheimtipp-Würfel" />
         <GeheimtippDice allSpots={data.all} onOpenModal={setModalSpot} />
 
-        <SectionDivider label="🔥 Beliebt" />
         <SpotRow icon="🔥" title="Beliebt in Zürich" items={popular} onOpenModal={setModalSpot} />
 
-        <SectionDivider label="⭐ Bestbewertet" />
         <SpotRow icon="⭐" title="Bestbewertet in Zürich" items={bestRated} onOpenModal={setModalSpot} />
 
-        <SectionDivider label="🍽️ Essen & Trinken" />
         <SpotRow icon="🍽️" title="Beliebteste Restaurants" items={topRestaurants.slice(0, 10)} link="/essen-trinken" onOpenModal={setModalSpot} />
         <LazySection>
-          {topMuseen.length >= 3 && <>
-            <SectionDivider label="🖼️ Museen" />
+          {topMuseen.length >= 3 && (
             <SpotRow icon="🖼️" title="Top Museen" items={topMuseen.slice(0, 10)} link="/kultur" onOpenModal={setModalSpot} />
-          </>}
+          )}
         </LazySection>
         <LazySection>
-          {topMalls.length >= 3 && <>
-            <SectionDivider label="🏬 Einkaufszentren" />
-            <SpotRow icon="🏬" title="Beliebteste Einkaufszentren in Zürich" items={topMalls.slice(0, 10)} link="/shops" onOpenModal={setModalSpot} />
-          </>}
+          {topMalls.length >= 3 && (
+            <SpotRow icon="🏬" title="Beliebteste Einkaufszentren" items={topMalls.slice(0, 10)} link="/shops" onOpenModal={setModalSpot} />
+          )}
         </LazySection>
         <LazySection>
-          {topShops.length >= 3 && <>
-            <SectionDivider label="🛍️ Shops" />
+          {topShops.length >= 3 && (
             <SpotRow icon="🛍️" title="Beliebte Shops" items={topShops.slice(0, 10)} link="/shops" onOpenModal={setModalSpot} />
-          </>}
+          )}
         </LazySection>
         <LazySection>
-          {topSecondHand.length >= 3 && <>
-            <SectionDivider label="♻️ Beliebteste Second-Hand & Vintage Geschäfte" />
-            <SpotRow icon="♻️" title="Beliebteste Second-Hand & Vintage Geschäfte" items={topSecondHand} link="/shops" onOpenModal={setModalSpot} />
-          </>}
+          {topSecondHand.length >= 3 && (
+            <SpotRow icon="♻️" title="Second-Hand & Vintage" items={topSecondHand} link="/shops" onOpenModal={setModalSpot} />
+          )}
         </LazySection>
         <LazySection>
-          {topFun.length >= 3 && <>
-            <SectionDivider label="🎮 Unterhaltung & Spass" />
+          {topFun.length >= 3 && (
             <SpotRow icon="🎮" title="Top Entertainment" items={topFun.slice(0, 10)} link="/spiel-spass" onOpenModal={setModalSpot} />
-          </>}
+          )}
         </LazySection>
       </div>
 
@@ -138,14 +126,6 @@ export default function HomePage() {
       <BackToTop />
       {modalSpot && <SpotModal spot={modalSpot} allSpots={data.all} onClose={() => setModalSpot(null)} />}
     </>
-  )
-}
-
-function SectionDivider({ label }) {
-  return (
-    <div style={{ margin: '2rem 0 .75rem' }}>
-      <span style={{ fontSize: '.82rem', fontWeight: 700, color: 'var(--text3)', whiteSpace: 'nowrap' }}>{label}</span>
-    </div>
   )
 }
 
@@ -183,59 +163,118 @@ const CAT_COLORS = {
 }
 
 function HighlightEventRow({ events }) {
+  const scrollRef = useRef(null)
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(true)
+
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current
+    if (!el) return
+    setCanScrollLeft(el.scrollLeft > 10)
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10)
+  }, [])
+
+  useEffect(() => {
+    const el = scrollRef.current
+    if (!el) return
+    checkScroll()
+    el.addEventListener('scroll', checkScroll, { passive: true })
+    window.addEventListener('resize', checkScroll)
+    return () => {
+      el.removeEventListener('scroll', checkScroll)
+      window.removeEventListener('resize', checkScroll)
+    }
+  }, [checkScroll, events])
+
+  const scroll = (dir) => {
+    const el = scrollRef.current
+    if (!el) return
+    const card = el.querySelector('.highlight-event-card')
+    const cardWidth = card?.offsetWidth || 280
+    el.scrollBy({ left: dir * (cardWidth + 12), behavior: 'smooth' })
+  }
+
   return (
-    <section className="fade-up" style={{ marginBottom: '1.2rem' }}>
+    <section className="fade-up highlight-event-section" style={{ marginBottom: '1.2rem', position: 'relative' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '.55rem' }}>
         <h2 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text)', display: 'flex', alignItems: 'center', gap: '.35rem', margin: 0 }}>
           <span style={{ fontSize: '1.1rem' }}>🎪</span> Top Events der nächsten 3 Monate
         </h2>
         <a href="/events" style={{ fontSize: '.78rem', fontWeight: 600, color: 'var(--primary)', textDecoration: 'none' }}>Alle anzeigen ›</a>
       </div>
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: `repeat(${events.length}, 1fr)`,
-        gap: '.75rem',
-      }}>
-        {events.map(evt => {
-          const catColor = CAT_COLORS[evt.category] || 'var(--primary)'
-          const now = new Date()
-          const diff = new Date(evt.date) - now
-          const days = Math.max(0, Math.floor(diff / 86400000))
-          const linkUrl = evt.websiteUrl || evt.ticketUrl || '/events'
-          return (
-            <a key={evt.id} href={linkUrl} target={linkUrl !== '/events' ? '_blank' : undefined} rel={linkUrl !== '/events' ? 'noopener' : undefined} style={{
-              background: 'var(--card-bg)', borderRadius: 14, overflow: 'hidden',
-              boxShadow: 'var(--shadow-soft)', border: '1px solid var(--border-light)',
-              textDecoration: 'none', color: 'inherit', transition: 'transform .25s, box-shadow .25s',
-              display: 'flex', flexDirection: 'column',
-            }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = 'var(--shadow-hover)' }}
-              onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = 'var(--shadow-soft)' }}
-            >
-              <div style={{
-                background: `linear-gradient(135deg, ${catColor}, ${catColor}cc)`,
-                padding: '.8rem .9rem', color: '#fff',
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '.5rem' }}>
-                  <span style={{ fontSize: '1.6rem' }}>{evt.emoji}</span>
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontWeight: 800, fontSize: '.88rem', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{evt.name}</div>
-                    <div style={{ fontSize: '.7rem', opacity: .85, marginTop: '.15rem' }}>📅 {evt.dateLabel}</div>
-                  </div>
-                  {days > 0 && (
-                    <div style={{ textAlign: 'center', padding: '.2rem .4rem', background: 'rgba(255,255,255,.18)', borderRadius: 8, flexShrink: 0 }}>
-                      <div style={{ fontSize: '.95rem', fontWeight: 800, fontFamily: 'var(--font-display)', lineHeight: 1 }}>{days}</div>
-                      <div style={{ fontSize: '.5rem', opacity: .8 }}>Tage</div>
+
+      <div style={{ position: 'relative' }}>
+        {canScrollLeft && (
+          <button className="highlight-event-arrow highlight-event-arrow-left" onClick={() => scroll(-1)}
+            style={{
+              position: 'absolute', left: -20, top: '50%', transform: 'translateY(-50%)',
+              width: 36, height: 36, borderRadius: '50%', border: '1px solid var(--border)',
+              background: 'var(--card-bg)', color: 'var(--text)', cursor: 'pointer',
+              fontSize: '1.1rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: 'var(--shadow-soft)', zIndex: 5, opacity: 0, transition: 'opacity .2s',
+            }}>‹</button>
+        )}
+
+        {canScrollRight && (
+          <button className="highlight-event-arrow highlight-event-arrow-right" onClick={() => scroll(1)}
+            style={{
+              position: 'absolute', right: -20, top: '50%', transform: 'translateY(-50%)',
+              width: 36, height: 36, borderRadius: '50%', border: '1px solid var(--border)',
+              background: 'var(--card-bg)', color: 'var(--text)', cursor: 'pointer',
+              fontSize: '1.1rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: 'var(--shadow-soft)', zIndex: 5, opacity: 0, transition: 'opacity .2s',
+            }}>›</button>
+        )}
+
+        <div ref={scrollRef} className="highlight-event-scroll" style={{
+          display: 'flex', gap: '.75rem', overflowX: 'auto',
+          scrollSnapType: 'x mandatory', scrollbarWidth: 'none',
+          WebkitOverflowScrolling: 'touch', paddingBottom: '.25rem',
+        }}>
+          {events.map(evt => {
+            const catColor = CAT_COLORS[evt.category] || 'var(--primary)'
+            const now = new Date()
+            const diff = new Date(evt.date) - now
+            const days = Math.max(0, Math.floor(diff / 86400000))
+            const linkUrl = evt.websiteUrl || evt.ticketUrl || '/events'
+            return (
+              <a key={evt.id} href={linkUrl} target={linkUrl !== '/events' ? '_blank' : undefined} rel={linkUrl !== '/events' ? 'noopener' : undefined}
+                className="highlight-event-card"
+                style={{
+                  flex: '0 0 calc(25% - .56rem)', minWidth: 240, scrollSnapAlign: 'start',
+                  background: 'var(--card-bg)', borderRadius: 14, overflow: 'hidden',
+                  boxShadow: 'var(--shadow-soft)', border: '1px solid var(--border-light)',
+                  textDecoration: 'none', color: 'inherit', transition: 'transform .25s, box-shadow .25s',
+                  display: 'flex', flexDirection: 'column',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = 'var(--shadow-hover)' }}
+                onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = 'var(--shadow-soft)' }}
+              >
+                <div style={{
+                  background: `linear-gradient(135deg, ${catColor}, ${catColor}cc)`,
+                  padding: '.8rem .9rem', color: '#fff',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '.5rem' }}>
+                    <span style={{ fontSize: '1.6rem' }}>{evt.emoji}</span>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontWeight: 800, fontSize: '.88rem', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{evt.name}</div>
+                      <div style={{ fontSize: '.7rem', opacity: .85, marginTop: '.15rem' }}>📅 {evt.dateLabel}</div>
                     </div>
-                  )}
+                    {days > 0 && (
+                      <div style={{ textAlign: 'center', padding: '.2rem .4rem', background: 'rgba(255,255,255,.18)', borderRadius: 8, flexShrink: 0 }}>
+                        <div style={{ fontSize: '.95rem', fontWeight: 800, fontFamily: 'var(--font-display)', lineHeight: 1 }}>{days}</div>
+                        <div style={{ fontSize: '.5rem', opacity: .8 }}>Tage</div>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-              <div style={{ padding: '.6rem .9rem .7rem', fontSize: '.75rem', color: 'var(--text2)' }}>
-                📍 {evt.location}
-              </div>
-            </a>
-          )
-        })}
+                <div style={{ padding: '.6rem .9rem .7rem', fontSize: '.75rem', color: 'var(--text2)' }}>
+                  📍 {evt.location}
+                </div>
+              </a>
+            )
+          })}
+        </div>
       </div>
     </section>
   )
