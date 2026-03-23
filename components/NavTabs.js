@@ -4,6 +4,7 @@ import Link from 'next/link'
 
 const tabs = [
   { id: 'discovery', emoji: '🔮', label: 'Discovery', href: '/' },
+  { id: 'live-news', emoji: null, label: 'Live-News', href: '/live-news', isLive: true },
   { id: 'events', emoji: '🎪', label: 'Events', href: '/events' },
   { id: 'shops', emoji: '🛍️', label: 'Shops', href: '/shops' },
   { id: 'gastronomie', emoji: '🍽️', label: 'Essen & Trinken', href: '/essen-trinken' },
@@ -18,12 +19,19 @@ export default function NavTabs({ active }) {
       {tabs.map(tab => (
         <Link key={tab.id} href={tab.href} style={{
           padding: '.6rem .85rem', fontSize: '.82rem', fontWeight: active === tab.id ? 700 : 600,
-          color: active === tab.id ? 'var(--primary)' : 'var(--text3)',
-          textDecoration: 'none', borderBottom: `2.5px solid ${active === tab.id ? 'var(--primary)' : 'transparent'}`,
+          color: tab.isLive ? 'var(--accent)' : (active === tab.id ? 'var(--primary)' : 'var(--text3)'),
+          textDecoration: 'none', borderBottom: `2.5px solid ${active === tab.id ? (tab.isLive ? 'var(--accent)' : 'var(--primary)') : 'transparent'}`,
           transition: 'color .25s, border-color .25s', whiteSpace: 'nowrap',
           display: 'inline-flex', alignItems: 'center', gap: '.35rem',
         }}>
-          <span style={{ fontSize: '1rem' }}>{tab.emoji}</span>
+          {tab.isLive ? (
+            <span className="live-news-dot" style={{
+              width: 8, height: 8, borderRadius: '50%', background: 'var(--accent)',
+              display: 'inline-block', flexShrink: 0,
+            }} />
+          ) : (
+            <span style={{ fontSize: '1rem' }}>{tab.emoji}</span>
+          )}
           <span>{tab.label}</span>
         </Link>
       ))}
