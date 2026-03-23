@@ -9,6 +9,7 @@ const tabs = [
   { id: 'gastronomie', emoji: '🍽️', label: 'Essen & Trinken', href: '/essen-trinken' },
   { id: 'kultur', emoji: '🏛️', label: 'Kultur & Natur', href: '/kultur' },
   { id: 'spiel-spass', emoji: '🎮', label: 'Unterhaltung & Spass', href: '/spiel-spass' },
+  { id: 'badis-seen', emoji: '🏊', label: 'Badis & Seen', href: '/badis-seen' },
 ]
 
 export default function NavTabs({ active }) {

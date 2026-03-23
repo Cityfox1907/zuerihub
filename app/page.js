@@ -49,6 +49,7 @@ export default function HomePage() {
   const topMalls = [...data.shops].filter(p => p.subcat === 'Einkaufszentren').sort((a, b) => (b.rv * b.r) - (a.rv * a.r))
   const topSecondHand = [...data.shops].filter(p => p.subcat === 'Second-Hand & Vintage').sort((a, b) => b.r !== a.r ? b.r - a.r : b.rv - a.rv).slice(0, 10)
   const topFun = [...data.fun].sort((a, b) => (b.rv * b.r) - (a.rv * a.r))
+  const topBadis = [...data.badis].sort((a, b) => (b.rv * b.r) - (a.rv * a.r))
 
   // Upcoming events, filter out expired (24h after end date)
   const now = new Date()
@@ -69,6 +70,7 @@ export default function HomePage() {
     { emoji: '🛍️', title: 'Shops', sub: 'Einkaufen in Zürich', count: data.shops.length, href: '/shops' },
     { emoji: '🏛️', title: 'Kultur & Natur', sub: 'Museen & Sehenswürdigkeiten', count: data.attr.length + data.museen.length, href: '/kultur' },
     { emoji: '🎮', title: 'Unterhaltung & Spass', sub: 'Entertainment & Freizeit', count: data.fun.length, href: '/spiel-spass' },
+    { emoji: '🏊', title: 'Badis & Seen', sub: 'Badeorte im Kanton Zürich', count: data.badis.length, href: '/badis-seen' },
   ]
 
   return (
@@ -115,6 +117,11 @@ export default function HomePage() {
         <LazySection>
           {topFun.length >= 3 && (
             <SpotRow icon="🎮" title="Top Entertainment" items={topFun.slice(0, 10)} link="/spiel-spass" onOpenModal={setModalSpot} />
+          )}
+        </LazySection>
+        <LazySection>
+          {topBadis.length >= 3 && (
+            <SpotRow icon="🏊" title="Top Badis & Seen" items={topBadis.slice(0, 10)} link="/badis-seen" onOpenModal={setModalSpot} />
           )}
         </LazySection>
       </div>

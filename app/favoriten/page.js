@@ -9,8 +9,8 @@ import BackToTop from '@/components/BackToTop'
 import Footer from '@/components/Footer'
 import { loadAllData, getAllFavIds, getSourceInfo } from '@/lib/data'
 
-const SOURCE_ORDER = ['gastro', 'attr', 'museum', 'fun', 'shop']
-const SOURCE_EMOJI = { gastro: '🍽️', attr: '🏛️', museum: '🖼️', fun: '🎮', shop: '🛍️' }
+const SOURCE_ORDER = ['gastro', 'attr', 'museum', 'fun', 'shop', 'badi']
+const SOURCE_EMOJI = { gastro: '🍽️', attr: '🏛️', museum: '🖼️', fun: '🎮', shop: '🛍️', badi: '🏊' }
 
 export default function FavoritenPage() {
   const [data, setData] = useState(null)
