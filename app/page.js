@@ -87,7 +87,7 @@ export default function HomePage() {
         )}
 
         {/* Geheimtipp Dice */}
-        <GeheimtippDice allSpots={data.all} onOpenModal={setModalSpot} />
+        <GeheimtippDice allSpots={data.all} badiSpots={data.badis} onOpenModal={setModalSpot} />
 
         <SpotRow icon="🔥" title="Beliebt in Zürich" items={popular} onOpenModal={setModalSpot} />
 
