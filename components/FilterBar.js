@@ -3,12 +3,12 @@
 import { useState, useMemo } from 'react'
 import { getKreis, getSpotTag, fmt } from '@/lib/data'
 
-export default function FilterBar({ spots, onFiltered, totalCount }) {
+export default function FilterBar({ spots, onFiltered, totalCount, defaultSort = 'relevance' }) {
   const [search, setSearch] = useState('')
   const [kreis, setKreis] = useState(0)
   const [category, setCategory] = useState('')
   const [minRating, setMinRating] = useState(0)
-  const [sort, setSort] = useState('relevance')
+  const [sort, setSort] = useState(defaultSort)
 
   const categories = useMemo(() => {
     const cats = {}
@@ -106,7 +106,7 @@ export default function FilterBar({ spots, onFiltered, totalCount }) {
               {category} <span style={{ opacity: .6 }}>✕</span>
             </span>
           )}
-          <span onClick={() => { setSearch(''); setKreis(0); setMinRating(0); setCategory(''); setSort('relevance') }}
+          <span onClick={() => { setSearch(''); setKreis(0); setMinRating(0); setCategory(''); setSort(defaultSort) }}
             style={{ padding: '.2rem .5rem', borderRadius: 8, background: 'var(--accent-light)', color: 'var(--accent)', fontSize: '.72rem', fontWeight: 600, cursor: 'pointer' }}>
             Alle zurücksetzen
           </span>
