@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef, useMemo } from 'react'
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 import Header from '@/components/Header'
 import NavTabs from '@/components/NavTabs'
 
@@ -24,20 +24,6 @@ const CAT_BG_COLORS = {
   tradition: '#ffedd5',
   kulinarik: '#fee2e2',
   community: '#fef9c3',
-}
-
-function useCountdown(targetDate) {
-  const [now, setNow] = useState(() => new Date())
-  useEffect(() => {
-    const id = setInterval(() => setNow(new Date()), 60000)
-    return () => clearInterval(id)
-  }, [])
-  const diff = new Date(targetDate) - now
-  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, passed: true }
-  const days = Math.floor(diff / 86400000)
-  const hours = Math.floor((diff % 86400000) / 3600000)
-  const minutes = Math.floor((diff % 3600000) / 60000)
-  return { days, hours, minutes, passed: false }
 }
 
 /** Check if an event is expired (24h after end date) */
@@ -69,12 +55,11 @@ export default function EventsPage() {
 
   const sorted = useMemo(() => [...activeEvents].sort((a, b) => new Date(a.date) - new Date(b.date)), [activeEvents])
 
-  // Top 3 highlighted events in next 3 months
-  const top3Highlights = useMemo(() => {
+  // Top highlighted events (all highlights, not just 3)
+  const topHighlights = useMemo(() => {
     const threeMonths = new Date(now.getFullYear(), now.getMonth() + 3, now.getDate())
     return sorted
       .filter(e => e.highlight && new Date(e.date) > now && new Date(e.date) <= threeMonths)
-      .slice(0, 3)
   }, [sorted])
 
   // Filter by category
@@ -110,10 +95,6 @@ export default function EventsPage() {
     return c
   }, [activeEvents])
 
-  // Next highlight event
-  const nextHighlight = useMemo(() =>
-    sorted.find(e => e.highlight && new Date(e.date) > now), [sorted])
-
   // Toggle month selection
   const toggleMonth = (monthIdx) => {
     setSelectedMonths(prev => {
@@ -135,24 +116,10 @@ export default function EventsPage() {
       <NavTabs active="events" />
 
       <div style={{ maxWidth: 1480, margin: '0 auto', padding: '1.5rem' }}>
-        {/* Top 3 Highlighted Events */}
-        {top3Highlights.length > 0 && (
-          <div style={{ marginBottom: '1.5rem' }}>
-            <h2 style={{ fontSize: '1.05rem', fontWeight: 800, fontFamily: 'var(--font-display)', marginBottom: '.75rem', display: 'flex', alignItems: 'center', gap: '.5rem' }}>
-              ⭐ Top Events
-            </h2>
-            <div className="event-highlight-grid" style={{
-              display: 'grid',
-              gridTemplateColumns: `repeat(${Math.min(top3Highlights.length, 3)}, 1fr)`,
-              gap: '.75rem',
-            }}>
-              {top3Highlights.map(evt => <HighlightCard key={evt.id} event={evt} />)}
-            </div>
-          </div>
+        {/* Top Highlighted Events - Swipeable Row */}
+        {topHighlights.length > 0 && (
+          <TopEventsRow events={topHighlights} />
         )}
-
-        {/* Pulse Hero Banner */}
-        {nextHighlight && <PulseHero event={nextHighlight} />}
 
         {/* Category Filter Cards */}
         <div className="event-cat-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '.6rem', marginBottom: '1.5rem' }}>
@@ -221,96 +188,118 @@ export default function EventsPage() {
   )
 }
 
-function HighlightCard({ event }) {
-  const cat = CAT_INFO[event.category] || { color: 'var(--primary)', emoji: '🎪' }
-  const now = new Date()
-  const diff = new Date(event.date) - now
-  const days = Math.max(0, Math.floor(diff / 86400000))
-  const linkUrl = event.websiteUrl || event.ticketUrl || '/events'
+function TopEventsRow({ events }) {
+  const scrollRef = useRef(null)
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(true)
+
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current
+    if (!el) return
+    setCanScrollLeft(el.scrollLeft > 10)
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10)
+  }, [])
+
+  useEffect(() => {
+    const el = scrollRef.current
+    if (!el) return
+    checkScroll()
+    el.addEventListener('scroll', checkScroll, { passive: true })
+    window.addEventListener('resize', checkScroll)
+    return () => {
+      el.removeEventListener('scroll', checkScroll)
+      window.removeEventListener('resize', checkScroll)
+    }
+  }, [checkScroll, events])
+
+  const scroll = (dir) => {
+    const el = scrollRef.current
+    if (!el) return
+    const card = el.querySelector('.highlight-event-card')
+    const cardWidth = card?.offsetWidth || 280
+    el.scrollBy({ left: dir * (cardWidth + 12), behavior: 'smooth' })
+  }
 
   return (
-    <a href={linkUrl} target={linkUrl !== '/events' ? '_blank' : undefined} rel={linkUrl !== '/events' ? 'noopener' : undefined}
-      className="fade-up"
-      style={{
-        background: 'var(--card-bg)', borderRadius: 16, overflow: 'hidden',
-        boxShadow: 'var(--shadow-soft)', border: '1px solid var(--border-light)',
-        textDecoration: 'none', color: 'inherit', transition: 'transform .25s, box-shadow .25s',
-        display: 'flex', flexDirection: 'column',
-      }}
-      onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = 'var(--shadow-hover)' }}
-      onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = 'var(--shadow-soft)' }}
-    >
-      <div style={{
-        background: `linear-gradient(135deg, ${cat.color}, ${cat.color}cc)`,
-        padding: '1rem 1.1rem', color: '#fff',
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '.6rem' }}>
-          <span style={{ fontSize: '2rem' }}>{event.emoji}</span>
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontWeight: 800, fontSize: '1rem', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{event.name}</div>
-            <div style={{ fontSize: '.75rem', opacity: .85, marginTop: '.2rem' }}>📅 {event.dateLabel}</div>
-          </div>
-          {days > 0 && (
-            <div style={{ textAlign: 'center', padding: '.3rem .5rem', background: 'rgba(255,255,255,.18)', borderRadius: 10, flexShrink: 0 }}>
-              <div style={{ fontSize: '1.1rem', fontWeight: 800, fontFamily: 'var(--font-display)', lineHeight: 1 }}>{days}</div>
-              <div style={{ fontSize: '.55rem', opacity: .8 }}>Tage</div>
-            </div>
-          )}
+    <section className="fade-up highlight-event-section" style={{ marginBottom: '1.5rem', position: 'relative' }}>
+      <h2 style={{ fontSize: '1.05rem', fontWeight: 800, fontFamily: 'var(--font-display)', marginBottom: '.55rem', display: 'flex', alignItems: 'center', gap: '.5rem' }}>
+        ⭐ Top Events
+      </h2>
+
+      <div style={{ position: 'relative' }}>
+        {canScrollLeft && (
+          <button className="highlight-event-arrow highlight-event-arrow-left" onClick={() => scroll(-1)}
+            style={{
+              position: 'absolute', left: -20, top: '50%', transform: 'translateY(-50%)',
+              width: 36, height: 36, borderRadius: '50%', border: '1px solid var(--border)',
+              background: 'var(--card-bg)', color: 'var(--text)', cursor: 'pointer',
+              fontSize: '1.1rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: 'var(--shadow-soft)', zIndex: 5, opacity: 0, transition: 'opacity .2s',
+            }}>‹</button>
+        )}
+
+        {canScrollRight && (
+          <button className="highlight-event-arrow highlight-event-arrow-right" onClick={() => scroll(1)}
+            style={{
+              position: 'absolute', right: -20, top: '50%', transform: 'translateY(-50%)',
+              width: 36, height: 36, borderRadius: '50%', border: '1px solid var(--border)',
+              background: 'var(--card-bg)', color: 'var(--text)', cursor: 'pointer',
+              fontSize: '1.1rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              boxShadow: 'var(--shadow-soft)', zIndex: 5, opacity: 0, transition: 'opacity .2s',
+            }}>›</button>
+        )}
+
+        <div ref={scrollRef} className="highlight-event-scroll" style={{
+          display: 'flex', gap: '.75rem', overflowX: 'auto',
+          scrollSnapType: 'x mandatory', scrollbarWidth: 'none',
+          WebkitOverflowScrolling: 'touch', paddingBottom: '.25rem',
+        }}>
+          {events.map(evt => {
+            const cat = CAT_INFO[evt.category] || { color: 'var(--primary)', emoji: '🎪' }
+            const now = new Date()
+            const diff = new Date(evt.date) - now
+            const days = Math.max(0, Math.floor(diff / 86400000))
+            const linkUrl = evt.websiteUrl || evt.ticketUrl || '/events'
+            return (
+              <a key={evt.id} href={linkUrl} target={linkUrl !== '/events' ? '_blank' : undefined} rel={linkUrl !== '/events' ? 'noopener' : undefined}
+                className="highlight-event-card"
+                style={{
+                  flex: '0 0 calc(25% - .56rem)', minWidth: 240, scrollSnapAlign: 'start',
+                  background: 'var(--card-bg)', borderRadius: 14, overflow: 'hidden',
+                  boxShadow: 'var(--shadow-soft)', border: '1px solid var(--border-light)',
+                  textDecoration: 'none', color: 'inherit', transition: 'transform .25s, box-shadow .25s',
+                  display: 'flex', flexDirection: 'column',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = 'var(--shadow-hover)' }}
+                onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = 'var(--shadow-soft)' }}
+              >
+                <div style={{
+                  background: `linear-gradient(135deg, ${cat.color}, ${cat.color}cc)`,
+                  padding: '.8rem .9rem', color: '#fff',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '.5rem' }}>
+                    <span style={{ fontSize: '1.6rem' }}>{evt.emoji}</span>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontWeight: 800, fontSize: '.88rem', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{evt.name}</div>
+                      <div style={{ fontSize: '.7rem', opacity: .85, marginTop: '.15rem' }}>📅 {evt.dateLabel}</div>
+                    </div>
+                    {days > 0 && (
+                      <div style={{ textAlign: 'center', padding: '.2rem .4rem', background: 'rgba(255,255,255,.18)', borderRadius: 8, flexShrink: 0 }}>
+                        <div style={{ fontSize: '.95rem', fontWeight: 800, fontFamily: 'var(--font-display)', lineHeight: 1 }}>{days}</div>
+                        <div style={{ fontSize: '.5rem', opacity: .8 }}>Tage</div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div style={{ padding: '.6rem .9rem .7rem', fontSize: '.75rem', color: 'var(--text2)' }}>
+                  📍 {evt.location}
+                </div>
+              </a>
+            )
+          })}
         </div>
       </div>
-      <div style={{ padding: '.65rem 1.1rem .75rem', fontSize: '.78rem', color: 'var(--text2)' }}>
-        📍 {event.location}
-      </div>
-    </a>
-  )
-}
-
-function PulseHero({ event }) {
-  const { days, hours, minutes, passed } = useCountdown(event.date)
-  const cat = CAT_INFO[event.category] || { color: 'var(--primary)', emoji: '🎪' }
-  const linkUrl = event.websiteUrl || event.ticketUrl
-  const linkLabel = event.websiteUrl ? '🌐 Mehr Infos' : '🎟️ Tickets & Infos'
-
-  return (
-    <div className="fade-up" style={{ marginBottom: '1.5rem' }}>
-      <div style={{
-        background: `linear-gradient(135deg, var(--primary-light) 0%, ${cat.color}12 100%)`,
-        border: '1px solid var(--border-light)',
-        borderRadius: 14, padding: '.75rem 1.25rem',
-        display: 'flex', alignItems: 'center', gap: '1rem',
-        maxHeight: 120, overflow: 'hidden',
-      }}>
-        <span style={{ fontSize: '2rem', flexShrink: 0 }}>{event.emoji}</span>
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ fontSize: '.65rem', fontWeight: 600, color: cat.color, textTransform: 'uppercase', letterSpacing: .5, marginBottom: '.1rem' }}>Nächstes Highlight</div>
-          <div style={{ fontWeight: 800, fontSize: '1rem', color: 'var(--text)', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{event.name}</div>
-          <div style={{ fontSize: '.78rem', color: 'var(--text2)', marginTop: '.15rem' }}>📅 {event.dateLabel} · 📍 {event.location}</div>
-        </div>
-        {!passed && (
-          <div style={{ display: 'flex', gap: '.6rem', flexShrink: 0 }}>
-            <CountdownUnit value={days} label="Tage" color={cat.color} />
-            <CountdownUnit value={hours} label="Std" color={cat.color} />
-            <CountdownUnit value={minutes} label="Min" color={cat.color} />
-          </div>
-        )}
-        {linkUrl && (
-          <a href={linkUrl} target="_blank" rel="noopener" style={{
-            padding: '.45rem 1rem', borderRadius: 10, background: cat.color, color: '#fff',
-            fontWeight: 700, fontSize: '.8rem', textDecoration: 'none', whiteSpace: 'nowrap',
-            minHeight: 44, display: 'inline-flex', alignItems: 'center', flexShrink: 0,
-          }}>{linkLabel}</a>
-        )}
-      </div>
-    </div>
-  )
-}
-
-function CountdownUnit({ value, label, color }) {
-  return (
-    <div style={{ textAlign: 'center' }}>
-      <div style={{ fontSize: '1.3rem', fontWeight: 800, lineHeight: 1, fontFamily: 'var(--font-display)', color: color || 'var(--primary)' }}>{value}</div>
-      <div style={{ fontSize: '.6rem', color: 'var(--text3)', marginTop: '.1rem' }}>{label}</div>
-    </div>
+    </section>
   )
 }
 
