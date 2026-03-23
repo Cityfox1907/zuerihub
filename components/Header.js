@@ -40,7 +40,19 @@ export default function Header() {
           </div>
           <span style={{ background: 'linear-gradient(135deg, var(--primary), var(--primary-dark))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>ZüriHub</span>
         </Link>
-        <div style={{ marginLeft: 'auto', display: 'flex', gap: '.35rem', alignItems: 'center' }}>
+        <Link href="/live-news" className="live-news-header-link" style={{
+          marginLeft: 'auto', display: 'inline-flex', alignItems: 'center', gap: '.4rem',
+          textDecoration: 'none', padding: '.35rem .75rem', borderRadius: 10,
+          background: 'var(--accent-light)', border: '1.5px solid rgba(230,57,70,.15)',
+          transition: 'all .2s var(--ease)',
+        }}>
+          <span className="live-news-dot" style={{
+            width: 8, height: 8, borderRadius: '50%', background: 'var(--accent)',
+            display: 'inline-block', flexShrink: 0,
+          }} />
+          <span style={{ fontSize: '.8rem', fontWeight: 700, color: 'var(--accent)', letterSpacing: '-.01em' }}>Live-News</span>
+        </Link>
+        <div style={{ display: 'flex', gap: '.35rem', alignItems: 'center' }}>
           <Link href="/favoriten" style={{ padding: '.42rem .75rem', borderRadius: 8, fontSize: '.8rem', fontWeight: 500, color: 'var(--text2)', border: '1.5px solid var(--border)', background: 'var(--surface)', textDecoration: 'none', transition: 'all .15s' }}>⭐</Link>
           <button onClick={toggleTheme} style={{ position: 'relative', width: 52, height: 28, borderRadius: 14, background: dark ? '#1e3148' : 'var(--border)', cursor: 'pointer', border: `1.5px solid ${dark ? '#2a3f58' : 'var(--border)'}`, transition: 'all .3s', display: 'flex', alignItems: 'center', padding: 0 }}>
             <div style={{ position: 'absolute', left: dark ? 2 : 28, width: 22, height: 22, borderRadius: '50%', background: dark ? '#e8914a' : '#fff', boxShadow: '0 1px 4px rgba(0,0,0,.15)', transition: 'left .3s cubic-bezier(.4,0,.2,1), background .3s' }} />

@@ -281,6 +281,14 @@ body { min-height: 100vh; -webkit-font-smoothing: antialiased; }
   animation: liveNewsBlink 3s ease-in-out infinite;
 }
 
+/* ── Live-News header link ── */
+.live-news-header-link:hover {
+  background: rgba(230,57,70,.12) !important;
+  border-color: rgba(230,57,70,.3) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(230,57,70,.15);
+}
+
 /* ── Live-News page ── */
 .news-card-hover:hover {
   background: var(--surface2) !important;
