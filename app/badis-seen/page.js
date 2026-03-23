@@ -15,7 +15,6 @@ const MAIN_CATS = [
   { emoji: '🏖️', label: 'Strandbad' },
   { emoji: '🌊', label: 'Badesee' },
   { emoji: '☀️', label: 'Freibad' },
-  { emoji: '♨️', label: 'Wellness' },
 ]
 
 export default function BadisSeenPage() {
