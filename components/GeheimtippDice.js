@@ -40,14 +40,14 @@ function pickFromTier(pool, count, seen, usedSources) {
   return picked
 }
 
-export default function GeheimtippDice({ allSpots, badiSpots, onOpenModal, storageKey }) {
+export default function GeheimtippDice({ allSpots, badiSpots, onOpenModal, storageKey, minRating = 4.8 }) {
   const [cards, setCards] = useState([])
   const [animating, setAnimating] = useState(false)
   const [flyOut, setFlyOut] = useState(false)
   const [btnState, setBtnState] = useState('idle')
 
-  const qualified = allSpots.filter(p => p.r >= 4.8 && p.rv >= 42)
-  const qualifiedBadis = badiSpots ? badiSpots.filter(p => p.r >= 4.8 && p.rv >= 42) : []
+  const qualified = allSpots.filter(p => p.r >= minRating && p.rv >= 42)
+  const qualifiedBadis = badiSpots ? badiSpots.filter(p => p.r >= minRating && p.rv >= 42) : []
 
   const roll = useCallback(() => {
     if (animating) return
@@ -188,7 +188,7 @@ export default function GeheimtippDice({ allSpots, badiSpots, onOpenModal, stora
           fontSize: '.82rem', color: 'var(--text3)', marginBottom: '1rem',
           lineHeight: 1.5, maxWidth: 420,
         }}>
-          Entdecke versteckte Perlen in Zürich – nur Spots mit ⭐ 4.8+ Rating
+          Entdecke versteckte Perlen in Zürich
         </p>
 
         {/* Roll button */}

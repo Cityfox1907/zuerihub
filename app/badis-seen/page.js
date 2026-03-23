@@ -39,7 +39,7 @@ export default function BadisSeenPage() {
           activeFilters={subcatFilters}
           onFilter={setSubcatFilters}
         />
-        <CategoryDiscovery spots={data.badis} allSpots={data.all} storageKey="zh-dice-seen-badi" onOpenModal={setModalSpot} subcatFilter={subcatFilters} />
+        <CategoryDiscovery spots={data.badis} allSpots={data.all} storageKey="zh-dice-seen-badi" onOpenModal={setModalSpot} subcatFilter={subcatFilters} minRating={4.6} />
       </div>
       <Footer />
       <BackToTop />

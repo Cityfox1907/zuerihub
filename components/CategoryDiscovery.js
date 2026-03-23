@@ -7,7 +7,7 @@ import SpotCard from './SpotCard'
 import FilterBar from './FilterBar'
 import { fmt, getSpotTag } from '@/lib/data'
 
-export default function CategoryDiscovery({ spots, allSpots, storageKey, onOpenModal, subcatFilter }) {
+export default function CategoryDiscovery({ spots, allSpots, storageKey, onOpenModal, subcatFilter, minRating }) {
   const [filtered, setFiltered] = useState([])
 
   // Apply subcategory filter if active (supports array of filters for multi-select)
@@ -26,7 +26,7 @@ export default function CategoryDiscovery({ spots, allSpots, storageKey, onOpenM
   return (
     <>
       {/* Category Geheimtipp Dice */}
-      <GeheimtippDice allSpots={filteredSpots} onOpenModal={onOpenModal} storageKey={storageKey} />
+      <GeheimtippDice allSpots={filteredSpots} onOpenModal={onOpenModal} storageKey={storageKey} minRating={minRating} />
 
       {/* Best Rated Row */}
       {bestRated.length >= 3 && (
