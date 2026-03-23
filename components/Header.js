@@ -43,7 +43,7 @@ export default function Header() {
         <div style={{ marginLeft: 'auto', display: 'flex', gap: '.35rem', alignItems: 'center' }}>
           <Link href="/favoriten" style={{ padding: '.42rem .75rem', borderRadius: 8, fontSize: '.8rem', fontWeight: 500, color: 'var(--text2)', border: '1.5px solid var(--border)', background: 'var(--surface)', textDecoration: 'none', transition: 'all .15s' }}>⭐</Link>
           <button onClick={toggleTheme} style={{ position: 'relative', width: 52, height: 28, borderRadius: 14, background: dark ? '#1e3148' : 'var(--border)', cursor: 'pointer', border: `1.5px solid ${dark ? '#2a3f58' : 'var(--border)'}`, transition: 'all .3s', display: 'flex', alignItems: 'center', padding: 0 }}>
-            <div style={{ position: 'absolute', left: dark ? 28 : 2, width: 22, height: 22, borderRadius: '50%', background: dark ? '#e8914a' : '#fff', boxShadow: '0 1px 4px rgba(0,0,0,.15)', transition: 'left .3s cubic-bezier(.4,0,.2,1), background .3s' }} />
+            <div style={{ position: 'absolute', left: dark ? 2 : 28, width: 22, height: 22, borderRadius: '50%', background: dark ? '#e8914a' : '#fff', boxShadow: '0 1px 4px rgba(0,0,0,.15)', transition: 'left .3s cubic-bezier(.4,0,.2,1), background .3s' }} />
             <span style={{ position: 'absolute', right: 6, fontSize: '.75rem', opacity: dark ? 0 : 1, transition: 'opacity .25s' }}>☀️</span>
             <span style={{ position: 'absolute', left: 6, fontSize: '.75rem', opacity: dark ? 1 : 0, transition: 'opacity .25s' }}>🌙</span>
           </button>

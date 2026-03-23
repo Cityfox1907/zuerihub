@@ -76,7 +76,6 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <NavTabs active="discovery" />
       <Hero />
       <CategoryCards categories={categories} />
 
