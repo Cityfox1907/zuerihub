@@ -40,36 +40,78 @@ function pickFromTier(pool, count, seen, usedSources) {
   return picked
 }
 
-export default function GeheimtippDice({ allSpots, onOpenModal, storageKey }) {
+export default function GeheimtippDice({ allSpots, badiSpots, onOpenModal, storageKey }) {
   const [cards, setCards] = useState([])
   const [animating, setAnimating] = useState(false)
   const [flyOut, setFlyOut] = useState(false)
   const [btnState, setBtnState] = useState('idle')
 
   const qualified = allSpots.filter(p => p.r >= 4.8 && p.rv >= 42)
+  const qualifiedBadis = badiSpots ? badiSpots.filter(p => p.r >= 4.8 && p.rv >= 42) : []
 
   const roll = useCallback(() => {
     if (animating) return
     let seen = new Set(getSeen(storageKey))
     const usedSources = new Set()
     let allPicked = []
+    const TARGET = 4
 
+    // If badiSpots provided, reserve one slot for a Badi pick
+    if (qualifiedBadis.length > 0) {
+      const badiPick = pickFromTier(qualifiedBadis, 1, seen, usedSources)
+      allPicked.push(...badiPick)
+    }
+
+    const pickedIds = new Set(allPicked.map(p => p.id))
+    const remaining = TARGET - allPicked.length
+
+    // Pick from tiers, excluding already picked badi spot
+    const tierPool = qualified.filter(p => !pickedIds.has(p.id))
     for (const tier of TIERS) {
-      const tierPool = qualified.filter(p => p.rv >= tier.min && p.rv < tier.max)
-      const picked = pickFromTier(tierPool, tier.count, seen, usedSources)
+      if (allPicked.length >= TARGET) break
+      const pool = tierPool.filter(p => p.rv >= tier.min && p.rv < tier.max)
+      const picked = pickFromTier(pool, tier.count, seen, usedSources)
       allPicked.push(...picked)
+    }
+
+    // Fill remaining slots if tiers didn't produce enough
+    if (allPicked.length < TARGET) {
+      const usedIds = new Set(allPicked.map(p => p.id))
+      const fallback = qualified.filter(p => !usedIds.has(p.id))
+      const extra = pickFromTier(fallback, TARGET - allPicked.length, seen, usedSources)
+      allPicked.push(...extra)
     }
 
     // Silent reset if pool exhausted
     if (allPicked.length === 0) {
       clearSeen(storageKey)
       seen = new Set()
+      allPicked = []
+      const usedSources2 = new Set()
+
+      if (qualifiedBadis.length > 0) {
+        const badiPick = pickFromTier(qualifiedBadis, 1, seen, usedSources2)
+        allPicked.push(...badiPick)
+      }
+
+      const pickedIds2 = new Set(allPicked.map(p => p.id))
       for (const tier of TIERS) {
-        const tierPool = qualified.filter(p => p.rv >= tier.min && p.rv < tier.max)
-        const picked = pickFromTier(tierPool, tier.count, seen, usedSources)
+        if (allPicked.length >= TARGET) break
+        const pool = qualified.filter(p => !pickedIds2.has(p.id) && p.rv >= tier.min && p.rv < tier.max)
+        const picked = pickFromTier(pool, tier.count, seen, usedSources2)
         allPicked.push(...picked)
       }
+
+      if (allPicked.length < TARGET) {
+        const usedIds = new Set(allPicked.map(p => p.id))
+        const fallback = qualified.filter(p => !usedIds.has(p.id))
+        const extra = pickFromTier(fallback, TARGET - allPicked.length, seen, usedSources2)
+        allPicked.push(...extra)
+      }
     }
+
+    // Trim to exactly TARGET
+    allPicked = allPicked.slice(0, TARGET)
 
     if (allPicked.length === 0) return
 
@@ -92,7 +134,7 @@ export default function GeheimtippDice({ allSpots, onOpenModal, storageKey }) {
       setBtnState('success')
       setTimeout(() => { setAnimating(false); setBtnState('idle') }, 1200)
     }
-  }, [qualified, cards, animating, storageKey])
+  }, [qualified, qualifiedBadis, cards, animating, storageKey])
 
   return (
     <div className="dice-container" style={{
