@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwissNews — Puls der Schweiz</title>
+  <meta name="description" content="Live-Terminal: News, Wirtschaft und Finanzen aus der Schweiz.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📰</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0e1015;
+      --card-bg: rgba(255,255,255,0.03);
+      --card-hover: rgba(255,255,255,0.06);
+      --card-border: rgba(255,255,255,0.07);
+      --card-new: rgba(239,68,68,0.04);
+      --t1: #f1f5f9;
+      --t2: #cbd5e1;
+      --t3: #94a3b8;
+      --t4: #64748b;
+      --t5: #475569;
+      --red: #ef4444;
+      --red-bg: rgba(239,68,68,0.1);
+      --font: 'DM Sans', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); background: var(--bg); color: var(--t1); min-height: 100vh; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 3px; }
+
+    /* ── HEADER ── */
+    .header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .header-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 24px; flex-wrap: wrap; gap: 8px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .live-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--red); animation: pulse 1.5s ease-in-out infinite;
+    }
+    .logo { font-family: var(--mono); font-size: 18px; font-weight: 700; letter-spacing: 0.04em; }
+    .logo em { color: var(--red); font-style: normal; }
+    .live-badge {
+      font-family: var(--mono); font-size: 7px; font-weight: 700;
+      letter-spacing: 0.14em; color: var(--red); background: var(--red-bg);
+      padding: 2px 7px; border-radius: 3px;
+    }
+    .header-right { display: flex; align-items: center; gap: 10px; }
+    .meta { font-family: var(--mono); font-size: 9.5px; color: var(--t5); }
+    .btn-refresh {
+      font-family: var(--mono); font-size: 9.5px; padding: 5px 12px;
+      border-radius: 6px; background: var(--red-bg); color: var(--red);
+      transition: background 0.15s;
+    }
+    .btn-refresh:hover { background: rgba(239,68,68,0.18); }
+
+    /* ── FILTERS ── */
+    .filters {
+      display: flex; gap: 4px; padding: 8px 24px 12px;
+      overflow-x: auto; scrollbar-width: none; background: var(--bg);
+    }
+    .filters::-webkit-scrollbar { display: none; }
+    .filter-btn {
+      font-size: 12px; font-weight: 500; color: var(--t4);
+      background: rgba(255,255,255,0.03); padding: 6px 16px;
+      border-radius: 20px; white-space: nowrap; transition: all 0.15s;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .filter-btn:hover { color: var(--t3); background: rgba(255,255,255,0.06); }
+    .filter-btn.active {
+      background: var(--red-bg); color: var(--t1); font-weight: 700;
+    }
+    .filter-count { font-family: var(--mono); font-size: 9px; opacity: 0.4; }
+
+    /* ── MAIN FEED ── */
+    .feed { padding: 0 24px 100px; position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; }
+
+    /* ── SECTION ── */
+    .section {
+      padding: 20px 0 8px;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 0;
+    }
+    .section-head {
+      font-size: 17px; font-weight: 700; color: var(--t1);
+      margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+    }
+    .section-head .icon { font-size: 16px; }
+
+    /* ── GRID ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      display: flex; flex-direction: row; gap: 12px;
+      padding: 14px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      transition: background 0.15s, border-color 0.15s;
+      animation: fadeIn 0.3s ease both;
+      position: relative;
+    }
+    .card:hover {
+      background: var(--card-hover);
+      border-color: rgba(255,255,255,0.12);
+    }
+    .card.is-new {
+      background: var(--card-new);
+      border-color: rgba(239,68,68,0.2);
+    }
+    .new-badge {
+      position: absolute; top: 8px; right: 8px;
+      font-family: var(--mono); font-size: 7px; font-weight: 700;
+      letter-spacing: 0.1em; color: #fff; background: var(--red);
+      padding: 2px 6px; border-radius: 3px;
+    }
+
+    .card-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+
+    .card-source {
+      display: flex; align-items: center; gap: 6px;
+      margin-bottom: 6px;
+    }
+    .source-tag {
+      font-family: var(--mono); font-size: 8px; font-weight: 700;
+      color: #fff; padding: 2px 6px; border-radius: 3px;
+      letter-spacing: 0.03em; text-transform: uppercase;
+    }
+    .lock { font-size: 9px; opacity: 0.45; }
+
+    .card-title {
+      font-size: 14.5px; font-weight: 700; line-height: 1.35;
+      color: var(--t1); margin-bottom: 6px;
+    }
+
+    .card-desc {
+      font-size: 12.5px; line-height: 1.55; color: var(--t3);
+      flex: 1;
+    }
+
+    .card-time {
+      font-family: var(--mono); font-size: 9px; color: var(--t5);
+      margin-top: 8px;
+    }
+
+    .card-thumb {
+      width: 100px; min-height: 72px; border-radius: 8px;
+      overflow: hidden; flex-shrink: 0; align-self: flex-start;
+      background: rgba(255,255,255,0.03);
+    }
+    .card-thumb img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      min-height: 72px;
+    }
+
+    /* ── TICKER ── */
+    .ticker {
+      display: flex; align-items: center; gap: 10px;
+      margin-top: 24px; padding: 10px 0;
+      border-top: 1px solid var(--card-border); overflow: hidden;
+    }
+    .ticker-tag {
+      font-family: var(--mono); font-size: 8px; font-weight: 700;
+      letter-spacing: 0.14em; color: var(--red); background: var(--red-bg);
+      padding: 3px 7px; border-radius: 3px; flex-shrink: 0;
+    }
+    .ticker-track { overflow: hidden; flex: 1; }
+    .ticker-scroll {
+      display: inline-flex; white-space: nowrap;
+      animation: scroll 160s linear infinite;
+    }
+    .ticker-scroll span { font-size: 11.5px; color: var(--t3); }
+    .ticker-scroll b { font-weight: 700; }
+    .ticker-sep { margin: 0 14px; font-size: 5px; color: var(--t5); vertical-align: middle; }
+
+    /* ── STATES ── */
+    .loading {
+      display: flex; flex-direction: column; align-items: center;
+      padding: 100px 0; gap: 14px;
+    }
+    .spinner {
+      width: 24px; height: 24px;
+      border: 2.5px solid rgba(255,255,255,0.06);
+      border-top-color: var(--red); border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    .loading span { font-family: var(--mono); font-size: 11px; color: var(--t5); }
+    .empty { text-align: center; padding: 80px 20px; color: var(--t4); font-size: 15px; }
+
+    /* ── FOOTER ── */
+    .footer {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+      background: linear-gradient(0deg, var(--bg) 60%, transparent);
+      padding: 32px 24px 10px; text-align: center;
+    }
+    .footer div { font-family: var(--mono); font-size: 9px; color: var(--t5); }
+    .footer .sub { font-size: 8px; color: #334155; margin-top: 2px; }
+
+    /* ── VIEW TOGGLE ── */
+    .view-toggle {
+      display: flex; border: 1px solid var(--card-border); border-radius: 6px; overflow: hidden;
+    }
+    .vt-btn {
+      font-size: 14px; padding: 4px 10px; background: transparent;
+      color: var(--t4); transition: all 0.15s; line-height: 1;
+    }
+    .vt-btn:hover { color: var(--t2); background: rgba(255,255,255,0.04); }
+    .vt-btn.active { color: var(--red); background: var(--red-bg); }
+
+    /* ── LIST VIEW STYLES ── */
+    .list-card {
+      display: flex; gap: 14px; padding: 14px 16px; margin-bottom: 1px;
+      border-radius: 8px; background: rgba(255,255,255,0.018);
+      border-bottom: 1px solid var(--card-border);
+      transition: background 0.15s; animation: fadeIn 0.3s ease both;
+      position: relative;
+    }
+    .list-card:hover { background: rgba(255,255,255,0.045); }
+    .list-card.is-new { background: var(--card-new); }
+    .list-card .lc-body { flex: 1; min-width: 0; }
+    .list-card .lc-meta {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 5px; flex-wrap: wrap;
+    }
+    .list-card .lc-src {
+      font-family: var(--mono); font-size: 8.5px; font-weight: 700;
+      color: #fff; padding: 2px 7px; border-radius: 4px;
+      letter-spacing: 0.03em; text-transform: uppercase;
+    }
+    .list-card .lc-cat { font-size: 11px; color: var(--t4); font-weight: 500; }
+    .list-card .lc-time { font-family: var(--mono); font-size: 10px; color: var(--t5); }
+    .list-card .lc-lock { font-size: 9px; opacity: 0.5; }
+    .list-card h3 { font-size: 14.5px; font-weight: 600; line-height: 1.36; margin-bottom: 3px; }
+    .list-card p { font-size: 12.5px; line-height: 1.55; color: var(--t3); }
+    .list-card .lc-img {
+      width: 88px; height: 62px; border-radius: 8px; overflow: hidden;
+      flex-shrink: 0; align-self: center; background: rgba(255,255,255,0.03);
+    }
+    .list-card .lc-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .list-section {
+      font-family: var(--mono); font-size: 9px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--t4);
+      padding: 16px 0 6px; border-bottom: 1px solid var(--card-border);
+      margin-bottom: 4px; display: flex; align-items: center; gap: 8px;
+    }
+
+    /* ── HOLIDAY WIDGET ── */
+    .holiday-bar {
+      max-width: 1400px; margin: 0 auto; padding: 8px 24px 6px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .holiday-head {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 6px; gap: 8px;
+    }
+    .holiday-title {
+      font-family: var(--mono); font-size: 8px; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--t4);
+      display: flex; align-items: center; gap: 5px;
+    }
+    .holiday-title .ht-icon { font-size: 12px; }
+    .holiday-toggle {
+      font-family: var(--mono); font-size: 8px; color: var(--t5);
+      background: none; padding: 2px 6px; border-radius: 4px;
+      border: 1px solid var(--card-border); transition: all .15s;
+    }
+    .holiday-toggle:hover { color: var(--t3); border-color: var(--t4); }
+    .holiday-scroll {
+      display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none;
+      -webkit-overflow-scrolling: touch; padding-bottom: 2px;
+    }
+    .holiday-scroll::-webkit-scrollbar { display: none; }
+    .hol-chip {
+      flex: 0 0 auto; display: flex; align-items: center; gap: 6px;
+      padding: 5px 10px; border-radius: 8px;
+      background: var(--card-bg); border: 1px solid var(--card-border);
+      transition: border-color .15s, background .15s;
+      min-width: 0; cursor: default;
+    }
+    .hol-chip:hover { border-color: rgba(255,255,255,0.12); background: var(--card-hover); }
+    .hol-chip.hol-soon { border-color: rgba(239,68,68,0.25); background: rgba(239,68,68,0.04); }
+    .hol-emoji { font-size: 14px; flex-shrink: 0; }
+    .hol-info { min-width: 0; }
+    .hol-name {
+      font-size: 11px; font-weight: 600; color: var(--t1);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      max-width: 140px;
+    }
+    .hol-date { font-family: var(--mono); font-size: 9px; color: var(--t4); white-space: nowrap; }
+    .hol-badge {
+      font-family: var(--mono); font-size: 7.5px; font-weight: 700;
+      letter-spacing: .06em; padding: 2px 6px; border-radius: 4px;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .hol-badge.hb-today { background: rgba(239,68,68,0.15); color: #ef4444; }
+    .hol-badge.hb-soon { background: rgba(251,191,36,0.12); color: #f59e0b; }
+    .hol-badge.hb-far { background: rgba(99,102,241,0.08); color: #818cf8; }
+    .holiday-err { font-size: 10px; color: var(--t5); padding: 4px 0; }
+
+    @media (max-width: 640px) {
+      .holiday-bar { padding: 6px 12px 4px; }
+      .hol-name { max-width: 110px; }
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(1.3); } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .feed { padding: 0 16px 100px; }
+      .header-row { padding: 10px 16px; }
+      .filters { padding: 6px 16px 10px; }
+    }
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; }
+      .feed { padding: 0 12px 100px; }
+      .header-row { padding: 10px 12px; }
+      .filters { padding: 6px 12px 10px; }
+      .card { padding: 12px; }
+      .card-title { font-size: 13.5px; }
+      .card-thumb { width: 80px; min-height: 60px; }
+      .section-head { font-size: 15px; }
+      .logo { font-size: 16px; }
+      .header-right .meta { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-row">
+      <div class="brand">
+        <div class="live-dot"></div>
+        <h1 class="logo"><em>SWISS</em>NEWS</h1>
+        <span class="live-badge">LIVE</span>
+      </div>
+      <div class="header-right">
+        <span class="meta" id="time"></span>
+        <span class="meta" id="stat"></span>
+        <div class="view-toggle" id="viewToggle">
+          <button class="vt-btn active" id="vtGrid" onclick="setView('grid')" title="Kachel-Ansicht">▦</button>
+          <button class="vt-btn" id="vtList" onclick="setView('list')" title="Listen-Ansicht">☰</button>
+        </div>
+        <button class="btn-refresh" onclick="rl()">↻ Aktualisieren</button>
+      </div>
+    </div>
+    <nav class="filters" id="fl"></nav>
+  </header>
+
+  <!-- HOLIDAY WIDGET -->
+  <div class="holiday-bar" id="holBar">
+    <div class="holiday-head">
+      <span class="holiday-title"><span class="ht-icon">📅</span> FEIERTAGE SCHWEIZ</span>
+      <button class="holiday-toggle" id="holToggle" onclick="toggleHolMode()">🇨🇭 National</button>
+    </div>
+    <div class="holiday-scroll" id="holScroll">
+      <div class="hol-chip" style="opacity:.4"><span class="hol-emoji">⏳</span><span class="hol-info"><span class="hol-name">Feiertage werden geladen…</span></span></div>
+    </div>
+  </div>
+
+  <!-- FEED -->
+  <main class="feed" id="fd"></main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>SRF · NZZ · Tagi · 20min · Blick · cash · finanzen.ch · FintechNews · swissinfo · Beobachter</div>
+    <div class="sub">🔒 = Abo nötig · Auto-Polling alle 2 Min.</div>
+  </footer>
+
+  <script>
+  const FEEDS = [
+    // ZÜRICH
+    { u:"https://www.nzz.ch/zuerich.rss",                                       k:"Zürich",     s:"NZZ",          c:"#1e3a5f", pw:1 },
+    { u:"https://partner-feeds.publishing.tamedia.ch/rss/tagesanzeiger/zuerich", k:"Zürich",     s:"Tagi",         c:"#0f4c81", pw:1 },
+    { u:"https://partner-feeds.20min.ch/rss/20minuten/zuerich",                  k:"Zürich",     s:"20min",        c:"#1d4ed8", pw:0 },
+    { u:"https://www.blick.ch/life/rss.xml",                                     k:"Zürich",     s:"Blick",        c:"#e11d48", pw:0 },
+    // SCHWEIZ
+    { u:"https://www.srf.ch/news/bnf/rss/1890",                                 k:"Schweiz",    s:"SRF",          c:"#c82828", pw:0 },
+    { u:"https://www.srf.ch/news/bnf/rss/1646",                                 k:"Schweiz",    s:"SRF",          c:"#c82828", pw:0 },
+    { u:"https://www.nzz.ch/schweiz.rss",                                       k:"Schweiz",    s:"NZZ",          c:"#1e3a5f", pw:1 },
+    { u:"https://www.nzz.ch/startseite.rss",                                    k:"Schweiz",    s:"NZZ",          c:"#1e3a5f", pw:1 },
+    { u:"https://partner-feeds.publishing.tamedia.ch/rss/tagesanzeiger/schweiz", k:"Schweiz",    s:"Tagi",         c:"#0f4c81", pw:1 },
+    { u:"https://partner-feeds.20min.ch/rss/20minuten/schweiz",                  k:"Schweiz",    s:"20min",        c:"#1d4ed8", pw:0 },
+    { u:"https://www.blick.ch/schweiz/rss.xml",                                 k:"Schweiz",    s:"Blick",        c:"#e11d48", pw:0 },
+    { u:"https://www.blick.ch/news/rss.xml",                                    k:"Schweiz",    s:"Blick",        c:"#e11d48", pw:0 },
+    { u:"https://www.swissinfo.ch/ger/rss/top-news",                            k:"Schweiz",    s:"swissinfo",    c:"#7c3aed", pw:0 },
+    { u:"https://www.beobachter.ch/rss_feed",                                   k:"Schweiz",    s:"Beobachter",   c:"#b45309", pw:0 },
+    // WIRTSCHAFT
+    { u:"https://www.srf.ch/news/bnf/rss/1926",                                 k:"Wirtschaft", s:"SRF",          c:"#c82828", pw:0 },
+    { u:"https://www.nzz.ch/wirtschaft.rss",                                    k:"Wirtschaft", s:"NZZ",          c:"#1e3a5f", pw:1 },
+    { u:"https://partner-feeds.publishing.tamedia.ch/rss/tagesanzeiger/wirtschaft",k:"Wirtschaft",s:"Tagi",        c:"#0f4c81", pw:1 },
+    { u:"https://partner-feeds.20min.ch/rss/20minuten/wirtschaft",               k:"Wirtschaft", s:"20min",        c:"#1d4ed8", pw:0 },
+    { u:"https://www.blick.ch/wirtschaft/rss.xml",                              k:"Wirtschaft", s:"Blick",        c:"#e11d48", pw:0 },
+    { u:"https://www.cash.ch/feeds/latest/news",                                k:"Wirtschaft", s:"cash.ch",      c:"#059669", pw:0 },
+    // FINANZEN
+    { u:"https://www.cash.ch/feeds/latest/top-news",                            k:"Finanzen",   s:"cash.ch",      c:"#059669", pw:0 },
+    { u:"https://www.nzz.ch/finanzen.rss",                                     k:"Finanzen",   s:"NZZ",          c:"#1e3a5f", pw:1 },
+    { u:"https://www.finanzen.ch/rss/news",                                    k:"Finanzen",   s:"finanzen.ch",  c:"#0d9488", pw:0 },
+    { u:"https://fintechnews.ch/feed",                                          k:"Finanzen",   s:"FintechNews",  c:"#6366f1", pw:0 },
+  ];
+
+  const API  = "https://api.rss2json.com/v1/api.json?rss_url=";
+  const POLL = 120000;
+  const CATS = ["Alle","Zürich","Schweiz","Wirtschaft","Finanzen"];
+  const ICON = {"Zürich":"🏙️","Schweiz":"🇨🇭","Wirtschaft":"📊","Finanzen":"💹"};
+
+  let arts=[], flt="Alle", tmr=null, prev=new Set(), fw=new Set();
+  let viewMode = "grid"; // "grid" or "list"
+  const $=id=>document.getElementById(id);
+
+  function setView(mode) {
+    viewMode = mode;
+    $("vtGrid").classList.toggle("active", mode === "grid");
+    $("vtList").classList.toggle("active", mode === "list");
+    render();
+  }
+
+  function ago(d) {
+    const m = Math.max(0, Math.floor((Date.now() - new Date(d).getTime()) / 6e4));
+    if (m < 1) return "Gerade eben";
+    if (m < 60) return "Vor " + m + " Min.";
+    const h = Math.floor(m / 60);
+    if (h < 24) return "Vor " + h + " Std.";
+    const dy = Math.floor(h / 24);
+    return "Vor " + dy + " Tag" + (dy > 1 ? "en" : "");
+  }
+
+  function strip(h) {
+    if (!h) return "";
+    const d = document.createElement("div");
+    d.innerHTML = h;
+    return d.textContent.trim().slice(0, 800);
+  }
+
+  function esc(s) {
+    const d = document.createElement("div");
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function dedup(a) {
+    const s = new Set();
+    return a.filter(x => {
+      const k = (x.title || "").trim().toLowerCase().slice(0, 80);
+      if (!k || s.has(k)) return false;
+      s.add(k); return true;
+    });
+  }
+
+  async function fetchAll(init) {
+    let ok = 0;
+    const items = [];
+    const jobs = FEEDS.map(async f => {
+      try {
+        const r = await fetch(API + encodeURIComponent(f.u));
+        if (!r.ok) throw 0;
+        const d = await r.json();
+        if (d.status !== "ok" || !d.items) throw 0;
+        ok++;
+        return d.items.map(i => ({
+          id: f.s + "|" + (i.link || i.title),
+          title: i.title || "",
+          desc: strip(i.description || i.content || ""),
+          link: i.link || "#",
+          date: i.pubDate || "",
+          s: f.s, k: f.k, c: f.c, pw: f.pw,
+          img: i.thumbnail || (i.enclosure && i.enclosure.link) || null
+        }));
+      } catch { return []; }
+    });
+    (await Promise.allSettled(jobs)).forEach(r => {
+      if (r.status === "fulfilled") items.push(...r.value);
+    });
+    const sorted = dedup(items).sort((a, b) => new Date(b.date) - new Date(a.date));
+    const cur = new Set(sorted.map(a => a.id));
+    if (!init && prev.size) {
+      fw = new Set();
+      cur.forEach(id => { if (!prev.has(id)) fw.add(id); });
+      if (fw.size) setTimeout(() => { fw = new Set(); render(); }, 8000);
+    }
+    prev = cur;
+    arts = sorted;
+    $("time").textContent = new Date().toLocaleTimeString("de-CH", { hour: "2-digit", minute: "2-digit" });
+    $("stat").textContent = ok + "/" + FEEDS.length + " Quellen";
+    renderF();
+    render();
+  }
+
+  function renderF() {
+    $("fl").innerHTML = CATS.map(c => {
+      const n = c === "Alle" ? arts.length : arts.filter(a => a.k === c).length;
+      return `<button class="filter-btn${flt === c ? " active" : ""}" onclick="setC('${c}')">${c}<span class="filter-count">${n}</span></button>`;
+    }).join("");
+  }
+
+  function setC(c) { flt = c; renderF(); render(); }
+
+  function render() {
+    const el = $("fd");
+    if (!arts.length) {
+      el.innerHTML = '<div class="loading"><div class="spinner"></div><span>Feeds werden geladen…</span></div>';
+      return;
+    }
+
+    const list = (flt === "Alle" ? arts : arts.filter(a => a.k === flt)).slice(0, 150);
+    if (!list.length) {
+      el.innerHTML = '<div class="empty">Keine Artikel in «' + flt + '».</div>';
+      return;
+    }
+
+    let h = "";
+
+    if (viewMode === "grid") {
+      // ═══ GRID VIEW ═══
+      if (flt === "Alle") {
+        ["Zürich", "Schweiz", "Wirtschaft", "Finanzen"].forEach(cat => {
+          const items = arts.filter(a => a.k === cat).slice(0, 12);
+          if (!items.length) return;
+          h += '<div class="section">';
+          h += '<div class="section-head"><span class="icon">' + (ICON[cat] || "") + '</span> ' + cat + '</div>';
+          h += '<div class="grid">';
+          h += items.map((a, i) => gridCard(a, i)).join("");
+          h += '</div></div>';
+        });
+      } else {
+        h += '<div class="section">';
+        h += '<div class="section-head"><span class="icon">' + (ICON[flt] || "") + '</span> ' + flt + '</div>';
+        h += '<div class="grid">';
+        h += list.map((a, i) => gridCard(a, i)).join("");
+        h += '</div></div>';
+      }
+    } else {
+      // ═══ LIST VIEW ═══
+      if (flt === "Alle") {
+        ["Zürich", "Schweiz", "Wirtschaft", "Finanzen"].forEach(cat => {
+          const items = arts.filter(a => a.k === cat).slice(0, 15);
+          if (!items.length) return;
+          h += '<div class="list-section"><span>' + (ICON[cat] || "") + '</span> ' + cat + '</div>';
+          h += items.map((a, i) => listCard(a, i)).join("");
+        });
+      } else {
+        h += '<div class="list-section"><span>' + (ICON[flt] || "") + '</span> ' + flt + '</div>';
+        h += list.map((a, i) => listCard(a, i)).join("");
+      }
+    }
+
+    // Ticker (both views)
+    if (arts.length > 5) {
+      const t = arts.slice(0, 30).map(a =>
+        '<span><b style="color:' + a.c + '">' + esc(a.s) + '</b>' + (a.pw ? ' 🔒' : '') + ' — ' + esc(a.title) + '<span class="ticker-sep">●</span></span>'
+      ).join("");
+      h += '<div class="ticker"><span class="ticker-tag">TICKER</span><div class="ticker-track"><div class="ticker-scroll">' + t + t + '</div></div></div>';
+    }
+
+    el.innerHTML = h;
+  }
+
+  // ═══ GRID CARD ═══
+  function gridCard(a, i) {
+    const isNew = fw.has(a.id);
+    const desc = a.desc || "";
+    const img = a.img
+      ? '<div class="card-thumb"><img src="' + esc(a.img) + '" alt="" loading="lazy" onerror="this.parentElement.style.display=\'none\'"></div>'
+      : '';
+    const lock = a.pw ? '<span class="lock">🔒</span>' : '';
+
+    return '<a href="' + esc(a.link) + '" onclick="event.preventDefault();window.open(this.href,\'_blank\')" rel="noopener noreferrer" class="card' + (isNew ? ' is-new' : '') + '" style="animation-delay:' + Math.min(i * 15, 300) + 'ms">'
+      + (isNew ? '<div class="new-badge">NEU</div>' : '')
+      + '<div class="card-text">'
+        + '<div class="card-source">'
+          + '<span class="source-tag" style="background:' + a.c + '">' + esc(a.s) + '</span>'
+          + lock
+        + '</div>'
+        + '<div class="card-title">' + esc(a.title) + '</div>'
+        + (desc ? '<div class="card-desc">' + esc(desc) + '</div>' : '')
+        + '<div class="card-time">' + ago(a.date) + '</div>'
+      + '</div>'
+      + img
+    + '</a>';
+  }
+
+  // ═══ LIST CARD ═══
+  function listCard(a, i) {
+    const isNew = fw.has(a.id);
+    const d = a.desc ? a.desc.slice(0, 500) + (a.desc.length > 500 ? "…" : "") : "";
+    const img = a.img
+      ? '<div class="lc-img"><img src="' + esc(a.img) + '" alt="" loading="lazy" onerror="this.parentElement.style.display=\'none\'"></div>'
+      : '';
+    const lock = a.pw ? '<span class="lc-lock">🔒</span>' : '';
+
+    return '<a href="' + esc(a.link) + '" onclick="event.preventDefault();window.open(this.href,\'_blank\')" rel="noopener noreferrer" class="list-card' + (isNew ? ' is-new' : '') + '" style="animation-delay:' + Math.min(i * 18, 350) + 'ms">'
+      + (isNew ? '<div class="new-badge">NEU</div>' : '')
+      + '<div class="lc-body">'
+        + '<div class="lc-meta">'
+          + '<span class="lc-src" style="background:' + a.c + '">' + esc(a.s) + '</span>'
+          + lock
+          + '<span class="lc-cat">' + esc(a.k) + '</span>'
+          + '<span class="lc-time">' + ago(a.date) + '</span>'
+        + '</div>'
+        + '<h3>' + esc(a.title) + '</h3>'
+        + (d ? '<p>' + esc(d) + '</p>' : '')
+      + '</div>'
+      + img
+    + '</a>';
+  }
+
+  function rl() {
+    $("fd").innerHTML = '<div class="loading"><div class="spinner"></div><span>Aktualisiere…</span></div>';
+    fetchAll(false);
+  }
+
+  function poll() {
+    if (tmr) clearInterval(tmr);
+    tmr = setInterval(() => fetchAll(false), POLL);
+  }
+
+  // ═══ HOLIDAYS ═══
+  let holMode = 'national'; // 'national' or 'all'
+  let holDataAll = [], holDataNat = [];
+
+  function toggleHolMode() {
+    holMode = holMode === 'national' ? 'all' : 'national';
+    $("holToggle").textContent = holMode === 'national' ? '🇨🇭 National' : '🏔️ Alle (inkl. kantonal)';
+    renderHolidays();
+  }
+
+  function renderHolidays() {
+    const data = holMode === 'national' ? holDataNat : holDataAll;
+    const el = $("holScroll");
+    if (!data.length) { el.innerHTML = '<div class="holiday-err">Keine Feiertage verfügbar</div>'; return; }
+    const now = new Date(); now.setHours(0,0,0,0);
+    el.innerHTML = data.slice(0, 15).map(function(h) {
+      const dt = new Date(h.startDate); dt.setHours(0,0,0,0);
+      const diff = Math.round((dt - now) / 86400000);
+      const dayStr = dt.toLocaleDateString('de-CH', { weekday: 'short', day: 'numeric', month: 'short' });
+      const name = h.name && h.name.length ? h.name[0].text : '–';
+      const nationwide = h.nationwide !== false;
+      let badgeCls = 'hb-far', badgeText = diff + ' Tage', chipCls = '';
+      if (diff === 0) { badgeCls = 'hb-today'; badgeText = 'HEUTE'; chipCls = ' hol-soon'; }
+      else if (diff === 1) { badgeCls = 'hb-today'; badgeText = 'MORGEN'; chipCls = ' hol-soon'; }
+      else if (diff <= 7) { badgeCls = 'hb-soon'; badgeText = diff + ' Tage'; chipCls = ' hol-soon'; }
+      else if (diff <= 30) { badgeCls = 'hb-soon'; badgeText = diff + ' T.'; }
+      const emoji = nationwide ? '🇨🇭' : '🏔️';
+      return '<div class="hol-chip' + chipCls + '">'
+        + '<span class="hol-emoji">' + emoji + '</span>'
+        + '<div class="hol-info"><div class="hol-name">' + esc(name) + '</div>'
+        + '<div class="hol-date">' + dayStr + '</div></div>'
+        + '<span class="hol-badge ' + badgeCls + '">' + badgeText + '</span>'
+        + '</div>';
+    }).join('');
+  }
+
+  async function loadHolidays() {
+    try {
+      const now = new Date();
+      const from = now.toISOString().slice(0, 10);
+      const toDate = new Date(now.getTime() + 365 * 24 * 3600000);
+      const to = toDate.toISOString().slice(0, 10);
+      const r = await fetch('https://openholidaysapi.org/PublicHolidays?countryIsoCode=CH&languageIsoCode=DE&validFrom=' + from + '&validTo=' + to);
+      const d = await r.json();
+      // Deduplicate
+      const seen = new Set();
+      const unique = [];
+      d.forEach(function(h) {
+        const key = h.startDate + (h.name && h.name.length ? h.name[0].text : '');
+        if (!seen.has(key)) { seen.add(key); unique.push(h); }
+      });
+      unique.sort(function(a, b) { return a.startDate.localeCompare(b.startDate); });
+      holDataAll = unique;
+      holDataNat = unique.filter(function(h) { return h.nationwide !== false; });
+      renderHolidays();
+    } catch(e) {
+      $("holScroll").innerHTML = '<div class="holiday-err">⚠️ Feiertage konnten nicht geladen werden</div>';
+    }
+  }
+
+  renderF();
+  fetchAll(true);
+  poll();
+  loadHolidays();
+  </script>
+</body>
+</html>
